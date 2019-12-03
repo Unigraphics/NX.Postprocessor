@@ -1,0 +1,59 @@
+============================================================
+Information listing created by :  Suderman
+Date                           :  8/3/2006 4:27:12 PM
+Current work part              :  D:\posts\spark\Mori_Seiki_NL1500Y\samples\MS_NL1500Y_sample.prt
+Node name                      :  cyi3w080
+============================================================
+O0001
+( UGNX POSTING DATE: THU AUG 03 16:27:14 2006)
+G49
+G28 U0 V0
+G28 W0
+G28 H0
+ 
+N0010 (NX OPER NAME: MILL_BHEAD_MAIN_HEX_G112)
+M69
+M45
+G54
+T102626
+G113
+G97 S2000 M13
+G98 G17
+G0 X8. Z1.5 C-180.			X8. Z1.5 C0
+Z1.					Z1
+G112
+G1 X-3.6806 Z.1 F100. M8		X3.6806 C-1.0625 Z.1
+X-3.6806 Z-.75 F15.			Z-.75
+X-2.7424				X2.7424 C-1.875
+G17 G2 X-1.8764 I-.433 J.25
+G1 X1.8764
+G2 X2.7424 I0. J.5
+G1 X4.6188
+G2 X4.7528 I.433 J.25
+G2 X4.6188 I.5 J0.
+G1 X2.7424
+G2 X1.8764 I.433 J-.25
+G1 X-1.8764
+G2 X-2.7424 I0. J-.5
+G1 X-4.6188
+G2 X-4.7528 I-.433 J-.25
+G2 X-4.6188 I-.5 J0.
+G1 X-3.6806
+X-3.6806 Z1. F120.
+G113
+G0 X8. Z2.
+G28 U0
+G28 W0
+G28 H0
+M1
+
+
+M45 is for milling
+m46 is for turning
+
+Need spindle codes for turning operations.
+M9
+M5
+M46
+M30
+

@@ -1,0 +1,156 @@
+#* UDE_HURON_KX20.CDL
+##########################################################################
+#
+# Description Post Commandes pour Post Processeur HURON KX20
+#	                
+#       Client : Cheminee Philippe
+#
+# Revisions
+#
+#   Date        Who             Reason
+# 28-Jan-2004   J. Moreschi	Originale (NX 2.0.0.21)
+#
+#
+##########################################################################
+
+MACHINE HURON
+
+#--------------------------------------------------------------------------- 
+EVENT partno
+{
+   UI_LABEL "Nom Programme"
+
+   PARAM partno_name
+   {
+      TYPE   s
+      TOGGLE On
+      UI_LABEL "Nom du Programme"
+   }
+}
+
+#--------------------------------------------------------------------------- 
+EVENT origin
+{
+   UI_LABEL "Definition Origine"
+
+   PARAM origin_register
+   {
+      TYPE   i
+      DEFVAL "1"
+      UI_LABEL "Registre"
+   }
+   PARAM origin_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+   PARAM origin_point 
+   {
+      TYPE p
+      UI_LABEL "Selectionner Element pour Definition d'Origine"
+   }
+}
+
+#--------------------------------------------------------------------------- 
+EVENT zero
+ {
+    UI_LABEL "Rappel Origine"
+    CATEGORY MILL DRILL
+    PARAM command_status
+    {
+       TYPE o
+       DEFVAL "Active"
+       OPTIONS "Active","Inactive","User Defined"
+       UI_LABEL "Status"
+    }
+    PARAM zero_register
+    {
+       TYPE   i
+       DEFVAL "1"
+       UI_LABEL "Registre"
+    }
+ }
+
+
+#---------------------------------------------------------------------------
+EVENT tracking_tool
+{
+   UI_LABEL "Fraise Boule"
+
+   PARAM tracking_point_text
+   {
+      TYPE   o
+      DEFVAL   "Centre Boule"
+      OPTIONS  "Centre Boule","Bout Outil"
+      UI_LABEL "Point Piloté"
+  }
+}
+
+#--------------------------------------------------------------------------- 
+EVENT angle_tap
+{
+   UI_LABEL "Angle Taraud"
+
+   PARAM cycle_angle_tap
+   {
+      TYPE   d
+      DEFVAL "0.0000"
+      UI_LABEL "Angle"
+   }
+}
+
+#--------------------------------------------------------------------------- 
+EVENT lift_off
+{
+   UI_LABEL "Degagement Alesage Indexe"
+
+   PARAM cycle_lift_off_bore_nodrag
+   {
+      TYPE   d
+      DEFVAL "0.2000"
+      UI_LABEL "Valeur"
+   }
+}
+
+#---------------------------------------------------------------------------
+
+EVENT cycle_thread_mill
+{
+   UI_LABEL "Filetage Fraise"
+
+   PARAM cycle_external_diameter
+   {
+      TYPE   d
+      DEFVAL "27"
+      UI_LABEL "Diametre Nominal"
+   }
+   PARAM cycle_internal_diameter
+   {
+      TYPE d
+      DEFVAL "24.797"
+      UI_LABEL "Diametre Fond de Filet"
+   }
+   PARAM cycle_thread_lead
+   {
+      TYPE d
+      DEFVAL "2"
+      UI_LABEL "Pas du Filet"
+   }
+   PARAM cycle_thread_direction
+   {
+      TYPE   o
+      DEFVAL   "CLW"
+      OPTIONS  "CLW","CCLW"
+      UI_LABEL "Direction Usinage"
+   }
+   PARAM cycle_type_of_thread
+   {
+      TYPE   o
+      DEFVAL   "Interieur"
+      OPTIONS  "Interieur","Exterieur"
+      UI_LABEL "Type de Filet"
+   }
+}
+ 
+#--------------------------------------------------------------------------- 

@@ -1,0 +1,1009 @@
+MACHINE  mill
+
+INCLUDE { $UGII_CAM_USER_DEF_EVENT_DIR/ude.cdl }
+
+FORMATTING
+{
+  WORD_SEPARATOR " "
+  END_OF_LINE ""
+  SEQUENCE sequence_number 10  1 1 9999
+
+################ FORMAT DECLARATIONS #################
+  FORMAT AbsCoord "&__5.4_"
+  FORMAT Coordinate "&__4.4_"
+  FORMAT Digit_2 "&_02_00"
+  FORMAT Digit_4 "&__4_00"
+  FORMAT Digit_5 "&__5_00"
+  FORMAT Dwell_SECONDS "&__5.3_"
+  FORMAT Dwell_sec "&__5.3_"
+  FORMAT EventNum "&+03_00"
+  FORMAT Feed "&__7.2_"
+  FORMAT Feed_DPM "&__5.2_"
+  FORMAT Feed_FRN "&__5.3_"
+  FORMAT Feed_INV "&__5.3_"
+  FORMAT Feed_IPM "&__4.1_"
+  FORMAT Feed_IPR "&__1.4_"
+  FORMAT Hcode "&_02_00"
+  FORMAT Rev "&__4_00"
+  FORMAT Rotary "&__5.3_"
+  FORMAT String "%s"
+  FORMAT Tcode "&_02_00"
+  FORMAT Zero_int "&_01_0_"
+  FORMAT Zero_real "&_01.10"
+
+################ ADDRESS DECLARATIONS ################
+  ADDRESS G_cutcom 
+  {
+      FORMAT      Digit_2
+      FORCE       off
+      LEADER      "G"
+  }
+
+  ADDRESS G_plane 
+  {
+      FORMAT      Digit_2
+      FORCE       off
+      LEADER      "G"
+  }
+
+  ADDRESS G_adjust 
+  {
+      FORMAT      Digit_2
+      FORCE       off
+      LEADER      "G"
+  }
+
+  ADDRESS G_feed 
+  {
+      FORMAT      Digit_2
+      FORCE       off
+      LEADER      "G"
+  }
+
+  ADDRESS G_spin 
+  {
+      FORMAT      Digit_2
+      FORCE       off
+      LEADER      "G"
+  }
+
+  ADDRESS G_return 
+  {
+      FORMAT      Digit_2
+      FORCE       off
+      LEADER      "G"
+  }
+
+  ADDRESS G_motion 
+  {
+      FORMAT      String
+      FORCE       off
+      MAX         9999 Truncate
+      MIN         -9999 Truncate
+      LEADER      "G"
+  }
+
+  ADDRESS G_mode 
+  {
+      FORMAT      Digit_2
+      FORCE       off
+      LEADER      "G"
+  }
+
+  ADDRESS G 
+  {
+      FORMAT      Digit_2
+      FORCE       off
+      MAX         99 Truncate
+      MIN         0 Truncate
+  }
+
+  ADDRESS order 
+  {
+      FORMAT      Digit_2
+      FORCE       off
+      MAX         99 Truncate
+      MIN         0 Truncate
+      LEADER      "P"
+  }
+
+  ADDRESS knot 
+  {
+      FORMAT      Coordinate
+      FORCE       always
+      MAX         9999.9999 Truncate
+      MIN         -9999.9999 Truncate
+      LEADER      "K"
+      ZERO_FORMAT Zero_real
+  }
+
+  ADDRESS X 
+  {
+      FORMAT      Coordinate
+      FORCE       off
+      MAX         9999.9999 Truncate
+      MIN         -9999.9999 Truncate
+      LEADER      [$mom_sys_leader(X)]
+      ZERO_FORMAT Zero_real
+  }
+
+  ADDRESS Y 
+  {
+      FORMAT      Coordinate
+      FORCE       off
+      MAX         9999.9999 Truncate
+      MIN         -9999.9999 Truncate
+      LEADER      [$mom_sys_leader(Y)]
+      ZERO_FORMAT Zero_real
+  }
+
+  ADDRESS Z 
+  {
+      FORMAT      Coordinate
+      FORCE       off
+      MAX         9999.9999 Truncate
+      MIN         -9999.9999 Truncate
+      LEADER      [$mom_sys_leader(Z)]
+      ZERO_FORMAT Zero_real
+  }
+
+  ADDRESS Z_zero 
+  {
+      FORMAT      Coordinate
+      FORCE       off
+      LEADER      "Z"
+      ZERO_FORMAT Zero_real
+  }
+
+  ADDRESS fourth_axis 
+  {
+      FORMAT      Rotary
+      FORCE       off
+      MAX         9999.9999 Truncate
+      MIN         -9999.9999 Truncate
+      LEADER      [$mom_sys_leader(fourth_axis)]
+      ZERO_FORMAT Zero_real
+  }
+
+  ADDRESS fifth_axis 
+  {
+      FORMAT      Rotary
+      FORCE       off
+      MAX         9999.9999 Truncate
+      MIN         -9999.9999 Truncate
+      LEADER      [$mom_sys_leader(fifth_axis)]
+      ZERO_FORMAT Zero_real
+  }
+
+  ADDRESS I 
+  {
+      FORMAT      Coordinate
+      FORCE       always
+      MAX         9999.9999 Truncate
+      MIN         -9999.9999 Truncate
+      ZERO_FORMAT Zero_real
+  }
+
+  ADDRESS J 
+  {
+      FORMAT      Coordinate
+      FORCE       always
+      MAX         9999.9999 Truncate
+      MIN         -9999.9999 Truncate
+      ZERO_FORMAT Zero_real
+  }
+
+  ADDRESS K 
+  {
+      FORMAT      Coordinate
+      FORCE       always
+      MAX         9999.9999 Truncate
+      MIN         -9999.9999 Truncate
+      ZERO_FORMAT Zero_real
+  }
+
+  ADDRESS R 
+  {
+      FORMAT      Coordinate
+      FORCE       off
+      MAX         9999.9999 Truncate
+      MIN         -9999.9999 Truncate
+      ZERO_FORMAT Zero_real
+  }
+
+  ADDRESS F 
+  {
+      FORMAT      Feed
+      FORCE       off
+      MAX         999999.9999 Truncate
+      MIN         0.0001 Truncate
+      ZERO_FORMAT Zero_real
+  }
+
+  ADDRESS S 
+  {
+      FORMAT      Digit_5
+      FORCE       off
+      MAX         99999 Truncate
+      MIN         0 Truncate
+      ZERO_FORMAT Zero_int
+  }
+
+  ADDRESS T 
+  {
+      FORMAT      Tcode
+      FORCE       off
+      MAX         99 Truncate
+      MIN         0 Truncate
+  }
+
+  ADDRESS D 
+  {
+      FORMAT      Digit_2
+      FORCE       off
+      MAX         99 Truncate
+      MIN         0 Truncate
+  }
+
+  ADDRESS H 
+  {
+      FORMAT      Hcode
+      FORCE       off
+      MAX         99 Truncate
+      MIN         0 Truncate
+  }
+
+  ADDRESS dwell 
+  {
+      FORMAT      Dwell_sec
+      FORCE       off
+      MAX         99999.999 Truncate
+      MIN         0.001 Truncate
+      LEADER      "P"
+      ZERO_FORMAT Zero_real
+  }
+
+  ADDRESS cycle_dwell 
+  {
+      FORMAT      Dwell_sec
+      FORCE       off
+      MAX         99999.999 Truncate
+      MIN         0.001 Truncate
+      LEADER      "P"
+      ZERO_FORMAT Zero_real
+  }
+
+  ADDRESS P_cutcom 
+  {
+      FORMAT      Dwell_sec
+      FORCE       off
+      MAX         99999.999 Truncate
+      MIN         0.001 Truncate
+      LEADER      "P"
+      ZERO_FORMAT Zero_real
+  }
+
+  ADDRESS K_cycle 
+  {
+      FORMAT      Coordinate
+      FORCE       off
+      MAX         9999.9999 Truncate
+      MIN         -9999.9999 Truncate
+      LEADER      "K"
+      ZERO_FORMAT Zero_real
+  }
+
+  ADDRESS cycle_step1 
+  {
+      FORMAT      Coordinate
+      FORCE       off
+      MAX         9999.9999 Truncate
+      MIN         -9999.9999 Truncate
+      LEADER      "I"
+      ZERO_FORMAT Zero_real
+  }
+
+  ADDRESS cycle_step 
+  {
+      FORMAT      Coordinate
+      FORCE       off
+      MAX         9999.9999 Truncate
+      MIN         -9999.9999 Truncate
+      LEADER      "Q"
+      ZERO_FORMAT Zero_real
+  }
+
+  ADDRESS Q_cutcom 
+  {
+      FORMAT      Coordinate
+      FORCE       off
+      MAX         9999.9999 Truncate
+      MIN         -9999.9999 Truncate
+      LEADER      "Q"
+      ZERO_FORMAT Zero_real
+  }
+
+  ADDRESS E 
+  {
+      FORMAT      Coordinate
+      FORCE       off
+      MAX         9999.9999 Truncate
+      MIN         -9999.9999 Truncate
+      ZERO_FORMAT Zero_real
+  }
+
+  ADDRESS M_spindle 
+  {
+      FORMAT      Digit_2
+      FORCE       off
+      LEADER      "M"
+  }
+
+  ADDRESS M_range 
+  {
+      FORMAT      Digit_2
+      FORCE       off
+      LEADER      "M"
+  }
+
+  ADDRESS M_coolant 
+  {
+      FORMAT      Digit_2
+      FORCE       off
+      MAX         99 Truncate
+      MIN         0 Truncate
+      LEADER      "M"
+  }
+
+  ADDRESS M 
+  {
+      FORMAT      Digit_2
+      FORCE       off
+  }
+
+  ADDRESS cycle_orient 
+  {
+      FORMAT      Coordinate
+      FORCE       off
+      MAX         9999.9999 Truncate
+      MIN         -9999.9999 Truncate
+      LEADER      "Q"
+      ZERO_FORMAT Zero_real
+  }
+
+  ADDRESS N 
+  {
+      FORMAT      Digit_4
+      FORCE       off
+      MAX         9999 Truncate
+      LEADER      [$mom_sys_leader(N)]
+      ZERO_FORMAT Zero_int
+  }
+
+  ADDRESS Text 
+  {
+      FORMAT      String
+      FORCE       always
+      LEADER      ""
+  }
+
+
+################ ADDRESS DECLARATIONS ################
+  ADDRESS LF_AAXIS 
+  {
+      FORMAT      AbsCoord
+      FORCE       always
+      LEADER      ""
+      ZERO_FORMAT Zero_real
+  }
+
+  ADDRESS LF_ENUM 
+  {
+      FORMAT      Digit_5
+      FORCE       always
+      LEADER      ""
+      ZERO_FORMAT Zero_int
+  }
+
+  ADDRESS LF_BAXIS 
+  {
+      FORMAT      AbsCoord
+      FORCE       always
+      LEADER      ""
+      ZERO_FORMAT Zero_real
+  }
+
+  ADDRESS LF_XABS 
+  {
+      FORMAT      AbsCoord
+      FORCE       always
+      LEADER      ""
+      ZERO_FORMAT Zero_real
+  }
+
+  ADDRESS LF_FEED 
+  {
+      FORMAT      Feed
+      FORCE       always
+      LEADER      ""
+      ZERO_FORMAT Zero_real
+  }
+
+  ADDRESS LF_YABS 
+  {
+      FORMAT      AbsCoord
+      FORCE       always
+      LEADER      ""
+      ZERO_FORMAT Zero_real
+  }
+
+  ADDRESS LF_SPEED 
+  {
+      FORMAT      Rev
+      FORCE       always
+      LEADER      ""
+      ZERO_FORMAT Zero_int
+  }
+
+  ADDRESS LF_ZABS 
+  {
+      FORMAT      AbsCoord
+      FORCE       always
+      LEADER      ""
+      ZERO_FORMAT Zero_real
+  }
+
+
+############ BLOCK TEMPLATE DECLARATIONS #############
+  BLOCK_TEMPLATE absolute_mode 
+  {
+       G_cutcom[$mom_sys_cutcom_code(OFF)]
+       G_plane[$mom_sys_cutcom_plane_code(XY)]
+       G_feed[$mom_sys_feed_rate_mode_code($feed_mode)]\opt
+       G_mode[$mom_sys_output_code(ABSOLUTE)]
+       G[$mom_sys_unit_code(IN)]
+  }
+
+  BLOCK_TEMPLATE anchor_point 
+  {
+       G_motion[$mom_sys_linear_code]
+       X[$mom_nurbs_points(0,0)]
+       Y[$mom_nurbs_points(0,1)]
+       Z[$mom_nurbs_points(0,2)]
+  }
+
+  BLOCK_TEMPLATE auxfun 
+  {
+       M[$mom_auxfun]
+  }
+
+  BLOCK_TEMPLATE circular_move 
+  {
+       G_cutcom[$mom_sys_cutcom_code($mom_cutcom_status)]\opt
+       G_feed[$mom_sys_feed_rate_mode_code($feed_mode)]\opt
+       G_motion[$mom_sys_circle_code($mom_arc_direction)]\opt
+       G_mode[$mom_sys_output_code($mom_output_mode)]
+       X[$mom_pos(0)]
+       Y[$mom_pos(1)]
+       Z[$mom_pos(2)]
+       I[$mom_pos_arc_center(0) - $mom_prev_pos(0)]
+       J[$mom_pos_arc_center(1) - $mom_prev_pos(1)]
+       K[$mom_pos_arc_center(2) - $mom_prev_pos(2)]
+       F[$feed]
+       S[$mom_spindle_speed]
+  }
+
+  BLOCK_TEMPLATE coolant_off 
+  {
+       M_coolant[$mom_sys_coolant_code(OFF)]
+  }
+
+  BLOCK_TEMPLATE coolant_on 
+  {
+       M_coolant[$mom_sys_coolant_code(ON)]
+  }
+
+  BLOCK_TEMPLATE coordinate_system 
+  {
+       G[$mom_sys_reset_code]
+  }
+
+  BLOCK_TEMPLATE cutcom_off 
+  {
+       G_cutcom[$mom_sys_cutcom_code(OFF)]
+  }
+
+  BLOCK_TEMPLATE cycle_bore 
+  {
+       G_motion[$mom_sys_cycle_bore_code]
+       X[$mom_cycle_feed_to_pos(0)]
+       Y[$mom_cycle_feed_to_pos(1)]
+       Z[$mom_cycle_feed_to_pos(2)]
+       fourth_axis[$mom_out_angle_pos(0)]
+       fifth_axis[$mom_out_angle_pos(1)]
+       R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
+       F[$feed]
+  }
+
+  BLOCK_TEMPLATE cycle_bore_back 
+  {
+       G_motion[$mom_sys_cycle_bore_back_code]
+       X[$mom_cycle_feed_to_pos(0)]
+       Y[$mom_cycle_feed_to_pos(1)]
+       Z[$mom_cycle_feed_to_pos(2)]
+       fourth_axis[$mom_out_angle_pos(0)]
+       fifth_axis[$mom_out_angle_pos(1)]
+       R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
+       F[$feed]
+  }
+
+  BLOCK_TEMPLATE cycle_bore_drag 
+  {
+       G_motion[$mom_sys_cycle_bore_drag_code]
+       X[$mom_cycle_feed_to_pos(0)]
+       Y[$mom_cycle_feed_to_pos(1)]
+       Z[$mom_cycle_feed_to_pos(2)]
+       fourth_axis[$mom_out_angle_pos(0)]
+       fifth_axis[$mom_out_angle_pos(1)]
+       R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
+       F[$feed]
+  }
+
+  BLOCK_TEMPLATE cycle_bore_dwell 
+  {
+       G_motion[$mom_sys_cycle_bore_dwell_code]
+       X[$mom_cycle_feed_to_pos(0)]
+       Y[$mom_cycle_feed_to_pos(1)]
+       Z[$mom_cycle_feed_to_pos(2)]
+       fourth_axis[$mom_out_angle_pos(0)]
+       fifth_axis[$mom_out_angle_pos(1)]
+       R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
+       F[$feed]
+       cycle_dwell[$mom_cycle_delay]\opt
+  }
+
+  BLOCK_TEMPLATE cycle_bore_manual 
+  {
+       G_motion[$mom_sys_cycle_bore_manual_code]
+       X[$mom_cycle_feed_to_pos(0)]
+       Y[$mom_cycle_feed_to_pos(1)]
+       Z[$mom_cycle_feed_to_pos(2)]
+       fourth_axis[$mom_out_angle_pos(0)]
+       fifth_axis[$mom_out_angle_pos(1)]
+       R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
+       F[$feed]
+  }
+
+  BLOCK_TEMPLATE cycle_bore_manual_dwell 
+  {
+       G_motion[$mom_sys_cycle_bore_manual_dwell_code]
+       X[$mom_cycle_feed_to_pos(0)]
+       Y[$mom_cycle_feed_to_pos(1)]
+       Z[$mom_cycle_feed_to_pos(2)]
+       fourth_axis[$mom_out_angle_pos(0)]
+       fifth_axis[$mom_out_angle_pos(1)]
+       R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
+       F[$feed]
+       cycle_dwell[$mom_cycle_delay]\opt
+  }
+
+  BLOCK_TEMPLATE cycle_bore_no_drag 
+  {
+       G_motion[$mom_sys_cycle_bore_no_drag_code]
+       X[$mom_cycle_feed_to_pos(0)]
+       Y[$mom_cycle_feed_to_pos(1)]
+       Z[$mom_cycle_feed_to_pos(2)]
+       fourth_axis[$mom_out_angle_pos(0)]
+       fifth_axis[$mom_out_angle_pos(1)]
+       R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
+       F[$feed]
+  }
+
+  BLOCK_TEMPLATE cycle_drill 
+  {
+       G_motion[$mom_sys_cycle_drill_code]
+       X[$mom_cycle_feed_to_pos(0)]
+       Y[$mom_cycle_feed_to_pos(1)]
+       Z[$mom_cycle_feed_to_pos(2)]
+       fourth_axis[$mom_out_angle_pos(0)]
+       fifth_axis[$mom_out_angle_pos(1)]
+       R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
+       F[$feed]
+  }
+
+  BLOCK_TEMPLATE cycle_drill_break_chip 
+  {
+       G_motion[$mom_sys_cycle_drill_break_chip_code]
+       X[$mom_cycle_feed_to_pos(0)]
+       Y[$mom_cycle_feed_to_pos(1)]
+       Z[$mom_cycle_feed_to_pos(2)]
+       fourth_axis[$mom_out_angle_pos(0)]
+       fifth_axis[$mom_out_angle_pos(1)]
+       R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
+       F[$feed]
+       cycle_step[$mom_cycle_step1]
+  }
+
+  BLOCK_TEMPLATE cycle_drill_deep 
+  {
+       G_motion[$mom_sys_cycle_drill_deep_code]
+       X[$mom_cycle_feed_to_pos(0)]
+       Y[$mom_cycle_feed_to_pos(1)]
+       Z[$mom_cycle_feed_to_pos(2)]
+       fourth_axis[$mom_out_angle_pos(0)]
+       fifth_axis[$mom_out_angle_pos(1)]
+       R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
+       F[$feed]
+       cycle_step[$mom_cycle_step1]
+  }
+
+  BLOCK_TEMPLATE cycle_drill_dwell 
+  {
+       G_motion[$mom_sys_cycle_drill_dwell_code]
+       X[$mom_cycle_feed_to_pos(0)]
+       Y[$mom_cycle_feed_to_pos(1)]
+       Z[$mom_cycle_feed_to_pos(2)]
+       fourth_axis[$mom_out_angle_pos(0)]
+       fifth_axis[$mom_out_angle_pos(1)]
+       R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
+       F[$feed]
+       cycle_dwell[$mom_cycle_delay]\opt
+  }
+
+  BLOCK_TEMPLATE cycle_off 
+  {
+       G_motion[$mom_sys_cycle_off]
+  }
+
+  BLOCK_TEMPLATE cycle_tap 
+  {
+       G_motion[$mom_sys_cycle_tap_code]
+       X[$mom_cycle_feed_to_pos(0)]
+       Y[$mom_cycle_feed_to_pos(1)]
+       Z[$mom_cycle_feed_to_pos(2)]
+       fourth_axis[$mom_out_angle_pos(0)]
+       fifth_axis[$mom_out_angle_pos(1)]
+       R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
+       F[$feed]
+  }
+
+  BLOCK_TEMPLATE delay 
+  {
+       G[$mom_sys_delay_code($mom_delay_mode)]
+       dwell[$mom_delay_value]
+  }
+
+  BLOCK_TEMPLATE end_of_path 
+  {
+       M_spindle[$mom_sys_spindle_direction_code(OFF)]
+       M_coolant[$mom_sys_coolant_code(OFF)]
+  }
+
+  BLOCK_TEMPLATE end_of_program 
+  {
+       M[$mom_sys_rewind_code]
+  }
+
+  BLOCK_TEMPLATE end_of_program_1 
+  {
+       G_motion[$mom_sys_rapid_code]
+       G_mode[$mom_sys_output_code(INCREMENTAL)]
+       G[$mom_sys_return_code]
+       X[$mom_sys_home_pos(0)]
+       Y[$mom_sys_home_pos(1)]
+       fourth_axis[0]
+       fifth_axis[0]
+  }
+
+  BLOCK_TEMPLATE fifth_axis_rotate_move 
+  {
+       G_motion[$mom_sys_rapid_code]
+       fifth_axis[$mom_out_angle_pos(1)]
+  }
+
+  BLOCK_TEMPLATE fourth_axis_rotate_move 
+  {
+       G_motion[$mom_sys_rapid_code]
+       fourth_axis[$mom_out_angle_pos(0)]
+  }
+
+  BLOCK_TEMPLATE from 
+  {
+       G_motion[$mom_sys_rapid_code]
+       X[$mom_from_pos(0)]
+       Y[$mom_from_pos(1)]
+       Z[$mom_from_pos(2)]
+  }
+
+  BLOCK_TEMPLATE inch_metric_mode 
+  {
+       G[$mom_sys_unit_code(IN)]
+  }
+
+  BLOCK_TEMPLATE incremental_mode 
+  {
+       G_mode[$mom_sys_output_code(INCREMENTAL)]
+  }
+
+  BLOCK_TEMPLATE knots 
+  {
+       knot[$mom_nurbs_knots($nurbs_knot_count)]\nows
+  }
+
+  BLOCK_TEMPLATE linear_move 
+  {
+       G_cutcom[$mom_sys_cutcom_code($mom_cutcom_status)]\opt
+       G_plane[$mom_sys_cutcom_plane_code($mom_cutcom_plane)]\opt
+       G_feed[$mom_sys_feed_rate_mode_code($feed_mode)]\opt
+       G_motion[$mom_sys_linear_code]
+       G_mode[$mom_sys_output_code($mom_output_mode)]
+       X[$mom_pos(0)]
+       Y[$mom_pos(1)]
+       Z[$mom_pos(2)]
+       fourth_axis[$mom_out_angle_pos(0)]
+       fifth_axis[$mom_out_angle_pos(1)]
+       F[$feed]
+       S[$mom_spindle_speed]
+       D[$mom_cutcom_adjust_register]\opt
+       M_spindle[$mom_sys_spindle_direction_code($mom_spindle_direction)]\opt
+  }
+
+  BLOCK_TEMPLATE manual_tool_change 
+  {
+       M[$mom_sys_program_stop_code]
+  }
+
+  BLOCK_TEMPLATE nurbs 
+  {
+       G_motion[6.2]
+       order[$mom_nurbs_order]
+       knot[$mom_nurbs_knots($nurbs_knot_count)]
+       X[$mom_nurbs_points($nurbs_knot_count,0)]
+       Y[$mom_nurbs_points($nurbs_knot_count,1)]
+       Z[$mom_nurbs_points($nurbs_knot_count,2)]
+       F[$feed]\opt\nows
+  }
+
+  BLOCK_TEMPLATE opstop 
+  {
+       M[$mom_sys_optional_stop_code]\opt\nows
+  }
+
+  BLOCK_TEMPLATE output_unit 
+  {
+       G[$mom_sys_unit_code(IN)]
+  }
+
+  BLOCK_TEMPLATE prefun 
+  {
+       G[$mom_prefun]
+  }
+
+  BLOCK_TEMPLATE rapid_spindle 
+  {
+       G_adjust[$mom_sys_adjust_code]
+       G_feed[$mom_sys_feed_rate_mode_code(IPM)]
+       G_motion[$mom_sys_rapid_code]
+       G_mode[$mom_sys_output_code($mom_output_mode)]
+       X[$mom_pos(0)]
+       Y[$mom_pos(1)]
+       Z[$mom_pos(2)]
+       H[$mom_tool_adjust_register]\opt
+  }
+
+  BLOCK_TEMPLATE rapid_spindle_x 
+  {
+       G_adjust[$mom_sys_adjust_code]
+       G_feed[$mom_sys_feed_rate_mode_code(IPM)]
+       G_motion[$mom_sys_rapid_code]
+       G_mode[$mom_sys_output_code($mom_output_mode)]
+       X[$mom_pos(0)]
+       H[$mom_tool_adjust_register]\opt
+  }
+
+  BLOCK_TEMPLATE rapid_spindle_y 
+  {
+       G_adjust[$mom_sys_adjust_code]
+       G_feed[$mom_sys_feed_rate_mode_code(IPM)]
+       G_motion[$mom_sys_rapid_code]
+       G_mode[$mom_sys_output_code($mom_output_mode)]
+       Y[$mom_pos(1)]
+       H[$mom_tool_adjust_register]\opt
+  }
+
+  BLOCK_TEMPLATE rapid_spindle_z 
+  {
+       G_adjust[$mom_sys_adjust_code]
+       G_feed[$mom_sys_feed_rate_mode_code(IPM)]
+       G_motion[$mom_sys_rapid_code]
+       G_mode[$mom_sys_output_code($mom_output_mode)]
+       Z[$mom_pos(2)]
+       H[$mom_tool_adjust_register]\opt
+  }
+
+  BLOCK_TEMPLATE rapid_traverse 
+  {
+       G_feed[$mom_sys_feed_rate_mode_code(IPM)]
+       G_motion[$mom_sys_rapid_code]
+       G_mode[$mom_sys_output_code($mom_output_mode)]\opt
+       G[$mom_fixture_offset_value + 53]
+       X[$mom_pos(0)]
+       Y[$mom_pos(1)]
+       Z[$mom_pos(2)]
+       fourth_axis[$mom_out_angle_pos(0)]
+       fifth_axis[$mom_out_angle_pos(1)]
+       S[$mom_spindle_speed]
+       M_spindle[$mom_sys_spindle_direction_code($mom_spindle_direction)]\opt
+  }
+
+  BLOCK_TEMPLATE rapid_traverse_xy 
+  {
+       G_feed[$mom_sys_feed_rate_mode_code(IPM)]
+       G_motion[$mom_sys_rapid_code]
+       G_mode[$mom_sys_output_code($mom_output_mode)]\opt
+       G[$mom_fixture_offset_value + 53]
+       X[$mom_pos(0)]
+       Y[$mom_pos(1)]
+       fourth_axis[$mom_out_angle_pos(0)]
+       fifth_axis[$mom_out_angle_pos(1)]
+       S[$mom_spindle_speed]
+       M_spindle[$mom_sys_spindle_direction_code($mom_spindle_direction)]\opt
+  }
+
+  BLOCK_TEMPLATE rapid_traverse_yz 
+  {
+       G_feed[$mom_sys_feed_rate_mode_code(IPM)]
+       G_motion[$mom_sys_rapid_code]
+       G_mode[$mom_sys_output_code($mom_output_mode)]\opt
+       G[$mom_fixture_offset_value + 53]
+       Y[$mom_pos(1)]
+       Z[$mom_pos(2)]
+       fourth_axis[$mom_out_angle_pos(0)]
+       fifth_axis[$mom_out_angle_pos(1)]
+       S[$mom_spindle_speed]
+       M_spindle[$mom_sys_spindle_direction_code($mom_spindle_direction)]\opt
+  }
+
+  BLOCK_TEMPLATE rapid_traverse_xz 
+  {
+       G_feed[$mom_sys_feed_rate_mode_code(IPM)]
+       G_motion[$mom_sys_rapid_code]
+       G_mode[$mom_sys_output_code($mom_output_mode)]\opt
+       G[$mom_fixture_offset_value + 53]
+       X[$mom_pos(0)]
+       Z[$mom_pos(2)]
+       fourth_axis[$mom_out_angle_pos(0)]
+       fifth_axis[$mom_out_angle_pos(1)]
+       S[$mom_spindle_speed]
+       M_spindle[$mom_sys_spindle_direction_code($mom_spindle_direction)]\opt
+  }
+
+  BLOCK_TEMPLATE return_home 
+  {
+       G_return[$mom_sys_return_code]
+       G_mode[91]
+       Z[$mom_sys_home_pos(2)]
+  }
+
+  BLOCK_TEMPLATE return_motion 
+  {
+       M_spindle[$mom_sys_spindle_direction_code(OFF)]
+       M_coolant[$mom_sys_coolant_code(OFF)]
+  }
+
+  BLOCK_TEMPLATE return_motion_1 
+  {
+       G_return[$mom_sys_return_code]
+       G_mode[91]
+       Z[0]
+       T[$mom_tool_number]
+       H[$mom_sys_zero]
+  }
+
+  BLOCK_TEMPLATE return_motion_2 
+  {
+       M_spindle[$mom_sys_spindle_direction_code(OFF)]
+       M_coolant[$mom_sys_coolant_code(OFF)]
+  }
+
+  BLOCK_TEMPLATE return_motion_5 
+  {
+       G_return[$mom_sys_return_code]
+       G_mode[91]
+       Z[0]
+       H[$mom_sys_zero]
+  }
+
+  BLOCK_TEMPLATE rewind_stop_code 
+  {
+       Text[%]
+  }
+
+  BLOCK_TEMPLATE sequence_number 
+  {
+       N[$mom_seqnum]
+  }
+
+  BLOCK_TEMPLATE spindle_off 
+  {
+       M_spindle[$mom_sys_spindle_direction_code(OFF)]
+  }
+
+  BLOCK_TEMPLATE spindle_range 
+  {
+       M_range[$mom_sys_spindle_range_code($mom_spindle_range)]\opt
+  }
+
+  BLOCK_TEMPLATE spindle_rpm 
+  {
+       S[$mom_spindle_speed]
+       M_spindle[$mom_sys_spindle_direction_code($mom_spindle_direction)]\opt
+  }
+
+  BLOCK_TEMPLATE spindle_rpm_1 
+  {
+       M_range[$mom_sys_spindle_range_code($mom_spindle_range)]\opt
+  }
+
+  BLOCK_TEMPLATE stop 
+  {
+       M[$mom_sys_program_stop_code]
+  }
+
+  BLOCK_TEMPLATE tool_change 
+  {
+       G_mode[$mom_sys_output_code(INCREMENTAL)]
+       G[$mom_sys_return_code]
+       Z_zero[0]
+  }
+
+  BLOCK_TEMPLATE tool_change_1 
+  {
+       M[$mom_sys_tool_change_code]
+  }
+
+  BLOCK_TEMPLATE tool_change_2 
+  {
+       T[$mom_tool_number]
+  }
+
+  BLOCK_TEMPLATE tool_len_adj_off 
+  {
+       H[$mom_sys_zero]
+  }
+
+  BLOCK_TEMPLATE tool_length_adjust 
+  {
+       G_adjust[$mom_sys_adjust_code]
+       H[$mom_tool_adjust_register]
+  }
+
+  BLOCK_TEMPLATE tool_preselect 
+  {
+       T[$mom_next_tool_number]
+  }
+
+  BLOCK_TEMPLATE post_cycle_set 
+  {
+       G_motion[$mom_sys_cycle_reps_code]
+       X[$mom_cycle_feed_to_pos(0)]
+       Y[$mom_cycle_feed_to_pos(1)]
+       Z[$mom_cycle_feed_to_pos(2)]
+       fourth_axis[$mom_out_angle_pos(0)]
+       fifth_axis[$mom_out_angle_pos(1)]
+       R[$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)]
+       F[$feed]
+  }
+
+  BLOCK_TEMPLATE comment_data 
+  {
+       LF_XABS[$mom_pos(0)]
+       LF_YABS[$mom_pos(1)]
+       LF_ZABS[$mom_pos(2)]
+       LF_AAXIS[$mom_pos(3)]
+       LF_BAXIS[$mom_pos(4)]
+       LF_FEED[$mom_feed_rate]
+       LF_SPEED[$mom_spindle_speed]
+  }
+
+}

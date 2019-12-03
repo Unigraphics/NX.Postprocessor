@@ -1,0 +1,21 @@
+
+MACHINE review_only
+
+FORMATTING
+{
+  END_OF_LINE ""
+  SEQUENCE sequence_number 10 10 1 9999
+  FORMAT Digit_4 "&_04_00"
+  ADDRESS N 
+  {
+      FORMAT      Digit_4
+      FORCE       always
+      MAX         99999999 Truncate
+  }
+  BLOCK_TEMPLATE sequence_number 
+  {
+       N[$mom_seqnum]
+  }
+
+
+}

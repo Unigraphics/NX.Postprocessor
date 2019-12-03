@@ -1,0 +1,127 @@
+##this event is define for the cycle of heidenhain
+
+EVENT set_cycle_parameter
+{   
+   UI_LABEL "Cycle Parameter"
+   CATEGORY Mill Drill 
+   
+   PARAM min_pecking_depth
+   {
+      TYPE   d
+      DEFVAL "0.0"      
+      UI_LABEL "MIN. PLUNGING DEPTH (Q205)"
+   }  
+    
+    PARAM plunging_feed_rate
+   {
+      TYPE   d
+      DEFVAL "0.0"      
+      UI_LABEL "FEEDRATE FOR PLUNGING (Q206)"
+   }   
+
+    PARAM decrement_pecking_depth
+   {
+      TYPE   d
+      DEFVAL "0.0"     
+      UI_LABEL "DECREMENT (Q212)"
+   }
+
+   PARAM disengaging_direction
+   {
+      TYPE   d
+      DEFVAL "0.0"      
+      UI_LABEL "DISENGAGING DIRECTN (Q214)"
+   }     
+
+   PARAM depth_of_counterbore
+   {
+      TYPE   d
+      DEFVAL "0.0"      
+      UI_LABEL "DEPTH OF COUNTERBORE (Q249)"
+   } 
+
+   PARAM material_thickness
+   {
+      TYPE   d
+      DEFVAL "0.0"      
+      UI_LABEL "MATERIAL THICKNESS(Q250)"
+   } 
+
+    PARAM off_center_distance
+   {
+      TYPE   d
+      DEFVAL "0.0"      
+      UI_LABEL "OFF-CENTER DISTANCE (Q251)"
+   }
+
+   PARAM tool_edge_height
+   {
+      TYPE   d
+      DEFVAL "0.0"      
+      UI_LABEL "TOOL EDGE HEIGHT (Q252)"
+   } 
+
+    PARAM preposition_feedrate
+   {
+      TYPE   d
+      DEFVAL "0.0"      
+      UI_LABEL "FEEDRATE FOR PRE-POSITIONING (Q253)"
+   }   
+
+   PARAM counterboring_feedrate
+   {
+      TYPE   d
+      DEFVAL "0.0"      
+      UI_LABEL "FEEDRATE FOR COUNTERBORING (Q254)"
+   } 
+
+   PARAM counterboring_floor_dwell_time
+   {
+      TYPE   d
+      DEFVAL "0.0"      
+      UI_LABEL "DWELL TIME (Q255)"
+   } 
+
+   PARAM chip_break_distance
+   {
+      TYPE   d
+      DEFVAL "0.0"    
+      UI_LABEL "DIST. FOR CHIP BRKNG (Q256)"
+   }
+
+    PARAM chip_break_infeed_depth
+   {
+      TYPE   d
+      DEFVAL "0.0"    
+      UI_LABEL "DEPTH FOR CHIP BRKNG (Q257)"
+   }
+
+   PARAM upper_adv_stop_distance
+   {
+      TYPE   d
+      DEFVAL "0.0"     
+      UI_LABEL "UPPER ADV STOP DIST (Q258)"
+   }
+
+   PARAM lower_adv_stop_distance
+   {
+      TYPE   d
+      DEFVAL "0.0"    
+      UI_LABEL "LOWER ADV STOP DIST (Q259)"
+   }   
+
+   PARAM angle_of_spindle
+   {
+      TYPE   d
+      DEFVAL "0.0"      
+      UI_LABEL "ANGLE OF SPINDLE (Q336)"
+   } 
+
+     PARAM starting_position
+   {
+      TYPE   d
+      DEFVAL "0.0"      
+      UI_LABEL "STARTING POSITION (Q379)"
+   }
+
+}

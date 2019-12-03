@@ -1,0 +1,393 @@
+##############################################################################
+#
+# Created by:  Javi Garcia           11-Mar-2002
+# Machine: HWACHEON HI-ECO15A        NC: FANUC 0T
+#
+# Revision history
+# 21-Mar-2002 # Javi Garcia # Initial version
+#
+###############################################################################
+
+MACHINE millturn_4axis
+
+INCLUDE
+{
+   $UGII_CAM_USER_DEF_EVENT_DIR/ude.cdl
+}
+
+FORMATTING
+{
+ FORMAT  Seqno      "&__5_00"
+ FORMAT  EventNum   "%-5d"
+ FORMAT  AbsCoord   "%9.3f"
+ FORMAT  RotCoord   "%8.3f"
+ FORMAT  ComFeed    "%7.2f"
+ FORMAT  Rev        "%5d"
+ FORMAT  Minutes    "%9.3f"
+
+ FORMAT  zero       "&_02_00"
+ FORMAT  zero_coord "&_01.0_"
+ FORMAT  zero_spin  "&_01_00"
+
+# Addresses for the lpt file output
+
+ ADDRESS N  {
+              FORMAT Seqno
+              ZERO_FORMAT zero
+              MAX    9999
+              MIN    1
+              FORCE  off
+            }
+
+ ADDRESS ENUM  {
+              FORMAT EventNum
+              ZERO_FORMAT zero
+              FORCE  always
+              LEADER ""
+              TRAILER " "
+            }
+ ADDRESS ABSX  {
+              FORMAT AbsCoord
+              ZERO_FORMAT zero_coord
+              FORCE  always
+              LEADER ""
+              TRAILER " "
+            }
+ ADDRESS ABSY  {
+              FORMAT AbsCoord
+              ZERO_FORMAT zero_coord
+              FORCE  always
+              LEADER ""
+              TRAILER " "
+            }
+ ADDRESS ABSZ  {
+              FORMAT AbsCoord
+              ZERO_FORMAT zero_coord
+              FORCE  always
+              LEADER ""
+              TRAILER " "
+            }
+ ADDRESS AXIS4  {
+              FORMAT RotCoord
+              ZERO_FORMAT zero_coord
+              FORCE  always
+              LEADER ""
+              TRAILER " "
+            }
+ ADDRESS AXIS5  {
+              FORMAT RotCoord
+              ZERO_FORMAT zero_coord
+              FORCE  always
+              LEADER ""
+              TRAILER " "
+            }
+ ADDRESS FEED  {
+              FORMAT ComFeed
+              ZERO_FORMAT zero_coord
+              FORCE  always
+              LEADER ""
+              TRAILER " "
+            }
+ ADDRESS RPM  {
+              FORMAT Rev
+              ZERO_FORMAT zero_spin
+              FORCE  always
+              LEADER ""
+              TRAILER " "
+            }
+ ADDRESS TIME {
+              FORMAT Minutes
+              ZERO_FORMAT zero_coord
+              FORCE  always
+              LEADER ""
+            }
+
+ BLOCK_TEMPLATE Seq_no  {N[$mom_seqnum]  }
+
+ BLOCK_TEMPLATE comment_data {
+       ENUM[$mom_debug_event_num]\nows
+       ABSX[$mom_pos(0)]\nows
+       ABSY[$mom_pos(1)]\nows
+       ABSZ[$mom_pos(2)]\nows
+       AXIS4[$mom_pos(3)]\nows
+       AXIS5[$mom_pos(4)]\nows
+       FEED[$com_feed_rate]\nows
+       RPM[$mom_spindle_speed]\nows
+       TIME[$mom_event_time]\nows
+                             }
+
+}
+
+
+TURRET 1
+{
+   POCKET 1
+   {
+      HOLDING_SYSTEM "100", "110", "120"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY " "
+      }
+   }
+
+   POCKET 2
+   {
+      HOLDING_SYSTEM "100", "110", "120"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY " "
+      }
+   }
+
+   POCKET 3
+   {
+      HOLDING_SYSTEM "100", "110", "120"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY " "
+      }
+   }
+
+   POCKET 4
+   {
+      HOLDING_SYSTEM "100", "110", "120"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY " "
+      }
+   }
+
+   POCKET 5
+   {
+      HOLDING_SYSTEM "100", "110", "120"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY " "
+      }
+   }
+
+   POCKET 6
+   {
+      HOLDING_SYSTEM "100", "110", "120"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY " "
+      }
+   }
+
+   POCKET 7
+   {
+      HOLDING_SYSTEM "100", "110", "120"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY " "
+      }
+   }
+
+   POCKET 8
+   {
+      HOLDING_SYSTEM "100", "110", "120"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY " "
+      }
+   }
+
+   POCKET 9
+   {
+      HOLDING_SYSTEM "100", "110", "120"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY " "
+      }
+   }
+
+   POCKET 10
+   {
+      HOLDING_SYSTEM "100", "110", "120"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY " "
+      }
+   }
+
+   POCKET 11
+   {
+      HOLDING_SYSTEM "100", "110", "120"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY " "
+      }
+   }
+
+   POCKET 12
+   {
+      HOLDING_SYSTEM "100", "110", "120"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY " "
+      }
+   }
+}
+
+
+
+TURRET 2
+{
+   POCKET 1
+   {
+      HOLDING_SYSTEM "100", "110", "120", "130"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY " "
+      }
+   }
+
+   POCKET 2
+   {
+      HOLDING_SYSTEM "100", "110", "120", "130"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY " "
+      }
+   }
+
+   POCKET 3
+   {
+      HOLDING_SYSTEM "100", "110", "120", "130"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY " "
+      }
+   }
+
+   POCKET 4
+   {
+      HOLDING_SYSTEM "100", "110", "120", "130"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY " "
+      }
+   }
+
+   POCKET 5
+   {
+      HOLDING_SYSTEM "100", "110", "120", "130"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY " "
+      }
+   }
+
+   POCKET 6
+   {
+      HOLDING_SYSTEM "100", "110", "120", "130"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY " "
+      }
+   }
+
+   POCKET 7
+   {
+      HOLDING_SYSTEM "100", "110", "120", "130"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY " "
+      }
+   }
+
+   POCKET 8
+   {
+      HOLDING_SYSTEM "100", "110", "120", "130"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY " "
+      }
+   }
+
+   POCKET 9
+   {
+      HOLDING_SYSTEM "100", "110", "120", "130"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY " "
+      }
+   }
+
+   POCKET 10
+   {
+      HOLDING_SYSTEM "100", "110", "120", "130"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY " "
+      }
+   }
+
+   POCKET 11
+   {
+      HOLDING_SYSTEM "100", "110", "120", "130"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY " "
+      }
+   }
+
+   POCKET 12
+   {
+      HOLDING_SYSTEM "100", "110", "120", "130"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY " "
+      }
+   }
+}
+

@@ -1,0 +1,210 @@
+##############################################################################
+#
+# MAchine: MAZAK VARIAXIS 630 5X
+#
+# Created by Javi Garcia - 28-Sep-2006 - javi.garcia@ugs.com
+#
+##############################################################################
+
+MACHINE M5ACTT
+
+INCLUDE
+{
+   $UGII_CAM_USER_DEF_EVENT_DIR/ude.cdl
+}
+
+FORMATTING
+{
+
+ WORD_SEPARATOR         ""
+ END_OF_LINE            ""
+# SEQUENCE Seq_no        10  10  1
+
+ FORMAT  Coordinate     "&__5.3_"
+ FORMAT  Rotary_coord   "&__5.3_"
+ FORMAT  Seqno          "&__5_00"
+ FORMAT  Register       "&_02_00"
+ FORMAT  Feed           "&__5.2_"
+ FORMAT  zero           "&_02_00"
+ FORMAT  zero_coord     "&_01.0_"
+
+
+ ADDRESS N  {
+    FORMAT Seqno
+    FORCE  off
+    }
+ ADDRESS motion_g {
+    LEADER "G"
+    ZERO_FORMAT zero
+    FORMAT Register
+    FORCE  off
+    }
+ ADDRESS feed_g {
+    LEADER "G"
+    ZERO_FORMAT zero
+    FORMAT Register
+    FORCE  off
+    }
+ ADDRESS X  {
+    ZERO_FORMAT  zero_coord
+    FORMAT Coordinate
+    FORCE  off
+    }
+ ADDRESS Y  {
+    ZERO_FORMAT  zero_coord
+    FORMAT Coordinate
+    FORCE  off
+    }
+ ADDRESS Z  {
+    ZERO_FORMAT  zero_coord
+    FORMAT Coordinate
+    FORCE  off
+    }
+ ADDRESS A  {
+    ZERO_FORMAT  zero_coord
+    FORMAT Rotary_coord
+    FORCE  off
+    }
+ ADDRESS C  {
+    ZERO_FORMAT  zero_coord
+    FORMAT Rotary_coord
+    FORCE  off
+    }
+ ADDRESS I  {
+    ZERO_FORMAT  zero_coord
+    FORMAT Coordinate
+    FORCE  off
+    }
+ ADDRESS J  {
+    ZERO_FORMAT  zero_coord
+    FORMAT Coordinate
+    FORCE  off
+    }
+ ADDRESS R  {
+    ZERO_FORMAT  zero_coord
+    FORMAT Coordinate
+    FORCE  off
+    }
+ ADDRESS F  {
+    FORMAT Feed
+    FORCE  off
+    }
+ ADDRESS M  {
+    ZERO_FORMAT zero
+    FORMAT Register
+    FORCE  off
+    }
+ ADDRESS MA  {
+    FORMAT Register
+    FORCE  off
+    LEADER "M"
+    }
+ ADDRESS MC  {
+    FORMAT Register
+    FORCE  off
+    LEADER "M"
+    }
+ ADDRESS S  {
+    FORMAT Seqno
+    FORCE  off
+    }
+
+
+BLOCK_TEMPLATE Seq_no  { N[$mom_seqnum] }
+
+BLOCK_TEMPLATE rapid_xyzac {
+    motion_g[$mom_sys_rapid_code]
+    X[$mom_pos(0)]
+    Y[$mom_pos(1)]
+    Z[$mom_pos(2)]
+    A[$mom_out_angle_pos(0)]
+    C[$mom_out_angle_pos(1)]
+    }
+BLOCK_TEMPLATE rapid_xyac {
+    motion_g[$mom_sys_rapid_code]
+    X[$mom_pos(0)]
+    Y[$mom_pos(1)]
+    A[$mom_out_angle_pos(0)]
+    C[$mom_out_angle_pos(1)]
+    }
+BLOCK_TEMPLATE rapid_xyz {
+    motion_g[$mom_sys_rapid_code]
+    X[$mom_pos(0)]
+    Y[$mom_pos(1)]
+    Z[$mom_pos(2)]
+    }
+BLOCK_TEMPLATE rapid_xy {
+    motion_g[$mom_sys_rapid_code]
+    X[$mom_pos(0)]
+    Y[$mom_pos(1)]
+    }
+BLOCK_TEMPLATE rapid_z {
+    motion_g[$mom_sys_rapid_code]
+    "G54.2P1G43"
+    Z[$mom_pos(2)]
+    }
+BLOCK_TEMPLATE rapid_ac {
+    motion_g[$mom_sys_rapid_code]
+    A[$mom_out_angle_pos(0)]
+    C[$mom_out_angle_pos(1)]
+    }
+
+# Local retract
+BLOCK_TEMPLATE z_ret {
+    motion_g[$mom_sys_rapid_code]
+    Z[$mom_pos(2) + $jg_ret_dist]
+    }
+BLOCK_TEMPLATE z_app {
+    motion_g[$mom_sys_rapid_code]
+    Z[$mom_pos(2) + $jg_app_dist]
+    }
+# End of local retract
+
+BLOCK_TEMPLATE linear  {
+    motion_g[$mom_sys_linear_code]
+    feed_g[$mom_sys_feed_rate($jg_feed)]
+    X[$mom_pos(0)]
+    Y[$mom_pos(1)]
+    Z[$mom_pos(2)]
+    A[$mom_out_angle_pos(0)]
+    C[$mom_out_angle_pos(1)]
+    F[$feed_calculado]
+    #F[$mom_feed_rate]
+    }
+BLOCK_TEMPLATE linearizando  {
+    motion_g[$mom_sys_linear_code]
+    feed_g[$mom_sys_feed_rate($jg_feed)]
+    X[$pos_x]
+    Y[$pos_y]
+    Z[$pos_z]
+    A[$pos_a]
+    C[$pos_c]
+    F[$feed_calculado]
+    #F[$mom_feed_rate]
+    }
+
+BLOCK_TEMPLATE circular {
+    motion_g[$mom_sys_circle_code($mom_arc_direction)]
+    feed_g[$mom_sys_feed_rate($jg_feed)]
+    X[$mom_pos(0)]
+    Y[$mom_pos(1)]
+    Z[$mom_pos(2)]
+    R[$jg_arc_radio]
+    #I[$mom_pos_arc_center(0)]
+    #J[$mom_pos_arc_center(1)]
+    F[$feed_calculado]
+    #F[$mom_feed_rate]
+ }
+
+BLOCK_TEMPLATE bloquea_a    { MA[44] }
+BLOCK_TEMPLATE bloquea_c    { MC[47] }
+BLOCK_TEMPLATE desbloquea_a { MA[43] }
+BLOCK_TEMPLATE desbloquea_c { MC[46] }
+
+BLOCK_TEMPLATE avance_mm  { feed_g[$mom_sys_feed_rate($jg_feed)] }
+
+BLOCK_TEMPLATE spindle_on {
+    S[$mom_spindle_rpm]
+    M[3]
+ }
+}

@@ -1,0 +1,109 @@
+#* UDE_DECKEL.CDL
+##########################################################################
+#
+# Description Post Commandes pour Post Processeur Deckel
+#	                
+#       Client : JMD
+#
+# Revisions
+#
+# Date          Who             Reason
+# 19-Jul-2005   J. Moreschi	Originale (NX 3.0.2.3)
+# 10-Jan-2007   J. Moreschi	Ajout Block Form
+#
+##########################################################################
+
+MACHINE DECKEL
+
+#---------------------------------------------------------------------------
+EVENT block_form
+{
+   UI_LABEL "Block Form"
+   CATEGORY MILL DRILL
+
+   PARAM block_form_x_mini
+   {
+      TYPE   d
+      DEFVAL "0.000"
+      UI_LABEL "X Mini"
+   }
+   PARAM block_form_x_maxi
+   {
+      TYPE   d
+      DEFVAL "0.000"
+      UI_LABEL "X Maxi"
+   }
+
+   PARAM block_form_y_mini
+   {
+      TYPE   d
+      DEFVAL "0.000"
+      UI_LABEL "Y Mini"
+   }
+   PARAM block_form_y_maxi
+   {
+      TYPE   d
+      DEFVAL "0.000"
+      UI_LABEL "Y Maxi"
+   }
+
+   PARAM block_form_z_mini
+   {
+      TYPE   d
+      DEFVAL "0.000"
+      UI_LABEL "Z Mini"
+   }
+   PARAM block_form_z_maxi
+   {
+      TYPE   d
+      DEFVAL "0.000"
+      UI_LABEL "Z Maxi"
+   }
+}
+#---------------------------------------------------------------------------
+EVENT zero
+{
+    UI_LABEL "Point Zero"
+    CATEGORY MILL DRILL
+    PARAM zero_register
+    {
+       TYPE   i
+       DEFVAL "1"
+       UI_LABEL "Numero Origine"
+    }
+}
+
+#---------------------------------------------------------------------------
+EVENT prec_motion
+{
+   UI_LABEL "Arret Precis"
+
+   PARAM prec_motion_text
+   {
+      TYPE   o
+      DEFVAL   "Normal"
+      OPTIONS  "Normal","Fin"
+      UI_LABEL "Type Arrêt Precis"
+  }
+}
+#---------------------------------------------------------------------------
+EVENT smooth
+{
+    UI_LABEL "Tolerance UGV"
+    CATEGORY MILL
+    PARAM smooth_command_status
+   {
+      TYPE o
+      DEFVAL "Actif"
+      OPTIONS "Actif","Inactif"
+      UI_LABEL "Mode"
+   }
+
+    PARAM smooth_tol
+    {
+       TYPE   d
+       DEFVAL ".05"
+       UI_LABEL "Tolerance"
+    }
+}
+#---------------------------------------------------------------------------

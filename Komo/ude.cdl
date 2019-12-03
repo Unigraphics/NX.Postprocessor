@@ -1,0 +1,47 @@
+#Franciso Linares Special Tool Event
+EVENT cabezal
+
+{
+	POST_EVENT "cabezal_sync"
+	UI_LABEL "Cabezal"
+	CATEGORY MILL DRILL LATHE
+
+	PARAM cab_sync
+		{
+			TYPE o
+			DEFVAL "NO"
+			OPTIONS "SI","NO"
+			UI_LABEL "Sincronizar"
+		}
+	PARAM cabezal_1
+	{
+		TYPE o 
+		DEFVAL "0"
+		OPTIONS "1","0"
+		UI_LABEL "Cabezal 1"
+	}
+	PARAM cabezal_2
+	{
+		TYPE o 
+		DEFVAL "0"
+		OPTIONS "2","0"
+		UI_LABEL "Cabezal 2"
+	}
+	PARAM cabezal_3
+	{
+		TYPE o 
+		DEFVAL "0"
+		OPTIONS "3","0"
+		UI_LABEL "Cabezal 3"
+	}
+	PARAM cabezal_4
+	{
+		TYPE o 
+		DEFVAL "0"
+		OPTIONS "4","0"
+		UI_LABEL "Cabezal 4"
+	}
+
+
+
+}

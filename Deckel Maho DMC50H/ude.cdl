@@ -1,0 +1,1668 @@
+#* UDE.CDL
+##########################################################################
+#
+#   PURPOSE:
+#
+#      This file is used in the conversion of post commands contained
+#      in pre UG V15.0 part files into User Defined Events.
+#
+##########################################################################
+#
+# @<DEL>@ TEXT ENCLOSED within delete markers will be REMOVED
+#
+# Revision History
+# ----------------
+#    Rev  Date       Who  PR	  Reason
+#
+#   00  22Oct97  Murthy R Mandaleeka  Initial Version
+#   01  13Feb98  Murthy R Mandaleeka  Added labels
+#   02  16Feb98  Murthy R Mandaleeka  Changed event names and parameters
+#                                     names to match event generation code
+#   03  04Dec98  Murthy R Mandaleeka  Updated version
+#   04  09Mar99  Murthy R Mandaleeka  Added "Inactive" to Set/Mode options
+#   05  06Apr99  Murthy R Mandaleeka  Changed Clamp Status to Active
+#   06  24May00  Murthy R Mandaleeka  Fix the list for WEDM
+#   07  12Sep00  gsl                  Redefine zero command
+#    08   18dec2000  MJR        Add delete markers
+#
+##########################################################################
+#
+# TEXT ENCLOSED within delete markers will be REMOVED @<DEL>@
+#
+
+MACHINE FANUC
+
+# ------- События для стойки HAIDENHAIN TNC-530i --------
+
+EVENT approach_departure
+{
+	UI_LABEL "Врезание и отвод (APPR и DEP)"
+	PARAM command_status
+	{
+		TYPE o
+		DEFVAL "Active"
+		OPTIONS "Active","Inactive"
+		UI_LABEL "Состояние"
+	}
+	PARAM approach
+	{
+		TYPE o
+		DEFVAL "OFF"
+		OPTIONS "OFF","ON"
+		UI_LABEL "Врезание в стиле Haidenhain"
+	}
+	PARAM departure
+	{
+		TYPE o
+		DEFVAL "OFF"
+		OPTIONS "OFF","ON"
+		UI_LABEL "Врезание в стиле Haidenhain"
+	}
+}
+
+EVENT tnc_rotation
+{
+	UI_LABEL "Цикл вращения (CYCL DEF 10.0 ROTATION)"
+	PARAM command_status
+	{
+		TYPE o
+		DEFVAL "Active"
+		OPTIONS "Active","Inactive"
+		UI_LABEL "Состояние"
+	}
+	PARAM rotation_angle
+	{
+		TYPE d
+		UI_LABEL "Угол вращения"
+	}
+	PARAM number_of_rotation
+	{
+		TYPE i
+		UI_LABEL "Количество повторов"
+	}
+	PARAM number_of_subprog
+	{
+		TYPE i
+		UI_LABEL "Количество подпрограмм"
+	}
+
+}
+
+# ---------------------------------------Start UDE's for DMU-50---------------------------------------
+
+EVENT Sinumeric_setting
+{
+	UI_LABEL "Управление настройками Sinumeric-840D"
+	PARAM command_status
+	{
+		TYPE o
+		DEFVAL "Active"
+		OPTIONS "Active","Inactive"
+		UI_LABEL "Состояние"
+	}
+	PARAM TRAORI_mode
+	{
+      		TYPE o
+		DEFVAL "ON"
+		OPTIONS "ON","ON(2)","OFF"
+		UI_LABEL "Режим трансформации (TRAORI)"
+	}
+	PARAM rotary_mode_status
+	{
+		TYPE o
+		DEFVAL "AXIS"
+		OPTIONS "AXIS","VECTOR"
+		UI_LABEL "Тип вывода поворотных осей"
+	}
+	PARAM rotary_axis_mode
+	{
+		TYPE o
+		DEFVAL "ABSOLUTE"
+		OPTIONS "ABSOLUTE","INCREMENTAL"
+		UI_LABEL "Режим вывода поворотных осей"
+	}
+	PARAM compressor_mode
+	{
+		TYPE o
+		DEFVAL "COMPOF"
+		OPTIONS "COMPON","COMPCURV", "COMPCAD", "COMPOF"
+		UI_LABEL "Режим работы компрессора"
+	}
+	PARAM c_axis_rot_mode
+	{
+		TYPE o
+		DEFVAL "OFF"
+		OPTIONS "OFF", "C", "ROT", "THETA"
+		UI_LABEL "Режим вывода поворота оси С"
+	}
+	PARAM c_axis_position
+	{
+		TYPE d
+		DEFVAL "0.0"
+		UI_LABEL "Позиция оси С"
+	}
+}
+
+EVENT Impiller
+{
+	UI_LABEL "Фрезерование моноколеса"
+	PARAM command_status
+	{
+		TYPE o
+		DEFVAL "Active"
+		OPTIONS "Active","Inactive"
+		UI_LABEL "Состояние"
+	}
+
+	PARAM number_of_blades
+	{
+		TYPE   i
+		DEFVAL "17"
+		UI_LABEL "Кол-во лопаток"
+	}
+}
+
+EVENT rotary_mode
+{
+	UI_LABEL "Управление поворотными координатами"
+	PARAM command_status
+	{
+		TYPE o
+		DEFVAL "Активный"
+	OPTIONS "Активный","Не активный"
+      UI_LABEL "Состояние"
+   }
+
+   PARAM rotary_mode_status
+   {
+      TYPE o
+      DEFVAL "AXIS"
+      OPTIONS "AXIS","VECTOR"
+      UI_LABEL "Тип вывода поворотных осей"
+   }
+   PARAM rotary_axis_mode
+   {
+       TYPE o
+      DEFVAL "ABSOLUTE"
+      OPTIONS "ABSOLUTE","INCREMENTAL"
+      UI_LABEL "Режим вывода поворотных осей"
+   }
+}
+
+EVENT visualization
+{
+   UI_LABEL "Заготовка"
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive"
+      UI_LABEL "Состояние"
+   }
+
+   PARAM view_plane
+   {
+      TYPE o
+      DEFVAL "Z"
+      OPTIONS "Z","Y","X"
+      UI_LABEL "Ось инструмента"
+   }
+   PARAM point1
+   {
+      TYPE p
+      UI_LABEL "Точка Мин."
+   }
+   PARAM point2
+   {
+      TYPE p
+      UI_LABEL "Точка Мак."
+   }
+}
+
+EVENT TCPM
+{
+   UI_LABEL "Режим TCPM (M128)"
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive"
+      UI_LABEL "Состояние"
+   }
+
+   PARAM TCPM_mode
+   {
+      TYPE o
+      DEFVAL "FUNCTION"
+      OPTIONS "M128","FUNCTION","OFF"
+      UI_LABEL "Режим"
+   }
+   PARAM TCPM_tool_vector
+   {
+      TYPE o
+      DEFVAL "ON"
+      OPTIONS "ON","OFF"
+      UI_LABEL "Вектора оси инструмента"
+   }
+
+}
+
+EVENT tolerance_contour
+{
+    UI_LABEL "Допуск (Цикл 32)"
+    #CATEGORY MILL DRILL LATHE
+    PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive"
+      UI_LABEL "Состояние"
+   }
+   PARAM linear_deviation
+   {
+      TYPE   d
+      DEFVAL "0.05"
+      UI_LABEL "Допуск по линейным осям"
+   }
+   PARAM tolerance_mode
+   {
+      TYPE   o
+      DEFVAL "0"
+      OPTIONS "0","1"
+      UI_LABEL "Режим"
+   }
+   PARAM axis_deviation
+   {
+      TYPE   d
+      DEFVAL "0.01"
+      UI_LABEL "Допуск на ориентацию ОИ"
+   }
+}
+
+EVENT divide
+{
+   UI_LABEL "Деление программы"
+
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM divide_by
+   {
+      TYPE o
+      DEFVAL "LENGTH"
+      OPTIONS "LENGTH","TIME"
+      UI_LABEL "Деление программы по:"
+   }
+   PARAM length_of_program
+   {
+      TYPE   i
+      DEFVAL "8000"
+      UI_LABEL "Кол-во кадров"
+   }
+   PARAM live_time
+   {
+      TYPE   d
+      DEFVAL "50.0"
+      UI_LABEL "Время жизни инструмента (в мин.)"
+   }
+   PARAM retract_to
+   {
+      TYPE   o
+      DEFVAL "OFFSET"
+      OPTIONS "OFFSET","POINT"
+      UI_LABEL "Отвод на:"
+   }
+   PARAM offset_dist
+   {
+      TYPE   d
+      DEFVAL "100.0"
+      UI_LABEL "Расстояние отвода"
+   }
+   PARAM retract_point
+   {
+      TYPE   p
+      UI_LABEL "Точка отвода"
+   }
+
+   PARAM divide_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Текст"
+   }
+
+}
+
+
+EVENT datum_axis_probe
+{
+   UI_LABEL "Измерение точки (цикл 419)"
+   CATEGORY MILL DRILL LATHE
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Состояние"
+   }
+   PARAM datum_axis_point
+   {
+      TYPE p
+      UI_LABEL "Control point (Q263, Q264, Q261)"
+   }
+   PARAM datum_axis_clearnce_dist
+   {
+      TYPE   d
+      DEFVAL "0.0000"
+      #TOGGLE Off
+      UI_LABEL "Add clearance distance (Q320)"
+   }
+   PARAM datum_axis_clearance_height
+   {
+      TYPE   d
+      DEFVAL "500.0000"
+      UI_LABEL "Clearance distance (Q260)"
+   }
+
+   PARAM datum_axis
+   {
+      TYPE   o
+      DEFVAL "1"
+      OPTIONS "1","2","3"
+      UI_LABEL "Measuring axis (Q272)"
+   }
+   PARAM datum_axis_dir
+   {
+      TYPE   o
+      DEFVAL "+1"
+      OPTIONS "+1","-1"
+      UI_LABEL "Measuring direction (Q267)"
+   }
+   PARAM datum_number
+   {
+      TYPE   i
+      DEFVAL "0"
+      UI_LABEL "Table number (Q305)"
+   }
+   PARAM result_transfer
+   {
+      TYPE   o
+      DEFVAL "1"
+      OPTIONS "0","1"
+      UI_LABEL "Measuring result (Q303)"
+   }
+}
+
+EVENT datum_circle_probe
+{
+   UI_LABEL "Circle center measuring (cycle 412)"
+   CATEGORY MILL DRILL LATHE
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM datum_circle_center
+   {
+      TYPE p
+      UI_LABEL "Circle center (Q321, Q322, Q261)"
+   }
+   PARAM datum_circle_diam
+   {
+      TYPE   d
+      DEFVAL "0.0000"
+      UI_LABEL "Nominal diameter (Q262)"
+   }
+   PARAM datum_circle_ang1
+   {
+      TYPE   d
+      DEFVAL "0.0000"
+      UI_LABEL "Start angle (Q325)"
+   }
+   PARAM datum_circle_ang2
+   {
+      TYPE   d
+      DEFVAL "90.0000"
+      UI_LABEL "Step angle (Q247)"
+   }
+   PARAM datum_circle_clearance_height
+   {
+      TYPE   d
+      DEFVAL "500.0000"
+      UI_LABEL "Clearance distance (Q260)"
+   }
+   PARAM datum_circle_clearnce_dist
+   {
+      TYPE   d
+      DEFVAL "0.0000"
+      #TOGGLE Off
+      UI_LABEL "Add clearance distance (Q320)"
+   }
+   PARAM datum_circle_traversing
+   {
+      TYPE o
+      DEFVAL "0"
+      OPTIONS "0","1"
+      UI_LABEL "Moving to clearance distance (Q301)"
+   }
+   PARAM datum_circle_number
+   {
+      TYPE   i
+      DEFVAL "0"
+      UI_LABEL "Table number (Q305)"
+   }
+   PARAM datum_circle_point
+   {
+      TYPE p
+      TOGGLE Off
+      UI_LABEL "Measuring along axis (Q382, )"
+   }
+   PARAM result_transfer
+   {
+      TYPE   o
+      DEFVAL "1"
+      OPTIONS "0","1"
+      UI_LABEL "Measuring result (Q303)"
+   }
+}
+
+
+EVENT oriented_stop
+{
+    UI_LABEL "Oriented Spidle stop"
+    #CATEGORY MILL DRILL LATHE
+    PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive"
+      UI_LABEL "Status"
+   }
+   PARAM oriented_stop_angle
+   {
+      TYPE   d
+      DEFVAL "0.000"
+      UI_LABEL "Spindle orientation"
+   }
+}
+
+#---------------------------------------Start UDE's for DMU-50 ---------------------------------------
+
+EVENT coolant
+{
+   POST_EVENT "coolant_on"
+   UI_LABEL "Coolant On"
+   CATEGORY MILL DRILL LATHE
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM coolant_mode
+   {
+      TYPE o
+      DEFVAL "Flood"
+      OPTIONS "On","Flood","Mist","Tap","Thru"
+      UI_LABEL "Type"
+   }
+   PARAM coolant_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+
+#---------------------------------------------------------------------------
+EVENT cutcom
+{
+   UI_LABEL "Cutter Compensation"
+   CATEGORY MILL DRILL LATHE
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM cutcom_mode
+   {
+      TYPE o
+      DEFVAL "On"
+      OPTIONS "Off","On","Left","Right"
+      UI_LABEL "Mode"
+   }
+   PARAM on_option
+   {
+      TYPE o
+      DEFVAL "Before each Engage"
+      OPTIONS "Before each Engage","After each Engage","Before 1st Motion"
+      UI_LABEL "On"
+   }
+   PARAM off_option
+   {
+      TYPE o
+      DEFVAL "Before each Retract"
+      OPTIONS "Before each Retract","After each Retract","After Last Motion"
+      UI_LABEL "Off"
+   }
+   PARAM cutcom_adjust_register
+   {
+      TYPE   i
+      DEFVAL "0"
+      TOGGLE On
+      UI_LABEL "Adjust Register"
+   }
+   PARAM cutcom_plane
+   {
+      TYPE o
+      DEFVAL "NONE"
+      OPTIONS "NONE","XY","XZ","YZ"
+      UI_LABEL "Plane"
+   }
+   PARAM full_cutcom_output
+   {
+      TYPE   b
+      DEFVAL "FALSE"
+      UI_LABEL "Full Cutcom Output"
+#
+#   Not available in Event generation code
+#
+   }
+
+   PARAM cutcom_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+#---------------------------------------------------------------------------
+EVENT tool_preselect
+{
+   UI_LABEL "Tool_ Preselect"
+   #CATEGORY MILL DRILL LATHE
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+#   PARAM tool_preselect_number
+#   {
+#      TYPE i
+#      DEFVAL "0"
+#      UI_LABEL "Tool Number"
+#   }
+   PARAM pot_preselect_number
+   {
+      TYPE   o
+      DEFVAL "default"
+     # TOGGLE Off
+      OPTIONS "01-fixed","03-spindle","default"
+      UI_LABEL "Pot number"
+   }
+
+#   PARAM tool_preselect_text
+#   {
+#      TYPE   s
+#      TOGGLE Off
+#      UI_LABEL "Text"
+#   }
+}
+#---------------------------------------------------------------------------
+EVENT manual_tool_change
+{
+   UI_LABEL "Manual_tool_change"
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive"
+      UI_LABEL "Status"
+   }
+}
+
+
+
+#---------------------------------------------------------------------------
+#EVENT set_polar
+#{
+#   UI_LABEL "Set_Polar"
+#   PARAM command_status
+#   {
+#      TYPE o
+#      DEFVAL "Active"
+#      OPTIONS "Active","Inactive","User Defined"
+#      UI_LABEL "Status"
+#   }
+#   PARAM coordinate_output_mode
+#   {
+#      TYPE o
+#      DEFVAL "ON"
+#      OPTIONS "ON","OFF"
+#      UI_LABEL "Output Mode"
+#   }
+#}
+#---------------------------------------------------------------------------
+#MOM_mill_tool_change
+#MOM_load_tool
+#---------------------------------------------------------------------------
+EVENT mill_tool_change
+{
+   POST_EVENT "load_tool"
+   UI_LABEL "Tool Change"
+   CATEGORY Mill Drill
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM load_tool_number
+   {
+      TYPE   i
+      DEFVAL "0"
+      TOGGLE On
+      UI_LABEL "Tool Number"
+   }
+# Toggle button applies to only one parameter
+# We need Z offset only for Mill Post commands.
+#
+   PARAM tool_z_offset
+   {
+      TYPE   d
+      DEFVAL "0.0000"
+      TOGGLE Off
+      UI_LABEL "Tool Z Offset"
+   }
+# We do not need Tool Angle/Radius for Mill
+# Post Commands
+   PARAM head_type
+   {
+      TYPE o
+      DEFVAL "None"
+      OPTIONS "None","Front","Rear","Right","Left","Side","Saddle"
+      UI_LABEL "Head Designation"
+   }
+   PARAM tool_adjust_register
+   {
+      TYPE   i
+      DEFVAL "0"
+      TOGGLE Off
+      UI_LABEL "Adjust Register"
+   }
+
+   PARAM manual_tool_change
+   {
+      TYPE   b
+      DEFVAL "FALSE"
+      UI_LABEL "Manual Tool Change"
+   }
+
+   PARAM tool_holder
+   {
+      TYPE   i
+      DEFVAL "0"
+      TOGGLE Off
+      UI_LABEL "Holder"
+   }
+
+   PARAM tool_text
+   {
+      TYPE s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+#---------------------------------------------------------------------------
+EVENT spindle
+{
+   UI_LABEL "Spindle On"
+   CATEGORY MILL DRILL LATHE
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM spindle_mode
+   {
+      TYPE o
+      DEFVAL "RPM"
+      OPTIONS "RPM","SFM","SMM"
+      UI_LABEL "Mode"
+   }
+   PARAM spindle_speed
+   {
+      TYPE   d
+      DEFVAL "100.0"
+      TOGGLE On
+      UI_LABEL "Speed"
+   }
+   PARAM spindle_maximum_rpm
+   {
+      TYPE   d
+      DEFVAL "500.0"
+      TOGGLE Off
+      UI_LABEL "Maximum Speed"
+   }
+   PARAM spindle_direction
+   {
+      TYPE   o
+      DEFVAL "CLW"
+      OPTIONS "CLW","CCLW","NONE"
+      UI_LABEL "Direction"
+   }
+   PARAM spindle_range
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Range"
+   }
+   PARAM spindle_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+
+}
+
+EVENT spindle_off
+{
+   UI_LABEL "Spindle Off"
+   CATEGORY MILL DRILL LATHE
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM spindle_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+#---------------------------------------------------------------------------
+
+
+
+EVENT coolant_off
+{
+#   POST_EVENT "Coolant"
+   UI_LABEL "Coolant Off"
+   CATEGORY MILL DRILL LATHE
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM coolant_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+
+#---------------------------------------------------------------------------
+EVENT length_compensation
+{
+   UI_LABEL "Tool Length Compensation"
+   CATEGORY MILL DRILL LATHE
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM length_comp_register
+   {
+      TYPE   i
+      DEFVAL "2"
+      UI_LABEL "Register"
+   }
+   PARAM length_comp_register_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+#---------------------------------------------------------------------------
+EVENT sequence_number
+{
+   UI_LABEL "Sequence Number"
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM sequence_mode
+   {
+      TYPE o
+      DEFVAL "N"
+      OPTIONS "N","Off","On","Auto"
+      UI_LABEL "Number Type"
+   }
+
+   PARAM sequence_number
+   {
+      TYPE   i
+      DEFVAL "0"
+      UI_LABEL "Number"
+   }
+
+   PARAM sequence_increment
+   {
+      TYPE   i
+      DEFVAL "0"
+      UI_LABEL "Increment"
+   }
+   PARAM sequence_frequency
+   {
+      TYPE   i
+      DEFVAL "0"
+      UI_LABEL "Frequency"
+   }
+   PARAM sequence_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+#---------------------------------------------------------------------------
+EVENT select_head
+{
+   UI_LABEL "Select Head"
+   CATEGORY MILL DRILL LATHE
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM head_type
+   {
+      TYPE o
+      DEFVAL "Front"
+      UI_LABEL "Head Designation"
+#
+# None is greyed out
+#      OPTIONS "None","Front","Rear","Right","Left","Side","Saddle"
+      OPTIONS "Front","Rear","Right","Left","Side","Saddle"
+   }
+
+PARAM head_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+#---------------------------------------------------------------------------
+EVENT clamp
+{
+   UI_LABEL "Clamp"
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM clamp_axis
+   {
+      TYPE o
+      DEFVAL "AUTO"
+      OPTIONS "AUTO","Xaxis","Yaxis","Zaxis","Aaxis","Baxis","Caxis"
+      UI_LABEL "Clamp Axis"
+   }
+   PARAM clamp_status
+   {
+      TYPE o
+      DEFVAL "On"
+      OPTIONS "On","Off","Axis On","Axis Off"
+      UI_LABEL "Clamp Status"
+   }
+   PARAM clamp_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+#---------------------------------------------------------------------------
+EVENT origin
+{
+   UI_LABEL "Origin"
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM X
+   {
+      TYPE   d
+      DEFVAL "0.0000"
+   }
+
+   PARAM Y
+   {
+      TYPE   d
+      DEFVAL "0.0000"
+   }
+   PARAM Z
+   {
+      TYPE   d
+      DEFVAL "0.0000"
+   }
+   PARAM origin_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+#---------------------------------------------------------------------------
+EVENT zero
+{
+   UI_LABEL "Zero"
+   CATEGORY MILL DRILL LATHE
+   PARAM work_coordinate_number
+   {
+      TYPE i
+      DEFVAL "0"
+      UI_LABEL "Work Coordinate No."
+   }
+}
+
+EVENT insert
+{
+   UI_LABEL "Insert"
+   PARAM Instruction
+   {
+      TYPE    s
+   }
+}
+
+
+#---------------------------------------------------------------------------
+EVENT rotate
+{
+   UI_LABEL "Rotate"
+   CATEGORY MILL DRILL LATHE
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL   "Active"
+      OPTIONS  "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM rotate_axis_type
+   {
+      TYPE o
+      DEFVAL   "Table"
+      OPTIONS  "Table","Head","Aaxis","Baxis","Caxis"
+      UI_LABEL "Rotation Object"
+   }
+   PARAM rotation_mode
+   {
+      TYPE o
+      DEFVAL   "None"
+      OPTIONS  "None","Angle","Absolute","Incremental"
+      UI_LABEL "Type"
+   }
+   PARAM rotation_direction
+   {
+      TYPE   o
+      DEFVAL   "CLW"
+      OPTIONS  "CLW","CCLW","NONE"
+      UI_LABEL "Direction"
+   }
+   PARAM rotation_angle
+   {
+      TYPE   d
+      DEFVAL   "0.0000"
+      TOGGLE   Off
+      UI_LABEL "Angle"
+   }
+
+   PARAM rotation_reference_mode
+   {
+      TYPE   b
+      DEFVAL "FALSE"
+      UI_LABEL "Rotref"
+   }
+
+   PARAM rotation_text
+   {
+      TYPE   s
+      TOGGLE   Off
+      UI_LABEL "Text"
+   }
+}
+#---------------------------------------------------------------------------
+EVENT set_modes
+{
+   UI_LABEL "Set Modes"
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+#
+# Need Toggle on Option Menu .
+# In V13.0 , these are off by default on all the following items.
+#
+   }
+   PARAM machine_mode
+   {
+      TYPE o
+      DEFVAL "Mill"
+      OPTIONS "Mill","Turn","Punch","Laser","Torch","Wire","Inactive"
+      UI_LABEL "Machine Mode"
+   }
+
+   PARAM feed_set_mode
+   {
+      TYPE o
+      DEFVAL "Off"
+      OPTIONS "Off","IPM","MMPM","IPR","MMPR","Inverse","Inactive"
+      UI_LABEL "Feedrate Mode"
+   }
+   PARAM output_mode
+   {
+      TYPE o
+      DEFVAL "Absolute"
+      OPTIONS "Absolute","Increment","Inactive"
+      UI_LABEL "Output Mode"
+   }
+   PARAM arc_mode
+   {
+      TYPE o
+      DEFVAL   "Linear"
+      OPTIONS  "Linear","Circular","Inactive"
+      UI_LABEL "Arc Mode"
+   }
+   PARAM parallel_to_axis
+   {
+      TYPE o
+      DEFVAL   "Zaxis"
+      OPTIONS  "Zaxis","Waxis","Vaxis","Inactive"
+      UI_LABEL "Parallel Axis"
+   }
+   PARAM modes_text
+   {
+      TYPE   s
+      TOGGLE   Off
+      UI_LABEL "Text"
+   }
+}
+#---------------------------------------------------------------------------
+EVENT auxfun
+{
+   UI_LABEL "Auxfun"
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM auxfun
+   {
+      TYPE   i
+      DEFVAL "0"
+      UI_LABEL "Auxfun Value"
+   }
+   PARAM auxfun_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+#---------------------------------------------------------------------------
+EVENT prefun
+{
+   UI_LABEL "Prefun"
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM prefun
+   {
+      TYPE   i
+      DEFVAL "0"
+      UI_LABEL "Prefun Value"
+   }
+   PARAM prefun_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+#---------------------------------------------------------------------------
+EVENT pprint
+{
+  UI_LABEL "Pprint"
+  PARAM pprint
+   {
+      TYPE   s
+      TOGGLE On
+      UI_LABEL "Pprint"
+   }
+}
+#---------------------------------------------------------------------------
+EVENT text
+{
+  UI_LABEL "User Defined"
+  PARAM user_defined_text
+   {
+      TYPE   s
+      TOGGLE On
+      UI_LABEL "User Defined Command"
+   }
+}
+#---------------------------------------------------------------------------
+EVENT operator_message
+{
+  UI_LABEL "Operator Message"
+  PARAM operator_message
+   {
+      TYPE   s
+      TOGGLE   On
+      UI_LABEL "Operator Message"
+   }
+}
+##----------------------------------------------------------
+## WIRE EDM SPECIAL
+##----------------------------------------------------------
+EVENT wire_guides
+{
+   UI_LABEL "Wire Guides"
+   CATEGORY WEDM
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM wire_guides_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+#---------------------------------------------------------------------------
+EVENT thread_wire
+{
+   UI_LABEL "Thread Wire"
+   CATEGORY WEDM
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM thread_wire_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+#---------------------------------------------------------------------------
+EVENT cut_wire
+{
+   UI_LABEL "Cut Wire"
+   CATEGORY WEDM
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM cut_wire_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+
+#---------------------------------------------------------------------------
+EVENT power
+{
+   UI_LABEL "Power"
+#   CATEGORY WEDM
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM power_value
+   {
+      TYPE   d
+      DEFVAL "0.0000"
+      UI_LABEL "Power Register"
+   }
+   PARAM power_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+#---------------------------------------------------------------------------
+EVENT flush
+{
+   UI_LABEL "Flush"
+   CATEGORY WEDM
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM flush_status
+   {
+      TYPE o
+      DEFVAL "On"
+      OPTIONS "On","Off"
+      UI_LABEL "Flush Type"
+   }
+   PARAM guide_status
+   {
+      TYPE   b
+      DEFVAL "FALSE"
+      UI_LABEL "Guide Active"
+   }
+
+   PARAM flush_guides
+   {
+      TYPE o
+      DEFVAL "None"
+      OPTIONS "None","Upper","Lower","All"
+      UI_LABEL "Guide"
+#      TOGGLE Off
+   }
+
+   PARAM pressure_status
+   {
+      TYPE   b
+      DEFVAL "FALSE"
+      UI_LABEL "Pressure Active"
+   }
+
+   PARAM flush_pressure
+   {
+      TYPE o
+      DEFVAL "None"
+      OPTIONS "None","Low","Medium","High","Register"
+#      TOGGLE Off
+      UI_LABEL "Pressure"
+   }
+   PARAM flush_register
+   {
+      TYPE   i
+      DEFVAL "0"
+      UI_LABEL "Flush Register"
+   }
+   PARAM flush_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+#---------------------------------------------------------------------------
+EVENT flush_tank
+{
+   UI_LABEL "Flush Tank"
+   CATEGORY WEDM
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM flush_tank
+   {
+      TYPE o
+      DEFVAL "In"
+      OPTIONS "In","Out"
+      UI_LABEL "Tank type"
+   }
+   PARAM flush_tank_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+#---------------------------------------------------------------------------
+EVENT wire_feed_rate
+{
+   UI_LABEL "Feed Rate"
+   CATEGORY WEDM
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM Feedrate_register
+   {
+      TYPE   d
+      DEFVAL "0.0000"
+   }
+   PARAM Appended_Text
+   {
+      TYPE   s
+      TOGGLE Off
+   }
+}
+#---------------------------------------------------------------------------
+EVENT wire_angles
+{
+   UI_LABEL "Wire Angles"
+   CATEGORY WEDM
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM wire_slope
+   {
+      TYPE   d
+      DEFVAL "0.0000"
+      UI_LABEL "Slope"
+   }
+   PARAM wire_angle
+   {
+      TYPE   d
+      DEFVAL "0.0000"
+      TOGGLE Off
+      UI_LABEL "Angle"
+   }
+   PARAM wire_angle_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+#---------------------------------------------------------------------------
+EVENT wire_cutcom
+{
+   UI_LABEL "Cutter Compensation"
+   CATEGORY WEDM
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM wire_cutcom_adjust_register
+   {
+      TYPE   i
+      DEFVAL "0"
+      TOGGLE On
+      UI_LABEL "Adjust Register"
+   }
+   PARAM cutcom_output
+   {
+      TYPE   b
+      DEFVAL "FALSE"
+      UI_LABEL "Output Cutcom/Off"
+#
+#   Not available in Event generation code
+#
+   }
+
+   PARAM wire_cutcom_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+
+#---------------------------------------------------------------------------
+
+EVENT opskip_on
+{
+   UI_LABEL "Optional Skip On"
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM opskip_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+
+EVENT opskip_off
+{
+   UI_LABEL "Optional Skip Off"
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM opskip_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+
+#---------------------------------------------------------------------------
+## Lathe Tool Change
+## REMOVE the Prefix Lathe after CATEGORY is fixed
+##
+EVENT lathe_tool_change
+{
+   POST_EVENT "load_tool"
+   UI_LABEL "Tool Change"
+   CATEGORY LATHE
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM load_tool_number
+   {
+      TYPE   i
+      DEFVAL "0"
+      TOGGLE On
+      UI_LABEL "Tool Number"
+   }
+
+   PARAM tool_x_offset
+   {
+      TYPE   d
+      DEFVAL "0.0000"
+      TOGGLE Off
+      UI_LABEL "Tool X Offset"
+   }
+   PARAM tool_y_offset
+   {
+      TYPE   d
+      DEFVAL "0.0000"
+      TOGGLE Off
+      UI_LABEL "Tool Y Offset"
+   }
+
+   PARAM tool_angle
+   {
+      TYPE   d
+      DEFVAL "0.0000"
+      TOGGLE Off
+      UI_LABEL "Angle"
+   }
+   PARAM tool_radius
+   {
+      TYPE   d
+      DEFVAL "0.0000"
+      TOGGLE Off
+      UI_LABEL "Radius"
+   }
+
+   PARAM tool_head
+   {
+      TYPE o
+      DEFVAL "None"
+      OPTIONS "None","Front","Rear","Right","Left","Side","Saddle"
+      UI_LABEL "Head Designation"
+   }
+   PARAM tool_adjust_register
+   {
+      TYPE   i
+      DEFVAL "0"
+      TOGGLE Off
+      UI_LABEL "Adjust Register"
+   }
+
+   PARAM tool_change_type
+   {
+      TYPE   b
+      DEFVAL "FALSE"
+      UI_LABEL "Manual Tool Change"
+   }
+
+   PARAM tool_text
+   {
+      TYPE s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+#-----------------------------------------------------
+EVENT dwell
+{
+   POST_EVENT "delay"
+   UI_LABEL "Dwell"
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM delay_mode
+   {
+      TYPE o
+      DEFVAL "Seconds"
+      OPTIONS "Seconds","Revolutions"
+      UI_LABEL "Dwell Type"
+   }
+
+   PARAM delay_value
+   {
+      TYPE   d
+      DEFVAL "0.0000"
+      UI_LABEL "Dwell Value"
+   }
+   PARAM delay_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+EVENT stop
+{
+   UI_LABEL "Stop"
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM stop_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+EVENT opstop
+{
+   UI_LABEL "Optional Stop"
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM opstop_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+
+#---------------------------------------------------------------------------
+
+
+#----------------User Defined Events for Demo---------------
+
+# Custom ivents

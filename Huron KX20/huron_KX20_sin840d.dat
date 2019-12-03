@@ -1,0 +1,7 @@
+
+###############################################################################
+# template_post config file - Event Handler and Definition files for 
+#                             Machine Huron
+###############################################################################
+HURON KX20 - Siemens 840-D - 3 Axes ,${UGII_CAM_POST_DIR}Huron_KX20_sin840d.tcl,${UGII_CAM_POST_DIR}Huron_KX20_sin840d.def
+LISTE OUTILS (HTML)                 ,${UGII_CAM_POST_DIR}post_tool_list_html.tcl,${UGII_CAM_POST_DIR}post_shopdoc.def

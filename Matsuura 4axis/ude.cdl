@@ -1,0 +1,45 @@
+#
+#--------------------------------------------------------------------------- 
+## G45 Offsets
+## 
+EVENT work_shift_offsets
+  {
+     POST_EVENT "g45_shift_offsets"
+     UI_LABEL "G45 Offsets" 
+      PARAM x_offset
+     {
+        TYPE   i
+        DEFVAL "61"
+        TOGGLE Off
+        UI_LABEL "G45 X Offset"
+     }
+     PARAM y_offset
+          {
+             TYPE   i
+             DEFVAL "62"
+             TOGGLE Off
+             UI_LABEL "G45 Y Offset"
+     }
+     PARAM z_offset
+          {
+             TYPE   i
+             DEFVAL "63"
+             TOGGLE Off
+             UI_LABEL "G45 Z Offset"
+     }
+  } 
+  #--------------------------------------------------------------------------- 
+  ## G46 Offset Cancel
+  ## 
+  EVENT work_offset_cancel
+    {
+       POST_EVENT "g46_offset_cancel"
+       UI_LABEL "G46 Offset Cancel" 
+        PARAM cancel_offsets
+       {
+          TYPE   o
+          DEFVAL "Off"
+	  OPTIONS "On","Off"
+          UI_LABEL "Status"
+       }
+  }

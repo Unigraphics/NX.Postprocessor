@@ -1,0 +1,11 @@
+###############################################################################
+# Deckel config file - Event Handler and Definition files for 
+#                             Deckel Machine
+###############################################################################
+
+DECKEL 75V 4 Axes      ,${UGII_CAM_POST_DIR}JMD_Deckel_TNC530.tcl,${UGII_CAM_POST_DIR}JMD_Deckel_TNC530.def
+#LISTE OUTILS (HTML)    ,${UGII_CAM_POST_DIR}post_tool_list_html.tcl,${UGII_CAM_POST_DIR}post_shopdoc.def
+#LISTE OPERATIONS (HTML),${UGII_CAM_POST_DIR}post_operation_list_html.tcl,${UGII_CAM_POST_DIR}post_shopdoc.def
+
+#TOOL_LIST(text),${UGII_CAM_POST_DIR}post_tool_list_text.tcl,${UGII_CAM_POST_DIR}post_shopdoc.def
+#OPERATION_LIST(text),${UGII_CAM_POST_DIR}post_operation_list_text.tcl,${UGII_CAM_POST_DIR}post_shopdoc.def

@@ -1,0 +1,1491 @@
+## POSTBUILDER_VERSION=2004.0.0.0
+##############################################################################
+#                                                                            #
+#  This file is used by Post Builder to edit the parameters associated       #
+#  with a specific post processor.                                           #
+#                                                                            #
+#                                                                            #
+#  <WARNING> The contents of this file should not be modified!               #
+#                                                                            #
+##############################################################################
+#  Created by rshrout @ Thu May 24 10:03:04 2007 Eastern Daylight Time
+#  with Post Builder version 5.0.0.
+#============================================================================#
+
+
+## POST EVENT HANDLER START
+def_file  mikron_vario600mM.def
+tcl_file  mikron_vario600mM.tcl
+## POST EVENT HANDLER END
+
+
+## POST INFORMATION START
+#  DESCRIPTION START
+This is a 5-Axis Milling Machine.
+#  DESCRIPTION END
+#  CONTROLLER START
+Generic
+#  CONTROLLER END
+#  HISTORY START
+Created with Post Builder version 3.5.0 by lubatti @ Sat Feb 08 12:11:04 2003 W. Europe Daylight Time..
+Saved with UG/Post Builder Version 3.5.0 on Sat Jul 22 20:48:54 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Jul 22 22:01:43 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Mon Jul 24 09:59:01 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Mon Jul 24 10:05:48 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Mon Jul 24 10:06:54 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Mon Jul 24 10:09:00 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Mon Jul 24 13:30:21 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Jul 25 20:13:52 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Jul 25 20:24:03 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Jul 25 20:26:43 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Jul 25 20:37:12 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Jul 25 20:39:27 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Jul 25 21:33:33 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Thu Aug 10 14:06:31 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Thu Aug 10 16:41:26 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 09:16:39 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 09:17:53 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 09:19:51 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 10:02:03 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 10:03:24 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 10:04:41 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 10:06:47 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 10:07:53 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 10:09:48 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 11:02:23 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 11:05:25 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 11:08:30 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 11:09:11 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 11:10:18 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 11:11:25 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 11:11:57 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 11:13:35 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 11:14:05 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 11:15:04 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 11:15:44 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 11:18:45 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 11:19:56 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 11:22:22 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 11:30:21 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 12:19:59 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 12:25:18 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 12:42:21 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 12:46:10 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 12:51:31 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 12:56:16 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 13:26:54 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 13:29:09 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 13:30:46 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 13:33:20 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 13:34:57 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 13:36:42 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 13:40:36 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 13:43:07 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 13:44:16 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 13:45:56 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 13:48:41 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 13:56:45 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 13:58:51 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 15 16:12:19 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 16 13:26:31 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 16 14:07:30 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 16 14:21:51 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 16 14:50:37 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Thu Aug 17 06:58:16 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Thu Aug 17 14:05:45 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Thu Aug 17 17:09:54 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Aug 18 07:00:12 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Aug 18 07:07:10 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Aug 18 07:11:00 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Aug 18 07:14:47 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Aug 18 08:09:04 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Aug 18 08:23:35 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Aug 18 08:25:13 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Aug 18 08:43:42 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Aug 18 10:09:11 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Aug 18 10:10:38 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Aug 18 10:19:44 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Aug 18 10:25:33 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Aug 18 10:30:13 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Aug 18 10:59:21 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Aug 18 11:18:18 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Aug 18 12:03:02 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Aug 18 12:19:10 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Aug 18 12:29:57 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Aug 18 12:34:19 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Aug 18 12:36:17 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Aug 18 12:39:15 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Aug 18 13:05:07 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Aug 18 13:06:40 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Aug 18 13:57:42 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Aug 18 14:17:52 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Aug 18 16:51:20 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 09:38:49 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 09:40:18 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 09:48:41 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 10:07:54 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 10:11:30 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 10:12:37 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 10:17:42 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 10:18:47 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 10:19:26 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 10:20:10 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 10:21:35 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 10:24:02 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 10:24:31 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 10:26:31 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 10:27:26 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 10:28:41 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 10:29:16 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 10:31:32 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 10:32:45 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 10:33:27 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 10:34:28 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 10:36:29 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 10:41:45 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 10:50:16 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 10:51:08 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 11:28:31 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 11:29:48 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 11:31:19 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 11:54:46 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 11:58:25 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 12:04:59 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 19 13:52:15 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Mon Aug 21 08:34:12 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Mon Aug 21 13:20:13 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Mon Aug 21 15:55:18 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Mon Aug 21 16:11:11 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Mon Aug 21 16:12:06 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Mon Aug 21 16:12:33 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Mon Aug 21 16:52:31 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Mon Aug 21 16:53:53 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Mon Aug 21 16:56:37 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 22 13:49:14 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 22 13:53:52 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 22 18:42:24 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 22 18:44:01 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 22 18:48:50 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 22 18:52:05 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 22 18:52:34 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 22 19:06:14 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 22 19:08:29 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 22 19:09:36 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 22 19:26:56 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 22 19:28:56 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 22 19:38:38 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 22 21:02:27 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 22 21:05:21 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 22 21:31:07 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 22 21:37:24 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 22 21:39:38 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 22 21:40:16 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Aug 22 21:41:07 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 07:17:42 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 07:25:00 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 10:35:00 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 10:37:25 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 11:09:38 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 17:55:38 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 20:15:10 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 20:20:38 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 20:28:55 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 20:31:36 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 20:35:00 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 20:36:00 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 20:39:48 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 20:42:14 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 20:54:00 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 20:56:29 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 20:58:36 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 21:01:53 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 21:03:12 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 21:06:45 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 21:09:35 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 21:11:37 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 21:13:38 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 21:20:42 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 21:32:16 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 21:33:43 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 21:36:18 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 21:37:20 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 21:39:26 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 21:50:36 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 21:52:09 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 21:58:14 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 22:04:47 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 22:07:03 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 23 22:08:32 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Thu Aug 24 07:30:21 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Thu Aug 24 07:31:28 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Thu Aug 24 07:33:03 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Thu Aug 24 07:48:20 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Thu Aug 24 14:38:45 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Thu Aug 24 19:04:46 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Thu Aug 24 19:35:37 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Thu Aug 24 20:10:14 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Aug 25 17:20:57 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Aug 25 17:29:13 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Aug 25 17:52:28 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Aug 25 18:10:53 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 26 06:53:31 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 26 09:49:49 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 26 11:03:34 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 26 11:36:00 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 26 12:41:07 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 26 12:47:41 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 26 12:50:44 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 26 12:51:57 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 26 12:55:09 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 26 12:56:51 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Sat Aug 26 15:33:46 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Mon Aug 28 07:44:19 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Mon Aug 28 16:44:34 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Aug 30 16:44:43 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Mon Sep 25 15:44:42 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Mon Sep 25 15:55:14 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Mon Sep 25 16:03:57 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Mon Sep 25 16:16:24 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Mon Sep 25 16:27:40 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Mon Sep 25 16:31:09 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Mon Sep 25 16:33:12 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Mon Sep 25 22:08:19 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Sep 27 13:32:15 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Sep 27 14:54:57 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Sep 27 14:57:31 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Sep 27 15:03:13 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Sep 27 15:04:29 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Sep 27 15:23:00 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Sep 27 15:24:03 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Sep 27 15:27:05 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Sep 27 15:30:52 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 19:31:00 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 19:58:10 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 20:05:04 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 20:19:09 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 20:20:23 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 20:34:57 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 20:35:35 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 21:35:31 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 21:51:31 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 21:54:06 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 21:55:25 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 21:56:23 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 22:00:08 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 22:07:36 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 22:09:29 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 22:11:43 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 22:13:59 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 22:14:52 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 22:16:33 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 22:18:09 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 22:19:18 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 22:20:40 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 22:21:29 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 22:22:50 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 22:25:36 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 22:27:28 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 22:29:24 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 22:29:58 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 22:36:28 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 22:43:47 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 22:45:16 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 22:46:56 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 22:47:39 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 22:49:26 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 22:51:32 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 22:53:14 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 22:55:13 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Oct 03 23:12:18 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Oct 04 07:02:34 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Oct 04 07:13:17 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Oct 04 07:34:49 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Oct 04 07:41:19 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Oct 04 07:46:03 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Oct 04 07:52:17 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Oct 04 07:55:33 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Oct 04 08:00:14 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Oct 04 08:04:42 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Oct 04 08:05:26 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Oct 04 08:37:07 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Oct 04 08:38:32 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Oct 04 08:40:23 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Oct 04 08:51:20 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Oct 04 08:52:18 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Oct 04 09:03:15 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Oct 04 12:43:09 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Thu Oct 05 19:36:52 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Thu Oct 05 19:46:50 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Thu Oct 05 23:00:45 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Dec 13 10:24:14 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Dec 13 10:31:28 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Dec 13 10:35:26 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Dec 13 10:42:32 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Dec 13 10:50:48 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Dec 13 10:55:38 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Wed Dec 13 10:57:02 2006 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Feb 06 16:07:12 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Feb 06 16:13:54 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Feb 06 18:27:18 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Thu Feb 08 08:17:10 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Thu Feb 08 08:24:22 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Thu Feb 08 09:42:46 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Feb 09 07:42:57 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Feb 09 08:13:02 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Feb 09 08:32:00 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Fri Feb 09 09:47:55 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Feb 13 07:21:37 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.0 on Tue Feb 13 09:36:39 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.2 on Thu Mar 29 17:12:05 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.2 on Thu Mar 29 17:13:42 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.2 on Thu Mar 29 17:20:03 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.2 on Wed Apr 25 20:00:22 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 3.5.2 on Wed Apr 25 20:29:26 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Tue May 01 16:14:32 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Tue May 01 16:15:10 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Tue May 01 16:41:42 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Tue May 01 16:43:36 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Tue May 01 16:43:48 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Tue May 01 16:44:02 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Tue May 01 16:45:31 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Tue May 01 16:48:14 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Tue May 01 17:13:59 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Tue May 01 17:21:12 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Wed May 09 17:35:01 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Wed May 09 17:37:05 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Wed May 09 17:52:42 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Wed May 09 17:53:02 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Wed May 09 17:57:00 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Wed May 09 17:57:27 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Wed May 09 18:00:03 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Wed May 09 18:09:56 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Thu May 10 15:25:13 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Thu May 10 15:26:43 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Thu May 10 15:28:30 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Thu May 10 15:30:22 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Thu May 10 15:32:59 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Thu May 10 15:37:57 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Thu May 10 15:47:58 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Thu May 10 16:19:15 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Mon May 14 14:35:00 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Mon May 14 16:37:40 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Mon May 14 16:38:01 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Tue May 22 10:49:50 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Tue May 22 10:51:25 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Tue May 22 10:52:27 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Tue May 22 10:53:17 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Tue May 22 10:56:58 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Tue May 22 12:03:02 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Wed May 23 12:08:03 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Wed May 23 18:12:25 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Thu May 24 08:00:18 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Thu May 24 08:18:05 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Thu May 24 08:28:49 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Thu May 24 08:30:08 2007 Eastern Daylight Time by rshrout.
+Saved with UG/Post Builder Version 5.0.0 on Thu May 24 10:03:01 2007 Eastern Daylight Time by rshrout.
+#  HISTORY END
+## POST INFORMATION END
+
+
+## LISTING FILE START
+Listfileflag_warn              OFF
+Listfileflag                   OFF
+Listfileflag_group             OFF
+Listfileflag_verbose           1
+Listfileflag_tool              0
+Listfileflag_oper              0
+Listfileflag_lpt_ext           lpt
+Listfileflag_ncfile_ext        H
+Listfileflag_usertcl_name      mikron_tnc430m_user.tcl
+Listfileflag_review            0
+Listfileflag_start_path        0
+Listfileflag_head              OFF
+Listfileflag_end_path          0
+Listfilelines                  40
+Listfileflag_oper_time         0
+Listfileflag_tool_chng         0
+Listfilecolumn                 30
+Listfileflag_usertcl_check     0
+Listfileflag_setup_time        0
+Listfilename                   listfile.lpt
+## LISTING FILE END
+
+## KINEMATIC VARIABLES START
+"$mom_kin_4th_axis_ang_offset"            "0.0"
+"$mom_kin_4th_axis_center_offset(0)"      "0.0"
+"$mom_kin_4th_axis_center_offset(1)"      "0.0"
+"$mom_kin_4th_axis_center_offset(2)"      "0"
+"$mom_kin_4th_axis_direction"             "MAGNITUDE_DETERMINES_DIRECTION"
+"$mom_kin_4th_axis_incr_switch"           "OFF"
+"$mom_kin_4th_axis_leader"                "B"
+"$mom_kin_4th_axis_limit_action"          "Warning"
+"$mom_kin_4th_axis_max_limit"             "30"
+"$mom_kin_4th_axis_min_incr"              "0.001"
+"$mom_kin_4th_axis_min_limit"             "-115"
+"$mom_kin_4th_axis_plane"                 "ZX"
+"$mom_kin_4th_axis_point(0)"              "0.0"
+"$mom_kin_4th_axis_point(1)"              "0.0"
+"$mom_kin_4th_axis_point(2)"              "0"
+"$mom_kin_4th_axis_rotation"              "standard"
+"$mom_kin_4th_axis_type"                  "Table"
+"$mom_kin_4th_axis_vector(0)"             "0"
+"$mom_kin_4th_axis_vector(1)"             "1"
+"$mom_kin_4th_axis_vector(2)"             "0"
+"$mom_kin_4th_axis_zero"                  "0.0"
+"$mom_kin_5th_axis_ang_offset"            "0.0"
+"$mom_kin_5th_axis_center_offset(0)"      "0.0"
+"$mom_kin_5th_axis_center_offset(1)"      "0.0"
+"$mom_kin_5th_axis_center_offset(2)"      "0.0"
+"$mom_kin_5th_axis_direction"             "MAGNITUDE_DETERMINES_DIRECTION"
+"$mom_kin_5th_axis_incr_switch"           "OFF"
+"$mom_kin_5th_axis_leader"                "C"
+"$mom_kin_5th_axis_limit_action"          "Warning"
+"$mom_kin_5th_axis_max_limit"             "9999.9999"
+"$mom_kin_5th_axis_min_incr"              "0.001"
+"$mom_kin_5th_axis_min_limit"             "-9999.9999"
+"$mom_kin_5th_axis_plane"                 "XY"
+"$mom_kin_5th_axis_point(0)"              "0.0"
+"$mom_kin_5th_axis_point(1)"              "0.0"
+"$mom_kin_5th_axis_point(2)"              "0.0"
+"$mom_kin_5th_axis_rotation"              "standard"
+"$mom_kin_5th_axis_type"                  "Table"
+"$mom_kin_5th_axis_vector(0)"             "0"
+"$mom_kin_5th_axis_vector(1)"             "0"
+"$mom_kin_5th_axis_vector(2)"             "1"
+"$mom_kin_5th_axis_zero"                  "0.0"
+"$mom_kin_arc_output_mode"                "FULL_CIRCLE"
+"$mom_kin_arc_valid_plane"                "XYZ"
+"$mom_kin_clamp_time"                     "2.0"
+"$mom_kin_flush_time"                     "2.0"
+"$mom_kin_linearization_flag"             "1"
+"$mom_kin_linearization_tol"              "0.001"
+"$mom_kin_machine_resolution"             ".0001"
+"$mom_kin_machine_type"                   "5_axis_dual_table"
+"$mom_kin_machine_zero_offset(0)"         "0.0"
+"$mom_kin_machine_zero_offset(1)"         "0.0"
+"$mom_kin_machine_zero_offset(2)"         "0.0"
+"$mom_kin_max_arc_radius"                 "999999.9999"
+"$mom_kin_max_dpm"                        "20"
+"$mom_kin_max_fpm"                        "15000"
+"$mom_kin_max_fpr"                        "1000"
+"$mom_kin_max_frn"                        "1000"
+"$mom_kin_min_arc_length"                 "0.001"
+"$mom_kin_min_arc_radius"                 "0.5"
+"$mom_kin_min_dpm"                        "0.0"
+"$mom_kin_min_fpm"                        "0.1"
+"$mom_kin_min_fpr"                        "0.1"
+"$mom_kin_min_frn"                        "0.01"
+"$mom_kin_output_unit"                    "MM"
+"$mom_kin_pivot_gauge_offset"             "0"
+"$mom_kin_pivot_guage_offset"             ""
+"$mom_kin_post_data_unit"                 "MM"
+"$mom_kin_rapid_feed_rate"                "6000"
+"$mom_kin_retract_distance"               "500"
+"$mom_kin_rotary_axis_method"             "PREVIOUS"
+"$mom_kin_spindle_axis(0)"                "0.0"
+"$mom_kin_spindle_axis(1)"                "0.0"
+"$mom_kin_spindle_axis(2)"                "1.0"
+"$mom_kin_tool_change_time"               "12.0"
+"$mom_kin_x_axis_limit"                   "600"
+"$mom_kin_y_axis_limit"                   "450"
+"$mom_kin_z_axis_limit"                   "450"
+## KINEMATIC VARIABLES END
+
+## GCODES START
+"$mom_sys_rapid_code"                     "Motion Rapid"
+"$mom_sys_linear_code"                    "Motion Linear"
+"$mom_sys_circle_code(CLW)"               "Circular Interperlation CLW"
+"$mom_sys_circle_code(CCLW)"              "Circular Interperlation CCLW"
+"$mom_sys_delay_code(SECONDS)"            "Delay (Sec)"
+"$mom_sys_delay_code(REVOLUTIONS)"        "Delay (Rev)"
+"$mom_sys_cutcom_plane_code(XY)"          "Plane XY"
+"$mom_sys_cutcom_plane_code(ZX)"          "Plane ZX"
+"$mom_sys_cutcom_plane_code(YZ)"          "Plane YZ"
+"$mom_sys_cutcom_code(OFF)"               "Cutcom Off"
+"$mom_sys_cutcom_code(LEFT)"              "Cutcom Left"
+"$mom_sys_cutcom_code(RIGHT)"             "Cutcom Right"
+"$mom_sys_adjust_code"                    "Tool Length Adjust Plus"
+"$mom_sys_adjust_code_minus"              "Tool Length Adjust Minus"
+"$mom_sys_adjust_cancel_code"             "Tool Length Adjust Off"
+"$mom_sys_unit_code(IN)"                  "Inch Mode"
+"$mom_sys_unit_code(MM)"                  "Metric Mode"
+"$mom_sys_cycle_start_code"               "Cycle Start Code"
+"$mom_sys_cycle_off"                      "Cycle Off"
+"$mom_sys_cycle_drill_code"               "Cycle Drill"
+"$mom_sys_cycle_drill_dwell_code"         "Cycle Drill Dwell"
+"$mom_sys_cycle_drill_deep_code"          "Cycle Drill Deep"
+"$mom_sys_cycle_drill_break_chip_code"    "Cycle Drill Break Chip"
+"$mom_sys_cycle_tap_code"                 "Cycle Tap"
+"$mom_sys_cycle_bore_code"                "Cycle Bore"
+"$mom_sys_cycle_bore_drag_code"           "Cycle Bore Drag"
+"$mom_sys_cycle_bore_no_drag_code"        "Cycle Bore No Drag"
+"$mom_sys_cycle_bore_dwell_code"          "Cycle Bore Dwell"
+"$mom_sys_cycle_bore_manual_code"         "Cycle Bore Manual"
+"$mom_sys_cycle_bore_back_code"           "Cycle Bore Back"
+"$mom_sys_cycle_bore_manual_dwell_code"   "Cycle Bore Manual Dwell"
+"$mom_sys_output_code(ABSOLUTE)"          "Absolute Mode"
+"$mom_sys_output_code(INCREMENTAL)"       "Incremental Mode"
+"$mom_sys_cycle_ret_code(AUTO)"           "Cycle Retract (AUTO)"
+"$mom_sys_cycle_ret_code(MANUAL)"         "Cycle Retract (MANUAL)"
+"$mom_sys_reset_code"                     "Reset"
+"$mom_sys_feed_rate_mode_code(IPM)"       "Feedrate Mode IPM"
+"$mom_sys_feed_rate_mode_code(IPR)"       "Feedrate Mode IPR"
+"$mom_sys_feed_rate_mode_code(FRN)"       "Feedrate Mode FRN"
+"$mom_sys_spindle_mode_code(SFM)"         "Spindle CSS"
+"$mom_sys_spindle_mode_code(RPM)"         "Spindle RPM"
+"$mom_sys_return_code"                    "Return Home"
+"$mom_sys_feed_rate_mode_code(MMPM)"      "Feedrate Mode MMPM"
+"$mom_sys_feed_rate_mode_code(MMPR)"      "Feedrate Mode MMPR"
+## GCODES END
+
+## MCODES START
+"$mom_sys_program_stop_code"              "Stop/Manual Tool Change"
+"$mom_sys_optional_stop_code"             "Opstop"
+"$mom_sys_end_of_program_code"            "Program End"
+"$mom_sys_spindle_direction_code(CLW)"    "Spindle On/CLW"
+"$mom_sys_spindle_direction_code(CCLW)"   "Spindle CCLW"
+"$mom_sys_spindle_direction_code(OFF)"    "Spindle Off"
+"$mom_sys_tool_change_code"               "Tool Change/Retract"
+"$mom_sys_coolant_code(ON)"               "Coolant On"
+"$mom_sys_coolant_code(FLOOD)"            "Coolant Flood"
+"$mom_sys_coolant_code(MIST)"             "Coolant Mist"
+"$mom_sys_coolant_code(THRU)"             "Coolant Thru"
+"$mom_sys_coolant_code(TAP)"              "Coolant Tap"
+"$mom_sys_coolant_code(OFF)"              "Coolant Off"
+"$mom_sys_rewind_code"                    "Rewind"
+## MCODES END
+
+## MASTER SEQUENCE START
+cycle_feedrate    "$mom_usd_add_var"  0  "New Address"  1
+G_cutcom          "$mom_sys_cutcom_code(OFF)"  0  "Cutcom G-Code"  0
+G_plane           "$mom_sys_cutcom_plane_code($mom_cutcom_plane)"  0  "Plane G-Code"  0
+G_adjust          "$mom_sys_adjust_code"  0  "Tool Length Adjust G-Code"  0
+G_feed            "$mom_sys_feed_rate_mode_code($feed_mode)"  0  "Feedrate Mode G-Code"  0
+G_spin            "$mom_sys_spindle_mode_code($mom_spindle_status)"  0  "Spindle Output Mode G-Code"  0
+G_return          "$mom_sys_cycle_ret_code(MANUAL)"  0  "Return Plane for Canned Cycles"  0
+G_motion          "$mom_sys_linear_code"  0  "Motion G-Code"  0
+G_mode            "$mom_sys_output_code($mom_output_mode)"  0  "Positioning Mode G-code"  0
+G                 "$mom_sys_blank_code"  0  "Other G-Codes"  0
+X                 "$mom_sys_blank_code"  0  "X Axis Position or Canned Cycle X Axis Position"  0
+K3X               "$mom_usd_add_var"  0  "(K3X)"  1
+K2X               "$mom_usd_add_var"  0  "(K2X)"  1
+K1X               "$mom_usd_add_var"  0  "(K1X)"  1
+K3Y               "$mom_usd_add_var"  0  "(K3Y)"  1
+K2Y               "$mom_usd_add_var"  0  "(K2Y)"  1
+K1Y               "$mom_usd_add_var"  0  "(K1Y)"  1
+K3Z               "$mom_usd_add_var"  0  "(K3Z)"  1
+K2Z               "$mom_usd_add_var"  0  "(K2Z)"  1
+K1Z               "$mom_usd_add_var"  0  "(K1Z)"  1
+Y                 "$mom_sys_blank_code"  0  "Y Axis Position or Canned Cycle Y Axis Position"  0
+Z                 "$mom_sys_blank_code"  0  "Z Axis Position or Canned Cycle Z Axis Position"  0
+fourth_axis       "$mom_sys_blank_code"  0  "4th Axis Position"  0
+fifth_axis        "$mom_sys_blank_code"  0  "5th Axis Position"  0
+I                 "$mom_sys_blank_code"  0  "X Axis Position of the Circle Center"  0
+J                 "$mom_sys_blank_code"  0  "Y Axis Position of the Circle Center"  0
+K                 "$mom_sys_blank_code"  0  "Z Axis Position of the Circle Center"  0
+R                 "$mom_sys_blank_code"  0  "Rapid Approach Position in a Canned Cycle Block"  0
+cutter_comp       "$mom_usd_add_var"  0  "New Address"  1
+T                 "$mom_sys_blank_code"  0  "Tool Select Code"  0
+S                 "$mom_sys_blank_code"  0  "Spindle Speed"  0
+D                 "$mom_sys_blank_code"  0  "Tool Radius Compensation Register"  0
+H                 "$mom_sys_blank_code"  0  "Tool Length Compensation Register"  0
+dwell             "$mom_sys_blank_code"  0  "Programmed Dwell"  0
+cycle_number      "$mom_usd_add_var"  0  "New Address"  1
+P_cutcom          "$mom_sys_blank_code"  0  "P-Cutcom"  0
+K_cycle           "$mom_sys_blank_code"  0  "Retract Position in a Canned Cycle Block"  0
+cycle_step1       "$mom_sys_blank_code"  0  "Step Increment Modifier for Deep or Break Chip Cycle"  0
+cycle_step        "$mom_sys_blank_code"  0  "Step Increment for Deep or Break Chip Cycle"  0
+Q_cutcom          "$mom_sys_blank_code"  0  "Q-Cutcom"  0
+E                 "$mom_sys_blank_code"  0  "Thread Increment for Threads"  0
+circle_direction   "$mom_usd_add_var"  0  "New Address"  1
+cycle_rapid_to    "$mom_usd_add_var"  0  "(cycle_rapid_to)"  1
+cycle_feed_to     "$mom_usd_add_var"  0  "New Address"  1
+cycle_tap_lead    "$mom_usd_add_var"  0  "(cycle_tap_lead)"  1
+cycle_surface     "$mom_usd_add_var"  0  "New Address"  1
+cycle_pullback    "$mom_usd_add_var"  0  "(cycle_pullback)"  1
+F                 "$mom_sys_blank_code"  0  "Feedrate"  0
+user_add_1        "$mom_usd_add_var"  0  "New Address"  1
+cycle_tap_incr    "$mom_usd_add_var"  0  "(cycle_tap_incr)"  1
+cycle_tap_brk_dist   "$mom_usd_add_var"  0  "(cycle_tap_brk_dist)"  1
+cycle_plunge      "$mom_usd_add_var"  0  "New Address"  1
+cycle_dwell_top   "$mom_usd_add_var"  0  "New Address"  1
+cycle_dwell       "$mom_sys_blank_code"  0  "Delay for Canned cycle Dwell"  0
+cycle_spindle_orientation   "$mom_usd_add_var"  0  "(cycle_spindle_orientation)"  1
+user_add          "$mom_usd_add_var"  0  "New Address"  1
+M_spindle         "$mom_sys_spindle_direction_code($mom_spindle_direction)"  0  "Spindle Direction M-Code"  0
+M_range           "$mom_sys_spindle_range_code($mom_spindle_range)"  0  "Spindle Range M-Code"  0
+M_coolant         "$mom_sys_coolant_code($mom_coolant_status)"  0  "Coolant M-Code"  0
+M                 "$mom_sys_optional_stop_code"  0  "Other M-Codes"  0
+star_of_program   "$mom_usd_add_var"  0  "New Address"  1
+cycle_orient      "$mom_sys_blank_code"  1  "Orient Value for Bore Nodrag or Back Bore Cycle"  0
+N                 ""  0  "Sequence Number"  0
+Text              ""  0  "Text String"  0
+## MASTER SEQUENCE END
+
+## CYCLE EVENT START
+#Cycle Common Block Start
+{Cycle Parameters}
+#Cycle Common Block End
+
+#Cycle Block Share Common Block Start
+{ \
+  {Drill} \
+  {Drill Dwell} \
+  {Drill Deep} \
+  {Drill Break Chip} \
+  {Tap} \
+  {Bore} \
+  {Bore Drag} \
+  {Bore No Drag} \
+  {Bore Dwell} \
+  {Bore Manual} \
+  {Bore Back} \
+  {Bore Manual Dwell} \
+}
+#Cycle Block Share Common Block End
+## CYCLE EVENT END
+
+## BLOCK MODALITY START
+{absolute_mode}                 {G_mode}
+{circle_center_cc}              {Text I J}
+{circle_motion_c}               {G_motion X Y circle_direction}
+{cycle_block}                   {Text Text}
+{cycle_block_1}                 {Text}
+{cycle_block_2}                 {Text}
+{cycle_block_239}               {Text}
+{cycle_block_3}                 {Text}
+{cycle_block_4}                 {Text}
+{cycle_block_5}                 {Text}
+{cycle_block_6}                 {Text}
+{cycle_block_8}                 {Text}
+{cycle_bore}                    {G_motion}
+{cycle_bore_back}               {G_motion}
+{cycle_bore_drag}               {G_motion}
+{cycle_bore_dwell}              {G_motion}
+{cycle_bore_manual}             {G_motion}
+{cycle_bore_manual_dwell}       {G_motion}
+{cycle_bore_no_drag}            {G_motion}
+{cycle_drill}                   {G_motion}
+{cycle_drill_break_chip}        {G_motion}
+{cycle_drill_deep}              {G_motion}
+{cycle_drill_dwell}             {G_motion}
+{cycle_plane19}                 {Text fourth_axis fifth_axis}
+{cycle_plane19_move}            {fourth_axis fifth_axis}
+{cycle_tap}                     {G_motion}
+{linear_move_1}                 {G_motion}
+{rapid_traverse}                {G_motion}
+{return_home}                   {G_mode Z}
+{spindle_rpm}                   {S M_spindle}
+{tool_change}                   {G_mode G Z}
+{tool_change_1}                 {Text T Text S}
+{post_cycle_set}                {G_motion}
+## BLOCK MODALITY END
+
+## COMPOSITE BLOCKS START
+{}
+## COMPOSITE BLOCKS END
+
+## SEQUENCE START
+#Program Start Sequence Start
+{Start of Program}         {MOM_set_seq_off PB_CMD_program_header PB_CMD_combine_rotary_init}  {Start of Program}
+#Program Start Sequence End
+
+#Operation Start Sequence Start
+{Start of Path}            {PB_CMD_announce_oper PB_CMD_announce_tool}  {Start of Path}
+{From Move}                {}  {From Move}
+{First Tool}               {}  {First Tool}
+{Auto Tool Change}         {}  {Auto Tool Change}
+{Manual Tool Change}       {stop}  {Manual Tool Change}
+{Initial Move}             {PB_CMD_start_of_operation_force tool_change_1 PB_CMD_cycle_plane_change}  {Initial Move}
+{First Move}               {PB_CMD_cycle_plane_change PB_CMD_start_of_operation_force}  {First Move}
+{Approach Move}            {}  {Approach Move}
+{Engage Move}              {}  {Engage Move}
+{First Cut}                {}  {First Cut}
+{First Linear Move}        {}  {First Linear Move}
+#Operation Start Sequence End
+
+##Tool Path Start
+#Control Functions Start
+{Tool Change}              {}  {$gPB(event,tool_change,name)}
+{Length Compensation}      {tool_length_adjust}  {Length Compensation}
+{Set Modes}                {}  {Set Modes}
+{Spindle RPM}              {spindle_rpm}  {Spindle RPM}
+{Spindle Off}              {spindle_off}  {Spindle Off}
+{Coolant On}               {}  {Coolant On}
+{Coolant Off}              {coolant_off}  {Coolant Off}
+{Inch Metric Mode}         {}  {Inch Metric Mode}
+{Feedrates}                {}  {Feedrates}
+{Cutcom On}                {}  {Cutcom On}
+{Cutcom Off}               {cutcom_off}  {Cutcom Off}
+{Delay}                    {delay}  {Delay}
+{Opstop}                   {opstop}  {Opstop}
+{Auxfun}                   {auxfun}  {Auxfun}
+{Prefun}                   {prefun}  {Prefun}
+{Load Tool}                {}  {Load Tool}
+{Stop}                     {stop}  {Stop}
+{Tool Preselect}           {tool_preselect}  {Tool Preselect}
+#Control Functions End
+
+#Motions Start
+{Linear Move}              {PB_CMD_combine_rotary_output PB_CMD_change_mom_pos_to_mcs_pos linear_move_1}  {Linear Move}
+{Circular Move}            {circle_center_cc PB_CMD_circle_direction circle_motion_c}  {Circular Move}
+{Rapid Move}               {PB_CMD_set_cycle_plane PB_CMD_change_mom_pos_to_mcs_pos rapid_traverse PB_CMD_save_last_z}  {Rapid Move}
+#Motions End
+
+#Cycles Start
+{Cycle Parameters}         {PB_CMD_cycle_init post_cycle_set cycle_parameters}  {Common Parameters}
+{Cycle Off}                {}  {Cycle Off}
+{Cycle Plane Change}       {PB_CMD_cycle_plane_change}  {Cycle Plane Change}
+{Drill}                    {cycle_drill}  {Drill}
+{Drill Dwell}              {cycle_drill_dwell}  {Drill Dwell}
+{Drill Deep}               {cycle_drill_deep}  {Drill Deep}
+{Drill Break Chip}         {cycle_drill_break_chip}  {Drill Break Chip}
+{Tap}                      {cycle_tap}  {Tap}
+{Bore}                     {cycle_bore}  {Bore}
+{Bore Drag}                {cycle_bore_drag}  {Bore Drag}
+{Bore No Drag}             {cycle_bore_no_drag}  {Bore No Drag}
+{Bore Manual}              {cycle_bore_manual}  {Bore Manual}
+{Bore Dwell}               {cycle_bore_dwell}  {Bore Dwell}
+{Bore Back}                {cycle_bore_back}  {Bore Back}
+{Bore Manual Dwell}        {cycle_bore_manual_dwell}  {Bore Manual Dwell}
+#Cycles End
+##Tool Path End
+
+#Operation End Sequence Start
+{Retract Move}             {}  {Retract Move}
+{Return Move}              {}  {Return Move}
+{Gohome Move}              {}  {Gohome Move}
+{End of Path}              {}  {End of Path}
+#Operation End Sequence End
+
+#Program End Sequence Start
+{End Of Program}           {PB_CMD_End_Program}  {End Of Program}
+#Program End Sequence End
+
+#Linked Posts Sequence Start
+#Linked Posts Sequence End
+
+#Virtual NC Sequence Start
+#Virtual NC Sequence End
+## SEQUENCE END
+
+## EVENTS USER INTERFACE START
+{Tool Change} \
+     {{"$gPB(event,tool_change,m_code)" 1  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,tool_change,m_code,tl_chng)" 2  a $mom_sys_tool_change_code UI_PB_tpth_EntryCallBack null}}} \
+     {{"$gPB(event,tool_change,t_code)" 1  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,tool_change,t_code,conf)" 1  n null UI_PB_tpth_ConfToolCode null}}} \
+     {{"$gPB(event,tool_change,tool_num)" 1  V} \
+        {{"null" 2  V} \
+                {"$gPB(event,tool_change,tool_num,min)" 0  i $tl_num_min null null} \
+                {"$gPB(event,tool_change,tool_num,max)" 0  i $tl_num_max null null}}} \
+     {{"$gPB(event,tool_change,time)" 1  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,tool_change,time,tl_chng)" 2  f $mom_kin_tool_change_time null null}}} \
+     {{"$gPB(event,tool_change,retract)" 1  V} \
+        {{"null" 2  H} \
+                {"$gPB(event,tool_change,retract_z)" 3  n $tl_retract_status null null} \
+                {"null" 2  f $tl_retract_z_pos null null}}}
+{Length Compensation} \
+     {{"$gPB(event,length_compn,g_code)" 1  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,length_compn,g_code,len_adj)" 2  a $mom_sys_adjust_code UI_PB_tpth_EntryCallBack null}}} \
+     {{"$gPB(event,length_compn,t_code)" 1  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,length_compn,t_code,conf)" 1  n null UI_PB_tpth_ConfToolCode null}}} \
+     {{"$gPB(event,length_compn,len_off)" 1  V} \
+        {{"null" 2  V} \
+                {"$gPB(event,length_compn,len_off,min)" 0  i $tl_len_offs_min null null} \
+                {"$gPB(event,length_compn,len_off,max)" 0  i $tl_len_offs_max null null}}}
+{Set Modes} \
+     {{"$gPB(event,set_modes,out_mode)" 1  V} \
+        {{"null" 1  V} \
+                {"null" 8  n $output_mode_opt null {"Absolute Only" "Incremental Only" "Absolute/Incremental"}}}} \
+     {{"$gPB(event,set_modes,g_code)" 1  V} \
+        {{"null" 2  V} \
+                {"$gPB(event,set_modes,g_code,absolute)" 2  a $mom_sys_output_code(ABSOLUTE) null null} \
+                {"$gPB(event,set_modes,g_code,incremental)" 2  a $mom_sys_output_code(INCREMENTAL) null null}}}
+{Spindle RPM} \
+     {{"$gPB(event,spindle_rpm,dir_m_code)" 1  V} \
+        {{"null" 2  V} \
+                {"$gPB(event,spindle_rpm,dir_m_code,cw)" 2  a $mom_sys_spindle_direction_code(CLW) UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,spindle_rpm,dir_m_code,ccw)" 2  a $mom_sys_spindle_direction_code(CCLW) UI_PB_tpth_EntryCallBack null}}} \
+     {{"$gPB(event,spindle_rpm,range_control)" 1  V} \
+        {{"null" 2  V} \
+                {"$gPB(event,spindle_rpm,range_control,dwell_time)" 0  i $spin_dwell_time null null} \
+                {"$gPB(event,spindle_rpm,range_control,range_code)" 1  n null UI_PB_tpth_SpecifySpindleRangeCodes null}}}
+{Spindle Off} \
+     {{"null" 1  V} \
+        {{"$gPB(event,spindle_off,dir_m_code)" 1  V} \
+                {"$gPB(event,spindle_off,dir_m_code,off)" 2  a $mom_sys_spindle_direction_code(OFF) UI_PB_tpth_EntryCallBack null}}}
+{Coolant On} \
+     {{"null" 1  V} \
+        {{"$gPB(event,coolant_on,m_code)" 5  V} \
+                {"$gPB(event,coolant_on,m_code,on)" 2  a $mom_sys_coolant_code(ON) UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,coolant_on,m_code,flood)" 2  a $mom_sys_coolant_code(FLOOD) UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,coolant_on,m_code,mist)" 2  a $mom_sys_coolant_code(MIST) UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,coolant_on,m_code,thru)" 2  a $mom_sys_coolant_code(THRU) UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,coolant_on,m_code,tap)" 2  a $mom_sys_coolant_code(TAP) UI_PB_tpth_EntryCallBack null}}}
+{Coolant Off} \
+     {{"null" 1  V} \
+        {{"$gPB(event,coolant_off,m_code)" 1  V} \
+                {"$gPB(event,coolant_off,m_code,off)" 2  a $mom_sys_coolant_code(OFF) UI_PB_tpth_EntryCallBack null}}}
+{Inch Metric Mode} \
+     {{"$gPB(event,inch_metric_mode,g_code)" 1  V} \
+        {{"null" 2  V} \
+                {"$gPB(event,inch_metric_mode,g_code,english)" 2  a $mom_sys_unit_code(IN) UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,inch_metric_mode,g_code,metric)" 2  a $mom_sys_unit_code(MM) UI_PB_tpth_EntryCallBack null}}}
+{Feedrates} \
+     {{"$gPB(event,feedrates,mmpm_mode)" 4  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,g_code)" 2  a $mom_sys_feed_rate_mode_code(MMPM) UI_PB_tpth_EntryCallBack null}} \
+        {{"$gPB(event,feedrates,format)" 1  V} \
+                {"null" 9  n $mom_sys_feed_param(MMPM,format) UI_PB_tpth_EditFeedFmt null}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,max)" 2  f $mom_kin_max_fpm null null}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,min)" 2  f $mom_kin_min_fpm null null}}} \
+     {{"$gPB(event,feedrates,mmpr_mode)" 4  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,g_code)" 2  a $mom_sys_feed_rate_mode_code(MMPR) UI_PB_tpth_EntryCallBack null}} \
+        {{"$gPB(event,feedrates,format)" 1  V} \
+                {"null" 9  n $mom_sys_feed_param(MMPR,format) UI_PB_tpth_EditFeedFmt null}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,max)" 2  f $mom_kin_max_fpr null null}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,min)" 2  f $mom_kin_min_fpr null null}}} \
+     {{"$gPB(event,feedrates,frn_mode)" 4  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,g_code)" 2  a $mom_sys_feed_rate_mode_code(FRN) UI_PB_tpth_EntryCallBack null}} \
+        {{"$gPB(event,feedrates,format)" 1  V} \
+                {"null" 9  n $mom_sys_feed_param(FRN,format) UI_PB_tpth_EditFeedFmt null}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,max)" 2  f $mom_kin_max_frn null null}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,min)" 2  f $mom_kin_min_frn null null}}} \
+     {{"$gPB(event,feedrates,dpm_mode)" 4  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,g_code)" 2  a $mom_sys_feed_rate_mode_code(DPM) UI_PB_tpth_EntryCallBack null}} \
+        {{"$gPB(event,feedrates,format)" 1  V} \
+                {"null" 9  n $mom_sys_feed_param(DPM,format) UI_PB_tpth_EditFeedFmt null}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,max)" 2  f $mom_kin_max_dpm null null}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,min)" 2  f $mom_kin_min_dpm null null}}} \
+     {{"$gPB(event,feedrates,mode,label)" 7  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,mode,lin)" 8  n $mom_sys_contour_feed_mode(LINEAR) null {"MMPM" "FRN"}}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,mode,rot)" 8  n $mom_sys_contour_feed_mode(ROTARY) null {"MMPM" "FRN" "DPM"}}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,mode,lin_rot)" 8  n $mom_sys_contour_feed_mode(LINEAR_ROTARY) null {"MMPM" "FRN" "DPM"}}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,mode,rap_lin)" 8  n $mom_sys_rapid_feed_mode(LINEAR) null {"MMPM" "FRN"}}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,mode,rap_rot)" 8  n $mom_sys_rapid_feed_mode(ROTARY) null {"MMPM" "FRN" "DPM"}}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,mode,rap_lin_rot)" 8  n $mom_sys_rapid_feed_mode(LINEAR_ROTARY) null {"MMPM" "FRN"}}} \
+        {{"null" 1  V} \
+                {"Cycle" 8  n $mom_sys_cycle_feed_mode null {"MMPM" "MMPR" "Auto"}}}}
+{Cutcom On} \
+     {{"G Code" 1  V} \
+        {{"null" 2  V} \
+                {"Left" 2  a $mom_sys_cutcom_code(LEFT) UI_PB_tpth_EntryCallBack null} \
+                {"Right" 2  a $mom_sys_cutcom_code(RIGHT) UI_PB_tpth_EntryCallBack null}}} \
+     {{"Applicable Planes" 2  V} \
+        {{"null" 3  H} \
+                {"XY" 3  n $cutcom_plane_xy null null} \
+                {"YZ" 3  n $cutcom_plane_yz null null} \
+                {"ZX" 3  n $cutcom_plane_zx null null}} \
+        {{"null" 1  V} \
+                {"Edit Plane Codes" 1  n null UI_PB_tpth_EditPlaneCodes null}}} \
+     {{"Cutcom Register" 1  V} \
+        {{"null" 2  V} \
+                {"Minimum" 0  i $rad_offset_min null null} \
+                {"Maximum" 0  i $rad_offset_max null null}}} \
+     {{"Cutcom Off Before Change" 1  V} \
+        {{"null" 2  H} \
+                {"Yes" 4  n $cutcom_off_before_change null null} \
+                {"No" 4  n $cutcom_off_before_change null null}}}
+{Cutcom Off} \
+     {{"null" 1  V} \
+        {{"G Code" 1  V} \
+                {"Off" 2  a $mom_sys_cutcom_code(OFF) UI_PB_tpth_EntryCallBack null}}}
+{Linear Move} \
+     {{"null" 2  V} \
+        {{"G Code" 1  V} \
+                {"Linear Motion" 2  a $mom_sys_linear_code UI_PB_tpth_EntryCallBack null}} \
+        {{"null" 1  H} \
+                {"Assumed Rapid Mode at Maximum Traversal Feed" 3  n $rap_mode_trav_rate null null}}}
+{Circular Move} \
+     {{"Motion G Code" 1  V} \
+        {{"null" 2  V} \
+                {"Clockwise (CLW)" 2  a $mom_sys_circle_code(CLW) UI_PB_tpth_EntryCallBack null} \
+                {"Counter-Clockwise (CCLW)" 2  a $mom_sys_circle_code(CCLW) UI_PB_tpth_EntryCallBack null}}} \
+     {{"Applicable Planes" 2  V} \
+        {{"null" 4  H} \
+                {"XY" 4  n $mom_kin_arc_valid_plane null null} \
+                {"YZ" 4  n $mom_kin_arc_valid_plane null null} \
+                {"ZX" 4  n $mom_kin_arc_valid_plane null null} \
+                {"XYZ" 4  n $mom_kin_arc_valid_plane null null}} \
+        {{"null" 1  V} \
+                {"Edit Plane Codes" 1  n null UI_PB_tpth_EditPlaneCodes null}}} \
+     {{"Circular Record" 1  V} \
+        {{"null" 2  H} \
+                {"Full Circle" 4  n $mom_kin_arc_output_mode null null} \
+                {"Quadrant" 4  n $mom_kin_arc_output_mode null null}}} \
+     {{"Radius" 1  V} \
+        {{"null" 2  V} \
+                {"Minimum" 2  f $mom_kin_min_arc_radius null null} \
+                {"Maximum" 2  f $mom_kin_max_arc_radius null null}}} \
+     {{"IJK Definition" 1  V} \
+        {{"null" 1  V} \
+                {"null" 10  n $mom_sys_cir_vector UI_PB_tpth_IJKParameters {"Vector - Arc Start to Center" "Vector - Arc Center to Start" "Unsigned Vector - Arc Start to Center" "Vector - Absolute Arc Center"}}}} \
+     {{"null" 1  V} \
+        {{"null" 1  V} \
+                {"Minimum Arc Length" 2  f $mom_kin_min_arc_length null null}}}
+{Rapid Move} \
+     {{"null" 2  V} \
+        {{"G Code" 1  V} \
+                {"Rapid Motion" 2  a $mom_sys_rapid_code UI_PB_tpth_EntryCallBack null}} \
+        {{"null" 1  H} \
+                {"Work Plane Change" 3  n $rap_wrk_pln_chg UI_PB_tpth_EditRapidBlocks null}}}
+{Cycle Parameters} \
+     {{"G Code & Customization" 2  H} \
+        {{"null" 14  V} \
+                {"" 7  n null null null} \
+                {"" 7  n null null null} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_drill null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_drill_dwell null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_drill_deep null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_drill_break_chip null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_tap null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_bore null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_bore_drag null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_bore_nodrag null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_bore_manual null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_bore_dwell null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_bore_back null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_bore_manual_dwell null null "event,cycle,customize"}} \
+        {{"null" 14  V} \
+                {"Cycle Start" 2  a $mom_sys_cycle_start_code UI_PB_tpth_EntryCallBack null} \
+                {"Cycle Off" 2  a $mom_sys_cycle_off UI_PB_tpth_EntryCallBack null} \
+                {"Drill" 2  a $mom_sys_cycle_drill_code UI_PB_tpth_EntryCallBack null} \
+                {"Drill Dwell (SpotFace)" 2  a $mom_sys_cycle_drill_dwell_code UI_PB_tpth_EntryCallBack null} \
+                {"Drill Deep (Peck)" 2  a $mom_sys_cycle_drill_deep_code UI_PB_tpth_EntryCallBack null} \
+                {"Drill Break Chip" 2  a $mom_sys_cycle_drill_break_chip_code UI_PB_tpth_EntryCallBack null} \
+                {"Tap" 2  a $mom_sys_cycle_tap_code UI_PB_tpth_EntryCallBack null} \
+                {"Bore (Ream)" 2  a $mom_sys_cycle_bore_code UI_PB_tpth_EntryCallBack null} \
+                {"Bore Drag" 2  a $mom_sys_cycle_bore_drag_code UI_PB_tpth_EntryCallBack null} \
+                {"Bore No-Drag" 2  a $mom_sys_cycle_bore_no_drag_code UI_PB_tpth_EntryCallBack null} \
+                {"Bore Manual" 2  a $mom_sys_cycle_bore_manual_code UI_PB_tpth_EntryCallBack null} \
+                {"Bore Dwell" 2  a $mom_sys_cycle_bore_dwell_code UI_PB_tpth_EntryCallBack null} \
+                {"Bore Back" 2  a $mom_sys_cycle_bore_back_code UI_PB_tpth_EntryCallBack null} \
+                {"Bore Manual Dwell" 2  a $mom_sys_cycle_bore_manual_dwell_code UI_PB_tpth_EntryCallBack null}}} \
+     {{"null" 4  V} \
+        {{"Cycle Start" 2  H} \
+                {"G79 X Y Z" 3  n $cycle_start_blk UI_PB_tpth_CycleStartBlks null "event,cycle,start"} \
+                {"Use Cycle Start Block To Execute Cycle" 7  n null null null}} \
+        {{"Rapid - To" 1  V} \
+                {"null" 8  n $cycle_rapto_opt UI_PB_tpth_CycleRapidBlks {"None" "R" "Rapid Traverse & R" "Rapid"}}} \
+        {{"Retract - To" 1  V} \
+                {"null" 8  n $cycle_recto_opt UI_PB_tpth_CycleRetractBlks {"None" "K" "G98/G99" "Rapid Spindle" "Cycle Off then Rapid Spindle"}}} \
+        {{"Cycle Plane Control" 1  V} \
+                {"null" 8  n $cycle_plane_control_opt UI_PB_tpth_CyclePlaneElem {"None" "G17/G18/G19"}}}}
+## EVENTS USER INTERFACE END
+
+## MOM SYS VARIABLES START
+{cycle_feedrate} \
+      {"" "" ""}
+{G_cutcom} \
+      {"$mom_sys_cutcom_code($mom_cutcom_status)" "\$mom_sys_cutcom_code(LEFT)" "Cutcom (LEFT/RIGHT/OFF)"} \
+      {"$mom_sys_cutcom_code(LEFT)" "41" "Cutcom Left"} \
+      {"$mom_sys_cutcom_code(RIGHT)" "42" "Cutcom Right"} \
+      {"$mom_sys_cutcom_code(OFF)" "40" "Cutcom Off"}
+{G_plane} \
+      {"$mom_sys_cutcom_plane_code($mom_cutcom_plane)" "\$mom_sys_cutcom_plane_code(XY)" "Cutcom Plane Code (XY/ZX/YZ)"} \
+      {"$mom_sys_cutcom_plane_code($mom_pos_arc_plane)" "\$mom_sys_cutcom_plane_code(XY)" "Arc Plane Code (XY/ZX/YZ)"} \
+      {"$mom_sys_cutcom_plane_code(XY)" "17" "XY Plane Code"} \
+      {"$mom_sys_cutcom_plane_code(ZX)" "18" "ZX Plane Code"} \
+      {"$mom_sys_cutcom_plane_code(YZ)" "19" "YZ Plane Code"}
+{G_adjust} \
+      {"$mom_sys_adjust_code" "43" "Tool Len Adjust Plus"} \
+      {"$mom_sys_adjust_code_minus" "44" "Tool Len Adjust Minus"} \
+      {"$mom_sys_adjust_cancel_code" "49" "Cancel Tool Len Adjust"}
+{G_feed} \
+      {"$mom_sys_feed_rate_mode_code($feed_mode)" "\$mom_sys_feed_rate_mode_code(MMPM)" "Feed Rate Mode"} \
+      {"$mom_sys_feed_rate_mode_code(IPM)" "94" "IPM Feed Rate Mode"} \
+      {"$mom_sys_feed_rate_mode_code(IPR)" "95" "IPR Feed Rate Mode"} \
+      {"$mom_sys_feed_rate_mode_code(FRN)" "93" "FRN Feed Rate Mode"} \
+      {"$mom_sys_feed_rate_mode_code(DPM)" "94" "DPM Feed Rate Mode"} \
+      {"$mom_sys_feed_rate_mode_code(MMPM)" "94" "MMPM Feed Rate Mode"} \
+      {"$mom_sys_feed_rate_mode_code(MMPR)" "95" "MMPR Feed Rate Mode"}
+{G_spin} \
+      {"$mom_sys_spindle_mode_code($mom_spindle_status)" "\$mom_sys_spindle_mode_code(RPM)" "Spindle output Mode (RPM/SFM)"} \
+      {"$mom_sys_spindle_mode_code(SFM)" "96" "Spindle output (CSS)"} \
+      {"$mom_sys_spindle_mode_code(RPM)" "97" "Spindle output (RPM)"}
+{G_return} \
+      {"$mom_sys_cycle_ret_code($mom_cycle_retract_mode)" "\$mom_sys_cycle_ret_code(MANUAL)" "Cycle Return (AUTO/MANUAL)"} \
+      {"$mom_sys_cycle_ret_code(AUTO)" "" "Cycle Return (AUTO)"} \
+      {"$mom_sys_cycle_ret_code(MANUAL)" "" "Cycle Return (MANUAL)"}
+{G_motion} \
+      {"$mom_sys_rapid_code" "L" "Rapid Move"} \
+      {"$mom_sys_linear_code" "L" "Linear Move"} \
+      {"$mom_sys_circle_code($mom_arc_direction)" "\$mom_sys_circle_code(CLW)" "Circular Interpolation (CLW/CCLW)"} \
+      {"$mom_sys_circle_code(CLW)" "C" "Circular Interpolation CLW"} \
+      {"$mom_sys_circle_code(CCLW)" "C" "Circular Interpolation CCLW"} \
+      {"$mom_sys_cycle_drill_code" "L" "Drill"} \
+      {"$mom_sys_cycle_drill_dwell_code" "L" "Drill Dwell"} \
+      {"$mom_sys_cycle_drill_deep_code" "L" "Drill Deep"} \
+      {"$mom_sys_cycle_drill_break_chip_code" "L" "Drill Break Chip"} \
+      {"$mom_sys_cycle_tap_code" "L" "Tap"} \
+      {"$mom_sys_cycle_bore_code" "L" "Bore"} \
+      {"$mom_sys_cycle_bore_drag_code" "L" "Bore Drag"} \
+      {"$mom_sys_cycle_bore_no_drag_code" "L" "Bore No Drag"} \
+      {"$mom_sys_cycle_bore_back_code" "L" "Bore Back"} \
+      {"$mom_sys_cycle_bore_manual_code" "L" "Bore Manual"} \
+      {"$mom_sys_cycle_bore_dwell_code" "L" "Bore Dwell"} \
+      {"$mom_sys_cycle_bore_manual_dwell_code" "L" "Bore Manual Dwell"} \
+      {"$mom_sys_cycle_start_code" "79" "Cycle Start Code"} \
+      {"$mom_sys_cycle_off" "" "Cycle Off"} \
+      {"$mom_sys_cycle_reps_code" "x" "Cycle Code Representative"}
+{G_mode} \
+      {"$mom_sys_output_code($mom_output_mode)" "\$mom_sys_output_code(ABSOLUTE)" "Absolute/Incremental Mode"} \
+      {"$mom_sys_output_code(ABSOLUTE)" " " "Absolute Mode"} \
+      {"$mom_sys_output_code(INCREMENTAL)" " " "Incremental Mode"}
+{G} \
+      {"$mom_prefun" "" "Pre Function"} \
+      {"$mom_sys_delay_code(SECONDS)" "4" "Delay in Seconds"} \
+      {"$mom_sys_delay_code(REVOLUTIONS)" "4" "Delay in Revloutions"} \
+      {"$mom_sys_delay_code($mom_delay_mode)" "\$mom_sys_delay_code(SECONDS)" "Delay (Seconds/Revolutions)"} \
+      {"$mom_sys_reset_code" "92" "Absolute Position Reset"} \
+      {"$mom_sys_unit_code(IN)" "70" "Output Unit (Inch)"} \
+      {"$mom_sys_unit_code(MM)" "71" "Output Unit (Metric)"} \
+      {"$mom_sys_unit_code($mom_output_unit)" "\$mom_sys_unit_code(IN)" "Output Unit (Inch/Metric)"} \
+      {"$mom_work_coordinate_number + 53" "54" "Work Coordinate Selection (54 ~ 59)"} \
+      {"$mom_fixture_offset_value + 53" "54" "MCS Fixture Offset  (54 ~ 59)"} \
+      {"$mom_sys_return_code" "28" "Return Home"}
+{X} \
+      {"$mom_pos(0)" "" "Coordinate"} \
+      {"$mom_from_pos(0)" "" "FROM X Coordinate"} \
+      {"$mom_cycle_feed_to_pos(0)" "" "Cycle Feed X"} \
+      {"$mom_cycle_rapid_to_pos(0)" "" "Rapid X Position in Cycle"} \
+      {"$mom_cycle_retract_to_pos(0)" "" "Retract X Position in Cycle"} \
+      {"$mom_tool_x_offset" "" "Tool X Offset"} \
+      {"$mom_cycle_clearance_to_pos(0)" "" "Clearance X Position in Cycle"} \
+      {"$mom_sys_home_pos(0)" "0" "Return Home X"}
+{K3X} \
+      {"$mom_pos(0)" "" "Coordinate"} \
+      {"$mom_cycle_feed_to_pos(0)" "" "Cycle Feed X"} \
+      {"$mom_cycle_rapid_to_pos(0)" "" "Rapid X Position in Cycle"} \
+      {"$mom_cycle_retract_to_pos(0)" "" "Retract X Position in Cycle"} \
+      {"$mom_cycle_clearance_to_pos(0)" "" "Clearance X Position in Cycle"} \
+      {"$mom_tool_x_offset" "" "Tool X Offset"} \
+      {"$mom_sys_home_pos(0)" "0" "Return Home X"}
+{K2X} \
+      {"$mom_pos(0)" "" "Coordinate"} \
+      {"$mom_cycle_feed_to_pos(0)" "" "Cycle Feed X"} \
+      {"$mom_cycle_rapid_to_pos(0)" "" "Rapid X Position in Cycle"} \
+      {"$mom_cycle_retract_to_pos(0)" "" "Retract X Position in Cycle"} \
+      {"$mom_cycle_clearance_to_pos(0)" "" "Clearance X Position in Cycle"} \
+      {"$mom_tool_x_offset" "" "Tool X Offset"} \
+      {"$mom_sys_home_pos(0)" "0" "Return Home X"}
+{K1X} \
+      {"$mom_pos(0)" "" "Coordinate"} \
+      {"$mom_cycle_feed_to_pos(0)" "" "Cycle Feed X"} \
+      {"$mom_cycle_rapid_to_pos(0)" "" "Rapid X Position in Cycle"} \
+      {"$mom_cycle_retract_to_pos(0)" "" "Retract X Position in Cycle"} \
+      {"$mom_cycle_clearance_to_pos(0)" "" "Clearance X Position in Cycle"} \
+      {"$mom_tool_x_offset" "" "Tool X Offset"} \
+      {"$mom_sys_home_pos(0)" "0" "Return Home X"}
+{K3Y} \
+      {"$mom_pos(0)" "" "Coordinate"} \
+      {"$mom_cycle_feed_to_pos(0)" "" "Cycle Feed X"} \
+      {"$mom_cycle_rapid_to_pos(0)" "" "Rapid X Position in Cycle"} \
+      {"$mom_cycle_retract_to_pos(0)" "" "Retract X Position in Cycle"} \
+      {"$mom_cycle_clearance_to_pos(0)" "" "Clearance X Position in Cycle"} \
+      {"$mom_tool_x_offset" "" "Tool X Offset"} \
+      {"$mom_sys_home_pos(0)" "0" "Return Home X"}
+{K2Y} \
+      {"$mom_pos(0)" "" "Coordinate"} \
+      {"$mom_cycle_feed_to_pos(0)" "" "Cycle Feed X"} \
+      {"$mom_cycle_rapid_to_pos(0)" "" "Rapid X Position in Cycle"} \
+      {"$mom_cycle_retract_to_pos(0)" "" "Retract X Position in Cycle"} \
+      {"$mom_cycle_clearance_to_pos(0)" "" "Clearance X Position in Cycle"} \
+      {"$mom_tool_x_offset" "" "Tool X Offset"} \
+      {"$mom_sys_home_pos(0)" "0" "Return Home X"}
+{K1Y} \
+      {"$mom_pos(0)" "" "Coordinate"} \
+      {"$mom_cycle_feed_to_pos(0)" "" "Cycle Feed X"} \
+      {"$mom_cycle_rapid_to_pos(0)" "" "Rapid X Position in Cycle"} \
+      {"$mom_cycle_retract_to_pos(0)" "" "Retract X Position in Cycle"} \
+      {"$mom_cycle_clearance_to_pos(0)" "" "Clearance X Position in Cycle"} \
+      {"$mom_tool_x_offset" "" "Tool X Offset"} \
+      {"$mom_sys_home_pos(0)" "0" "Return Home X"}
+{K3Z} \
+      {"$mom_pos(0)" "" "Coordinate"} \
+      {"$mom_cycle_feed_to_pos(0)" "" "Cycle Feed X"} \
+      {"$mom_cycle_rapid_to_pos(0)" "" "Rapid X Position in Cycle"} \
+      {"$mom_cycle_retract_to_pos(0)" "" "Retract X Position in Cycle"} \
+      {"$mom_cycle_clearance_to_pos(0)" "" "Clearance X Position in Cycle"} \
+      {"$mom_tool_x_offset" "" "Tool X Offset"} \
+      {"$mom_sys_home_pos(0)" "0" "Return Home X"}
+{K2Z} \
+      {"$mom_pos(0)" "" "Coordinate"} \
+      {"$mom_cycle_feed_to_pos(0)" "" "Cycle Feed X"} \
+      {"$mom_cycle_rapid_to_pos(0)" "" "Rapid X Position in Cycle"} \
+      {"$mom_cycle_retract_to_pos(0)" "" "Retract X Position in Cycle"} \
+      {"$mom_cycle_clearance_to_pos(0)" "" "Clearance X Position in Cycle"} \
+      {"$mom_tool_x_offset" "" "Tool X Offset"} \
+      {"$mom_sys_home_pos(0)" "0" "Return Home X"}
+{K1Z} \
+      {"$mom_pos(0)" "" "Coordinate"} \
+      {"$mom_cycle_feed_to_pos(0)" "" "Cycle Feed X"} \
+      {"$mom_cycle_rapid_to_pos(0)" "" "Rapid X Position in Cycle"} \
+      {"$mom_cycle_retract_to_pos(0)" "" "Retract X Position in Cycle"} \
+      {"$mom_cycle_clearance_to_pos(0)" "" "Clearance X Position in Cycle"} \
+      {"$mom_tool_x_offset" "" "Tool X Offset"} \
+      {"$mom_sys_home_pos(0)" "0" "Return Home X"}
+{Y} \
+      {"$mom_pos(1)" "" "Coordinate"} \
+      {"$mom_from_pos(1)" "" "FROM Y Coordinate"} \
+      {"$mom_cycle_feed_to_pos(1)" "" "Cycle Feed Y"} \
+      {"$mom_cycle_rapid_to_pos(1)" "" "Rapid Y Position in Cycle"} \
+      {"$mom_cycle_retract_to_pos(1)" "" "Retract Y Position in Cycle"} \
+      {"$mom_tool_y_offset" "" "Tool Y Offset"} \
+      {"$mom_cycle_clearance_to_pos(1)" "" "Clearance Y Position in Cycle"} \
+      {"$mom_sys_home_pos(1)" "0" "Return Home Y"}
+{Z} \
+      {"$mom_pos(2)" "" "Coordinate"} \
+      {"$mom_from_pos(2)" "" "FROM Z Coordinate"} \
+      {"$mom_cycle_feed_to_pos(2)" "" "Cycle Feed Z"} \
+      {"$mom_cycle_feed_to" "" "Cycle Feed To Distance"} \
+      {"$mom_cycle_rapid_to - $mom_cycle_feed_to" "" "Cycle Feed To Positive Increment"} \
+      {"$mom_cycle_feed_to - $mom_cycle_rapid_to" "" "Cycle Feed To Negative Increment"} \
+      {"$mom_cycle_rapid_to_pos(2)" "" "Rapid Z Position in Cycle"} \
+      {"$mom_cycle_retract_to_pos(2)" "" "Retract Z Position in Cycle"} \
+      {"$mom_tool_z_offset" "" "Tool Z Offset"} \
+      {"$mom_cycle_clearance_to_pos(2)" "" "Clearance Z Position in Cycle"} \
+      {"$mom_sys_home_pos(2)" "0" "Return Home Z"}
+{fourth_axis} \
+      {"$mom_out_angle_pos(0)" "" "4th Axis Angle"} \
+      {"$mom_out_angle_pos(1)" "" "5th Axis Angle"}
+{fifth_axis} \
+      {"$mom_out_angle_pos(0)" "" "4th Axis Angle"} \
+      {"$mom_out_angle_pos(1)" "" "5th Axis Angle"}
+{I} \
+      {"$mom_pos_arc_center(0)" "" "Absolute Arc Center X-Axis"}
+{J} \
+      {"$mom_pos_arc_center(1)" "" "Absolute Arc Center Y-Axis"}
+{K} \
+      {"$mom_pos_arc_center(2)" "" "Absolute Arc Center Z-Axis"}
+{R} \
+      {"$mom_arc_radius" "" "Arc Radius"} \
+      {"$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)" "" "Rapid Position in Cycle"} \
+      {"$mom_cycle_rapid_to" "" "Cycle Rapid To Distance"}
+{cutter_comp} \
+      {"" "" ""}
+{T} \
+      {"$mom_tool_number" "" "Tool Select"} \
+      {"$mom_next_tool_number" "" "Tool Pre-Select"}
+{S} \
+      {"$mom_spindle_speed" "" "Spindle Speed"} \
+      {"$mom_spindle_maximum_rpm" "" "Spindle Max RPM"}
+{D} \
+      {"$mom_cutcom_adjust_register" "1" "Tool Radius Compensation"}
+{H} \
+      {"$mom_tool_adjust_register" "1" "Tool Adjust Register"} \
+      {"$mom_sys_zero" "0" "Cancel Tool Adjust"}
+{dwell} \
+      {"$mom_delay_value" "" "Programmed Dwell"}
+{cycle_number} \
+      {"" "" ""}
+{P_cutcom} \
+      {"$pval" "" "Cutcom (Custom Command)"} \
+      {"$mom_p_cutcom_code" "" "Cutcom"}
+{K_cycle} \
+      {"$mom_cycle_retract_to_pos($mom_cycle_spindle_axis)" "" "Retract Position in Cycle"} \
+      {"$mom_cycle_retract_to" "" "Cycle Retract To Distance"}
+{cycle_step1} \
+      {"$mom_cycle_step2" "" "Step Incr Modifier"}
+{cycle_step} \
+      {"$mom_cycle_step1" "" "Step Incr Value"}
+{Q_cutcom} \
+      {"$qval" "" "Cutcom (Custom Command)"} \
+      {"$mom_q_cutcom_code" "" "Cutcom"}
+{E} \
+      {"$mom_thread_increment" "" "Thread Increment"}
+{circle_direction} \
+      {"" "" ""}
+{cycle_rapid_to} \
+      {"" "" ""}
+{cycle_feed_to} \
+      {"" "" ""}
+{cycle_tap_lead} \
+      {"" "" ""}
+{cycle_surface} \
+      {"" "" ""}
+{cycle_pullback} \
+      {"" "" ""}
+{F} \
+      {"$feed" "" "Feed Rate"}
+{user_add_1} \
+      {"" "" ""}
+{cycle_tap_incr} \
+      {"" "" ""}
+{cycle_tap_brk_dist} \
+      {"" "" ""}
+{cycle_plunge} \
+      {"" "" ""}
+{cycle_dwell_top} \
+      {"" "" ""}
+{cycle_dwell} \
+      {"$mom_cycle_delay" "" "Delay For Cycle Dwell"}
+{cycle_spindle_orientation} \
+      {"" "" ""}
+{user_add} \
+      {"" "" ""}
+{M_spindle} \
+      {"$mom_sys_spindle_direction_code($mom_spindle_direction)" "\$mom_sys_spindle_direction_code(CLW)" "Spindle Direction (CLW/CCLW)"} \
+      {"$mom_sys_spindle_direction_code(CLW)" "3" "CLW Spindle Direction"} \
+      {"$mom_sys_spindle_direction_code(CCLW)" "4" "CCLW Spindle Direction"} \
+      {"$mom_sys_spindle_direction_code(OFF)" "5" "Spindle Off"}
+{M_range} \
+      {"$mom_sys_spindle_range_code($mom_spindle_range)" "41" "Spindle Range"}
+{M_coolant} \
+      {"$mom_sys_coolant_code($mom_coolant_status)" "\$mom_sys_coolant_code(FLOOD)" "Coolant Code (FLOOD/MIST/ON..)"} \
+      {"$mom_sys_coolant_code(ON)" "8" "Coolant On"} \
+      {"$mom_sys_coolant_code(FLOOD)" "8" "Coolant Flood"} \
+      {"$mom_sys_coolant_code(MIST)" "7" "Coolant Mist"} \
+      {"$mom_sys_coolant_code(THRU)" "26" "Coolant Thru"} \
+      {"$mom_sys_coolant_code(TAP)" "8" "Coolant Tap"} \
+      {"$mom_sys_coolant_code(OFF)" "9" "Coolant Off"}
+{M} \
+      {"$mom_sys_optional_stop_code" "1" "Optional Stop"} \
+      {"$mom_auxfun" "" "Aux Function"} \
+      {"$mom_sys_program_stop_code" "0" "Stop Program"} \
+      {"$mom_sys_end_of_program_code" "2" "End Of program"} \
+      {"$mom_sys_rewind_code" "30" "Rewind Program"} \
+      {"$mom_sys_tool_change_code" "6" "Tool Change"}
+{star_of_program} \
+      {"" "" ""}
+{cycle_orient} \
+      {"$mom_cycle_orient" "" "Cycle Orient Value"}
+{N} \
+      {"$mom_seqnum" "" "Sequence Number"}
+{Text} \
+      {"" "" ""}
+{New_Address} \
+      {"" "" ""}
+{PB_Dummy} \
+      {"Include_UDE" "1" ""} \
+      {"UDE_File_Name" "\$UGII_CAM_USER_DEF_EVENT_DIR/ude.cdl" ""} \
+      {"Output_VNC" "0" ""} \
+      {"VNC_Mode" "Standalone" ""} \
+      {"Main_VNC" "" ""} \
+      {"Decimal_Point" "." ""} \
+      {"Comment_Start" "; " ""} \
+      {"Comment_End" "" ""} \
+      {"seq_blk_nc_code" "0" ""} \
+      {"$mom_sys_blank_code" "" ""} \
+      {"$is_linked_post" "0" ""} \
+      {"$linked_posts_list" "\{\{\} \{this_post\}\}" ""} \
+      {"$tl_num_min" "1" ""} \
+      {"$tl_num_max" "32" ""} \
+      {"$tl_change_sec" "30" ""} \
+      {"$tl_retract_status" "1" ""} \
+      {"$tl_retract_z_pos" "99" ""} \
+      {"$output_mode_opt" "Absolute/Incremental" ""} \
+      {"$cutcom_plane_xy" "1" ""} \
+      {"$cutcom_plane_yz" "0" ""} \
+      {"$cutcom_plane_zx" "0" ""} \
+      {"$rad_offset_min" "1" ""} \
+      {"$rad_offset_max" "99" ""} \
+      {"$tl_len_offs_min" "1" ""} \
+      {"$tl_len_offs_max" "20" ""} \
+      {"$spin_fmt_type" "None" ""} \
+      {"$spin_dwell_time" "0" ""} \
+      {"$cir_record_output" "YES" ""} \
+      {"$rap_wrk_pln_chg" "0" ""} \
+      {"$rap_mode_trav_rate" "1" ""} \
+      {"$rap_mode_trav_value" "100" ""} \
+      {"$cycle_rapto_opt" "None" ""} \
+      {"$cycle_recto_opt" "None" ""} \
+      {"$cycle_plane_control_opt" "None" ""} \
+      {"$cycle_start_blk" "0" ""} \
+      {"$tool_num_output" "TOOL_NUMBER_ONLY" ""} \
+      {"$cutcom_off_before_change" "NO" ""} \
+      {"SeqNo_output" "0" ""} \
+      {"$gcode_status" "0" ""} \
+      {"$mcode_status" "0" ""} \
+      {"$oth_rev_xy_plane" "0" ""} \
+      {"$oth_rev_yz_plane" "0" ""} \
+      {"$oth_rev_zx_plane" "0" ""} \
+      {"$oth_sup_out_ijk_zero" "0" ""} \
+      {"$oth_sup_out_ijk_xyz" "0" ""} \
+      {"$mom_usd_add_var" "" ""} \
+      {"$evt_ncoutput_status" "Output_Imediately" ""} \
+      {"$4th_axis_direction" "Magnitude_Determines_Direction" ""} \
+      {"$xaxis_dia_prog" "0" ""} \
+      {"$i_dia_prog" "0" ""} \
+      {"$yaxis_dia_prog" "0" ""} \
+      {"$j_dia_prog" "0" ""} \
+      {"$xaxis_mirror" "0" ""} \
+      {"$yaxis_mirror" "0" ""} \
+      {"$zaxis_mirror" "0" ""} \
+      {"$i_mirror" "0" ""} \
+      {"$j_mirror" "0" ""} \
+      {"$k_mirror" "0" ""} \
+      {"$5th_axis_direction" "Magnitude_Determines_Direction" ""} \
+      {"$mom_sys_p_cutcom_code" "CC" ""} \
+      {"$mom_sys_q_cutcom_code" "CC" ""} \
+      {"$mom_sys_cycle_retract_to" "CY" ""} \
+      {"$mom_sys_cycle_step1" "CS" ""} \
+      {"$mom_sys_cycle_step2" "CS" ""} \
+      {"$mom_sys_delay_value" "DW" ""} \
+      {"$mom_sys_cycle_delay" "CD" ""} \
+      {"$output_rot_incr_status" "0" ""}
+{PB_Tcl_Var} \
+      {"$mom_sys_4th_axis_has_limits" "1" ""} \
+      {"$mom_sys_5th_axis_has_limits" "1" ""} \
+      {"$mom_sys_sim_cycle_drill" "0" ""} \
+      {"$mom_sys_sim_cycle_drill_dwell" "0" ""} \
+      {"$mom_sys_sim_cycle_drill_deep" "0" ""} \
+      {"$mom_sys_sim_cycle_drill_break_chip" "0" ""} \
+      {"$mom_sys_sim_cycle_tap" "0" ""} \
+      {"$mom_sys_sim_cycle_bore" "0" ""} \
+      {"$mom_sys_sim_cycle_bore_drag" "0" ""} \
+      {"$mom_sys_sim_cycle_bore_nodrag" "0" ""} \
+      {"$mom_sys_sim_cycle_bore_manual" "0" ""} \
+      {"$mom_sys_sim_cycle_bore_dwell" "0" ""} \
+      {"$mom_sys_sim_cycle_bore_manual_dwell" "0" ""} \
+      {"$mom_sys_sim_cycle_bore_back" "0" ""} \
+      {"$mom_sys_cir_vector" "Vector - Absolute Arc Center" ""} \
+      {"$mom_sys_spindle_ranges" "0" ""} \
+      {"$mom_sys_gcodes_per_block" "10" ""} \
+      {"$mom_sys_mcodes_per_block" "5" ""} \
+      {"$mom_sys_rewind_stop_code" "\#" ""} \
+      {"$mom_sys_home_pos(0)" "0" ""} \
+      {"$mom_sys_home_pos(1)" "0" ""} \
+      {"$mom_sys_home_pos(2)" "0" ""} \
+      {"$mom_sys_zero" "0" ""} \
+      {"$mom_sys_opskip_block_leader" "/" ""} \
+      {"$mom_sys_seqnum_start" "1" ""} \
+      {"$mom_sys_seqnum_incr" "1" ""} \
+      {"$mom_sys_seqnum_freq" "1" ""} \
+      {"$mom_sys_seqnum_max" "9999" ""} \
+      {"$mom_sys_lathe_x_double" "1" ""} \
+      {"$mom_sys_lathe_i_double" "1" ""} \
+      {"$mom_sys_lathe_y_double" "1" ""} \
+      {"$mom_sys_lathe_j_double" "1" ""} \
+      {"$mom_sys_lathe_x_factor" "1" ""} \
+      {"$mom_sys_lathe_y_factor" "1" ""} \
+      {"$mom_sys_lathe_z_factor" "1" ""} \
+      {"$mom_sys_lathe_i_factor" "1" ""} \
+      {"$mom_sys_lathe_j_factor" "1" ""} \
+      {"$mom_sys_lathe_k_factor" "1" ""} \
+      {"$mom_sys_leader(N)" "" ""} \
+      {"$mom_sys_leader(X)" "X" ""} \
+      {"$mom_sys_leader(Y)" "Y" ""} \
+      {"$mom_sys_leader(Z)" "Z" ""} \
+      {"$mom_sys_leader(fourth_axis)" "B" ""} \
+      {"$mom_sys_leader(fifth_axis)" "C" ""} \
+      {"$mom_sys_contour_feed_mode(LINEAR)" "MMPM" ""} \
+      {"$mom_sys_rapid_feed_mode(LINEAR)" "MMPM" ""} \
+      {"$mom_sys_cycle_feed_mode" "MMPM" ""} \
+      {"$mom_sys_feed_param(IPM,format)" "Feed_IPM" ""} \
+      {"$mom_sys_feed_param(IPR,format)" "Feed_IPR" ""} \
+      {"$mom_sys_feed_param(FRN,format)" "Feed_INV" ""} \
+      {"$mom_sys_vnc_rapid_dogleg" "1" ""} \
+      {"$mom_sys_prev_mach_head" "" ""} \
+      {"$mom_sys_curr_mach_head" "" ""} \
+      {"$mom_sys_contour_feed_mode(ROTARY)" "MMPM" ""} \
+      {"$mom_sys_contour_feed_mode(LINEAR_ROTARY)" "MMPM" ""} \
+      {"$mom_sys_feed_param(DPM,format)" "Feed_DPM" ""} \
+      {"$mom_sys_rapid_feed_mode(ROTARY)" "MMPM" ""} \
+      {"$mom_sys_rapid_feed_mode(LINEAR_ROTARY)" "MMPM" ""} \
+      {"$mom_sys_feed_param(MMPM,format)" "Feed_MMPM" ""} \
+      {"$mom_sys_feed_param(MMPR,format)" "Feed_MMPR" ""}
+{Command} \
+      {"Custom Command" "" "New Custom Command"} \
+      {"MOM_set_seq_off" "" "MOM Command"} \
+      {"MOM_set_seq_on" "" "MOM Command"} \
+      {"PB_CMD_End_Program" "" "Custom Command"} \
+      {"PB_CMD_FEEDRATE_NUMBER" "" "Custom Command"} \
+      {"PB_CMD_announce_cycle_time" "" "Custom Command"} \
+      {"PB_CMD_announce_oper" "" "Custom Command"} \
+      {"PB_CMD_announce_tool" "" "Custom Command"} \
+      {"PB_CMD_before_motion" "" "Custom Command"} \
+      {"PB_CMD_change_mom_pos_to_mcs_pos" "" "Custom Command"} \
+      {"PB_CMD_circle_direction" "" "Custom Command"} \
+      {"PB_CMD_clamp_fifth_axis" "" "Custom Command"} \
+      {"PB_CMD_clamp_fourth_axis" "" "Custom Command"} \
+      {"PB_CMD_combine_rotary_check" "" "Custom Command"} \
+      {"PB_CMD_combine_rotary_init" "" "Custom Command"} \
+      {"PB_CMD_combine_rotary_output" "" "Custom Command"} \
+      {"PB_CMD_create_tool_list" "" "Custom Command"} \
+      {"PB_CMD_cycle_init" "" "Custom Command"} \
+      {"PB_CMD_cycle_plane_change" "" "Custom Command"} \
+      {"PB_CMD_end_of_alignment_character" "" "Custom Command"} \
+      {"PB_CMD_fifth_axis_rotate_move" "" "Custom Command"} \
+      {"PB_CMD_fourth_axis_rotate_move" "" "Custom Command"} \
+      {"PB_CMD_handle_sync_event" "" "Custom Command"} \
+      {"PB_CMD_include_cutcom_library" "" "Custom Command"} \
+      {"PB_CMD_include_user_file" "" "Custom Command"} \
+      {"PB_CMD_init_oper_tool_time" "" "Custom Command"} \
+      {"PB_CMD_init_rotary" "" "Custom Command"} \
+      {"PB_CMD_init_tool_list" "" "Custom Command"} \
+      {"PB_CMD_initial_values" "" "Custom Command"} \
+      {"PB_CMD_kin_before_motion" "" "Custom Command"} \
+      {"PB_CMD_kin_end_of_path" "" "Custom Command"} \
+      {"PB_CMD_kin_feedrate_set" "" "Custom Command"} \
+      {"PB_CMD_kin_handle_sync_event" "" "Custom Command"} \
+      {"PB_CMD_kin_init_mill_turn" "" "Custom Command"} \
+      {"PB_CMD_kin_init_mill_xzc" "" "Custom Command"} \
+      {"PB_CMD_kin_init_new_iks" "" "Custom Command"} \
+      {"PB_CMD_kin_init_rotary" "" "Custom Command"} \
+      {"PB_CMD_kin_linearize_motion" "" "Custom Command"} \
+      {"PB_CMD_kin_mill_turn_initialize" "" "Custom Command"} \
+      {"PB_CMD_kin_mill_xzc_init" "" "Custom Command"} \
+      {"PB_CMD_kin_set_csys" "" "Custom Command"} \
+      {"PB_CMD_kin_start_of_path" "" "Custom Command"} \
+      {"PB_CMD_kin_start_of_program" "" "Custom Command"} \
+      {"PB_CMD_linear_move" "" "Custom Command"} \
+      {"PB_CMD_linearize_motion" "" "Custom Command"} \
+      {"PB_CMD_nurbs_initialize" "" "Custom Command"} \
+      {"PB_CMD_pause" "" "Custom Command"} \
+      {"PB_CMD_post_name" "" "Custom Command"} \
+      {"PB_CMD_program_header" "" "Custom Command"} \
+      {"PB_CMD_reload_iks_parameters" "" "Custom Command"} \
+      {"PB_CMD_reposition_move" "" "Custom Command"} \
+      {"PB_CMD_restore_active_oper_tool_data" "" "Custom Command"} \
+      {"PB_CMD_retract_move" "" "Custom Command"} \
+      {"PB_CMD_reverse_rotation_vector" "" "Custom Command"} \
+      {"PB_CMD_revert_dual_head_kin_vars" "" "Custom Command"} \
+      {"PB_CMD_revise_new_iks" "" "Custom Command"} \
+      {"PB_CMD_save_active_oper_tool_data" "" "Custom Command"} \
+      {"PB_CMD_save_last_z" "" "Custom Command"} \
+      {"PB_CMD_set_csys" "" "Custom Command"} \
+      {"PB_CMD_set_cycle_plane" "" "Custom Command"} \
+      {"PB_CMD_set_oper_tool_time" "" "Custom Command"} \
+      {"PB_CMD_start_of_alignment_character" "" "Custom Command"} \
+      {"PB_CMD_start_of_operation_force" "" "Custom Command"} \
+      {"PB_CMD_start_of_operation_force_addresses" "" "Custom Command"} \
+      {"PB_CMD_tool_change_force_addresses" "" "Custom Command"} \
+      {"PB_CMD_unclamp_fifth_axis" "" "Custom Command"} \
+      {"PB_CMD_unclamp_fourth_axis" "" "Custom Command"}
+{Operator Message} \
+      {"" "" ""}
+{PB_Spindle} \
+      {"" "" ""}
+{PB_ZeroFmt} \
+      {"$zero_int_fmt" "Zero_int" ""} \
+      {"$zero_real_fmt" "Zero_real" ""}
+{VNC_Instruction} \
+      {"" "" ""}
+{PB_Rapid} \
+      {"$pb_rapid_1" "rapid_traverse" ""} \
+      {"$pb_rapid_2" "" ""}
+## MOM SYS VARIABLES END

@@ -1,0 +1,1335 @@
+## POSTBUILDER_VERSION=2004.0.3.1
+##############################################################################
+#                                                                            #
+#  This file is used by Post Builder to edit the parameters associated       #
+#  with a specific post processor.                                           #
+#                                                                            #
+#                                                                            #
+#  <WARNING> The contents of this file should not be modified!               #
+#                                                                            #
+##############################################################################
+#  Created by zhang @ Thu Aug 28 16:10:55 2008 China Standard Time
+#  with Post Builder version 5.0.3.
+#============================================================================#
+
+
+## POST EVENT HANDLER START
+def_file  DMU_70_eVo_840D_in.def
+tcl_file  DMU_70_eVo_840D_in.tcl
+## POST EVENT HANDLER END
+
+
+## POST INFORMATION START
+#  DESCRIPTION START
+This is a 5-Axis Milling Machine With
+ Dual Rotary Tables.
+#  DESCRIPTION END
+#  CONTROLLER START
+Generic
+#  CONTROLLER END
+#  HISTORY START
+Created with UG/Post Builder Version 5.0.3.1 on Wed Aug 06 16:49:36 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 06 16:49:58 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 06 16:52:03 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 06 16:52:09 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 06 16:57:24 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 06 16:57:50 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 06 17:00:09 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 06 17:01:28 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 06 17:02:05 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 06 17:39:35 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 06 17:40:32 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 06 17:41:22 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 06 17:42:11 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 06 17:43:02 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 06 17:43:31 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 06 17:44:38 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 06 17:52:48 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 06 17:53:25 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 06 17:54:08 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 06 17:54:56 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 06 17:55:34 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 06 17:57:14 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 14:35:22 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 15:17:41 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 15:31:30 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 15:34:56 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 15:37:36 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 15:54:38 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 15:57:45 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 16:00:29 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 16:04:32 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 16:05:25 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 16:06:02 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 16:06:14 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 16:14:59 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 16:19:27 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 16:19:51 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 16:21:26 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 16:23:57 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 16:25:46 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 16:27:47 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 16:28:19 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 16:29:12 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 16:30:49 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 16:31:11 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 16:31:57 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 16:48:12 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 16:49:42 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 16:50:11 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 16:54:35 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 16:55:41 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 16:56:32 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 16:57:12 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 17:01:07 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 17:07:36 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 07 18:08:59 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 10:49:33 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 10:50:04 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 10:51:07 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 10:53:56 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 10:55:10 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 11:03:31 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 11:04:42 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 11:26:39 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 11:33:46 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 11:52:51 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 14:00:35 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 14:06:20 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 14:49:54 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 14:53:39 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 14:54:40 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 14:57:42 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 14:58:24 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 15:25:42 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 15:26:01 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 15:29:42 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 15:32:37 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 15:34:11 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 15:34:51 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 15:37:00 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 15:38:33 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 15:38:52 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 15:42:36 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 15:44:02 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 16:07:35 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 16:07:59 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 16:11:49 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 16:20:04 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 16:20:22 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 16:22:10 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 16:26:38 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 16:36:05 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 16:37:09 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 16:44:00 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 16:45:07 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 16:46:19 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 17:07:07 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 17:11:55 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 17:15:36 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 17:17:16 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 17:19:22 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 17:21:11 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 17:22:55 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 17:24:26 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 17:38:08 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 17:47:46 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 17:53:44 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 17:55:15 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 18:02:13 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 18:03:14 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Mon Aug 11 18:10:17 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 13:56:26 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 14:17:23 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 14:19:36 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 14:21:30 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 14:24:12 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 14:36:57 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 14:40:34 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 14:42:01 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 14:45:24 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 14:46:43 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 14:55:28 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 15:00:32 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 15:14:18 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 15:29:54 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 15:34:35 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 15:43:34 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 15:45:16 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 16:21:19 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 16:30:11 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 16:31:36 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 16:36:53 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 16:40:58 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 16:55:15 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 16:57:32 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 16:59:32 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 17:01:17 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 17:16:28 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 17:19:34 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 17:21:48 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 17:30:03 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 17:33:06 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 17:36:24 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 17:43:21 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 17:50:04 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 17:52:32 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 17:55:02 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 17:59:52 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 18:07:12 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 18:10:30 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 18:13:35 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 18:19:26 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 18:23:44 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 18:25:11 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 18:30:20 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 18:41:45 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 18:43:40 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 18:49:44 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 18:51:18 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 18:53:37 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 18:54:26 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 19:06:44 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 19:11:34 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 19:13:52 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 19:14:49 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 19:17:15 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 19:18:41 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 19:28:39 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 19:33:23 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 19:34:00 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 19:34:29 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 19:44:50 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 19:45:03 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 19:49:58 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 19:50:08 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 19:52:44 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 19:54:32 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 19:57:14 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 19:58:44 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 20:05:41 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 20:07:34 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 20:09:21 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 20:13:13 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 20:18:16 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 20:20:18 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Tue Aug 12 20:21:49 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 13 14:45:04 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 13 14:49:13 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 13 14:49:48 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 13 14:50:22 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 13 14:50:57 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 13 14:54:54 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 13 14:55:49 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 13 15:06:28 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 13 15:47:31 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 13 15:48:32 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 13 15:49:32 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 13 15:50:32 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 13 15:52:12 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 13 15:54:15 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 13 15:57:42 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 13 16:00:30 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 13 17:45:17 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 13 17:56:46 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 13 18:03:55 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 14 15:21:46 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 14 15:24:04 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 14 15:28:01 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 14 15:28:38 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 14 15:30:36 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 14 15:32:21 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 14 15:32:53 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 14 15:54:08 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Fri Aug 22 16:29:55 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Fri Aug 22 16:56:23 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Fri Aug 22 16:58:52 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Fri Aug 22 16:59:21 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Fri Aug 22 17:00:20 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Fri Aug 22 17:18:40 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Fri Aug 22 17:22:57 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 14:30:47 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 14:33:40 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 14:34:17 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 14:45:29 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 14:49:20 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 14:49:52 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 14:55:19 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 14:56:04 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 14:57:54 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 15:15:44 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 15:17:16 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 15:17:40 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 15:22:11 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 15:31:08 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 15:35:22 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 15:37:04 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 15:49:05 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 15:49:37 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 16:09:25 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 16:12:02 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 16:13:00 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 16:17:18 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 16:27:51 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 16:30:23 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 16:31:50 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 16:33:44 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 16:41:23 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 17:35:30 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 17:36:53 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 17:38:56 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 17:40:28 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Wed Aug 27 17:43:54 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 28 15:51:15 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 28 15:55:37 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 28 15:56:51 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 28 15:58:01 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 28 16:01:31 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 28 16:09:52 2008 China Standard Time by zhang.
+Saved with UG/Post Builder Version 5.0.3.1 on Thu Aug 28 16:10:54 2008 China Standard Time by zhang.
+#  HISTORY END
+## POST INFORMATION END
+
+
+## LISTING FILE START
+Listfileflag_warn              OFF
+Listfileflag                   OFF
+Listfileflag_group             OFF
+Listfileflag_verbose           0
+Listfileflag_tool              0
+Listfileflag_oper              0
+Listfileflag_lpt_ext           lpt
+Listfileflag_ncfile_ext        ptp
+Listfileflag_usertcl_name      DMU_70_eVo_840D_in_user.tcl
+Listfileflag_review            0
+Listfileflag_start_path        0
+Listfileflag_head              OFF
+Listfileflag_end_path          0
+Listfilelines                  40
+Listfileflag_oper_time         0
+Listfileflag_tool_chng         0
+Listfilecolumn                 30
+Listfileflag_usertcl_check     0
+Listfileflag_setup_time        0
+Listfilename                   listfile.lpt
+## LISTING FILE END
+
+## KINEMATIC VARIABLES START
+"$mom_kin_4th_axis_ang_offset"            "0.0"
+"$mom_kin_4th_axis_center_offset(0)"      "0.0"
+"$mom_kin_4th_axis_center_offset(1)"      "0.0"
+"$mom_kin_4th_axis_center_offset(2)"      "0.0"
+"$mom_kin_4th_axis_direction"             "MAGNITUDE_DETERMINES_DIRECTION"
+"$mom_kin_4th_axis_incr_switch"           "OFF"
+"$mom_kin_4th_axis_leader"                "B"
+"$mom_kin_4th_axis_limit_action"          "Warning"
+"$mom_kin_4th_axis_max_limit"             "102"
+"$mom_kin_4th_axis_min_incr"              "0.001"
+"$mom_kin_4th_axis_min_limit"             "0"
+"$mom_kin_4th_axis_plane"                 "Other"
+"$mom_kin_4th_axis_point(0)"              "0.0"
+"$mom_kin_4th_axis_point(1)"              "0.0"
+"$mom_kin_4th_axis_point(2)"              "0.0"
+"$mom_kin_4th_axis_rotation"              "standard"
+"$mom_kin_4th_axis_type"                  "Table"
+"$mom_kin_4th_axis_vector(0)"             "0"
+"$mom_kin_4th_axis_vector(1)"             "-1"
+"$mom_kin_4th_axis_vector(2)"             "1"
+"$mom_kin_4th_axis_zero"                  "0.0"
+"$mom_kin_5th_axis_ang_offset"            "0.0"
+"$mom_kin_5th_axis_center_offset(0)"      "0.0"
+"$mom_kin_5th_axis_center_offset(1)"      "0.0"
+"$mom_kin_5th_axis_center_offset(2)"      "0.0"
+"$mom_kin_5th_axis_direction"             "MAGNITUDE_DETERMINES_DIRECTION"
+"$mom_kin_5th_axis_incr_switch"           "OFF"
+"$mom_kin_5th_axis_leader"                "C"
+"$mom_kin_5th_axis_limit_action"          "Warning"
+"$mom_kin_5th_axis_max_limit"             "99999"
+"$mom_kin_5th_axis_min_incr"              "0.001"
+"$mom_kin_5th_axis_min_limit"             "-99999"
+"$mom_kin_5th_axis_plane"                 "XY"
+"$mom_kin_5th_axis_point(0)"              "0.0"
+"$mom_kin_5th_axis_point(1)"              "0.0"
+"$mom_kin_5th_axis_point(2)"              "0.0"
+"$mom_kin_5th_axis_rotation"              "standard"
+"$mom_kin_5th_axis_type"                  "Table"
+"$mom_kin_5th_axis_vector(0)"             "0"
+"$mom_kin_5th_axis_vector(1)"             "0"
+"$mom_kin_5th_axis_vector(2)"             "1"
+"$mom_kin_5th_axis_zero"                  "0.0"
+"$mom_kin_arc_output_mode"                "FULL_CIRCLE"
+"$mom_kin_arc_valid_plane"                "XYZ"
+"$mom_kin_clamp_time"                     "2.0"
+"$mom_kin_flush_time"                     "2.0"
+"$mom_kin_linearization_flag"             "1"
+"$mom_kin_linearization_tol"              "0.001"
+"$mom_kin_machine_resolution"             ".0001"
+"$mom_kin_machine_type"                   "5_axis_dual_table"
+"$mom_kin_machine_zero_offset(0)"         "0.0"
+"$mom_kin_machine_zero_offset(1)"         "0.0"
+"$mom_kin_machine_zero_offset(2)"         "0.0"
+"$mom_kin_max_arc_radius"                 "9999.9999"
+"$mom_kin_max_dpm"                        "10000"
+"$mom_kin_max_fpm"                        "600"
+"$mom_kin_max_fpr"                        "100"
+"$mom_kin_max_frn"                        "100"
+"$mom_kin_min_arc_length"                 "0.01"
+"$mom_kin_min_arc_radius"                 "0.0001"
+"$mom_kin_min_dpm"                        "0.0"
+"$mom_kin_min_fpm"                        "0.1"
+"$mom_kin_min_fpr"                        "0.01"
+"$mom_kin_min_frn"                        "0.01"
+"$mom_kin_output_unit"                    "IN"
+"$mom_kin_pivot_gauge_offset"             "0.0"
+"$mom_kin_pivot_guage_offset"             ""
+"$mom_kin_post_data_unit"                 "IN"
+"$mom_kin_rapid_feed_rate"                "400"
+"$mom_kin_retract_distance"               "10"
+"$mom_kin_rotary_axis_method"             "PREVIOUS"
+"$mom_kin_spindle_axis(0)"                "0.0"
+"$mom_kin_spindle_axis(1)"                "0.0"
+"$mom_kin_spindle_axis(2)"                "1.0"
+"$mom_kin_tool_change_time"               "12.0"
+"$mom_kin_x_axis_limit"                   "50"
+"$mom_kin_y_axis_limit"                   "50"
+"$mom_kin_z_axis_limit"                   "50"
+## KINEMATIC VARIABLES END
+
+## GCODES START
+"$mom_sys_rapid_code"                     "$gPB(g_code,rapid,name)"
+"$mom_sys_linear_code"                    "$gPB(g_code,linear,name)"
+"$mom_sys_circle_code(CLW)"               "$gPB(g_code,circular_clw,name)"
+"$mom_sys_circle_code(CCLW)"              "$gPB(g_code,circular_cclw,name)"
+"$mom_sys_delay_code(SECONDS)"            "$gPB(g_code,delay_sec,name)"
+"$mom_sys_delay_code(REVOLUTIONS)"        "$gPB(g_code,delay_rev,name)"
+"$mom_sys_cutcom_plane_code(XY)"          "$gPB(g_code,pln_xy,name)"
+"$mom_sys_cutcom_plane_code(ZX)"          "$gPB(g_code,pln_zx,name)"
+"$mom_sys_cutcom_plane_code(YZ)"          "$gPB(g_code,pln_yz,name)"
+"$mom_sys_cutcom_code(OFF)"               "$gPB(g_code,cutcom_off,name)"
+"$mom_sys_cutcom_code(LEFT)"              "$gPB(g_code,cutcom_left,name)"
+"$mom_sys_cutcom_code(RIGHT)"             "$gPB(g_code,cutcom_right,name)"
+"$mom_sys_adjust_code"                    "$gPB(g_code,length_plus,name)"
+"$mom_sys_adjust_code_minus"              "$gPB(g_code,length_minus,name)"
+"$mom_sys_adjust_cancel_code"             "$gPB(g_code,length_off,name)"
+"$mom_sys_unit_code(IN)"                  "$gPB(g_code,inch,name)"
+"$mom_sys_unit_code(MM)"                  "$gPB(g_code,metric,name)"
+"$mom_sys_cycle_start_code"               "$gPB(g_code,cycle_start,name)"
+"$mom_sys_cycle_off"                      "$gPB(g_code,cycle_off,name)"
+"$mom_sys_cycle_drill_code"               "$gPB(g_code,cycle_drill,name)"
+"$mom_sys_cycle_drill_dwell_code"         "$gPB(g_code,cycle_drill_dwell,name)"
+"$mom_sys_cycle_drill_deep_code"          "$gPB(g_code,cycle_drill_deep,name)"
+"$mom_sys_cycle_drill_break_chip_code"    "$gPB(g_code,cycle_drill_bc,name)"
+"$mom_sys_cycle_tap_code"                 "$gPB(g_code,tap,name)"
+"$mom_sys_cycle_bore_code"                "$gPB(g_code,bore,name)"
+"$mom_sys_cycle_bore_drag_code"           "$gPB(g_code,bore_drag,name)"
+"$mom_sys_cycle_bore_no_drag_code"        "$gPB(g_code,bore_no_drag,name)"
+"$mom_sys_cycle_bore_dwell_code"          "$gPB(g_code,bore_dwell,name)"
+"$mom_sys_cycle_bore_manual_code"         "$gPB(g_code,bore_manual,name)"
+"$mom_sys_cycle_bore_back_code"           "$gPB(g_code,bore_back,name)"
+"$mom_sys_cycle_bore_manual_dwell_code"   "$gPB(g_code,bore_manual_dwell,name)"
+"$mom_sys_output_code(ABSOLUTE)"          "$gPB(g_code,abs,name)"
+"$mom_sys_output_code(INCREMENTAL)"       "$gPB(g_code,inc,name)"
+"$mom_sys_cycle_ret_code(AUTO)"           "$gPB(g_code,cycle_retract_auto,name)"
+"$mom_sys_cycle_ret_code(MANUAL)"         "$gPB(g_code,cycle_retract_manual,name)"
+"$mom_sys_reset_code"                     "$gPB(g_code,reset,name)"
+"$mom_sys_feed_rate_mode_code(IPM)"       "$gPB(g_code,fr_ipm,name)"
+"$mom_sys_feed_rate_mode_code(IPR)"       "$gPB(g_code,fr_ipr,name)"
+"$mom_sys_feed_rate_mode_code(FRN)"       "$gPB(g_code,fr_frn,name)"
+"$mom_sys_spindle_mode_code(SFM)"         "$gPB(g_code,spindle_css,name)"
+"$mom_sys_spindle_mode_code(RPM)"         "$gPB(g_code,spindle_rpm,name)"
+"$mom_sys_return_code"                    "$gPB(g_code,ret_home,name)"
+## GCODES END
+
+## MCODES START
+"$mom_sys_program_stop_code"              "$gPB(m_code,stop_manual_tc,name)"
+"$mom_sys_optional_stop_code"             "$gPB(m_code,opt_stop,name)"
+"$mom_sys_end_of_program_code"            "$gPB(m_code,prog_end,name)"
+"$mom_sys_spindle_direction_code(CLW)"    "$gPB(m_code,spindle_clw,name)"
+"$mom_sys_spindle_direction_code(CCLW)"   "$gPB(m_code,spindle_cclw,name)"
+"$mom_sys_spindle_direction_code(OFF)"    "$gPB(m_code,spindle_off,name)"
+"$mom_sys_tool_change_code"               "$gPB(m_code,tc_retract,name)"
+"$mom_sys_coolant_code(ON)"               "$gPB(m_code,coolant_on,name)"
+"$mom_sys_coolant_code(FLOOD)"            "$gPB(m_code,coolant_fld,name)"
+"$mom_sys_coolant_code(MIST)"             "$gPB(m_code,coolant_mist,name)"
+"$mom_sys_coolant_code(THRU)"             "$gPB(m_code,coolant_thru,name)"
+"$mom_sys_coolant_code(TAP)"              "$gPB(m_code,coolant_tap,name)"
+"$mom_sys_coolant_code(OFF)"              "$gPB(m_code,coolant_off,name)"
+"$mom_sys_rewind_code"                    "$gPB(m_code,rewind,name)"
+## MCODES END
+
+## MASTER SEQUENCE START
+G_cutcom          "$mom_sys_cutcom_code(OFF)"  0  "Cutcom G-Code"  0
+G_plane           "$mom_sys_cutcom_plane_code($mom_cutcom_plane)"  0  "Plane G-Code"  0
+G_adjust          "$mom_sys_adjust_code"  0  "Tool Length Adjust G-Code"  0
+G_feed            "$mom_sys_feed_rate_mode_code($feed_mode)"  0  "Feedrate Mode G-Code"  0
+G_spin            "$mom_sys_spindle_mode_code($mom_spindle_status)"  0  "Spindle Output Mode G-Code"  0
+G_return          "$mom_sys_cycle_ret_code(MANUAL)"  0  "Return Plane for Canned Cycles"  0
+G_motion          "$mom_sys_linear_code"  0  "Motion G-Code"  0
+G_mode            "$mom_sys_output_code($mom_output_mode)"  0  "Positioning Mode G-code"  0
+G                 "$mom_sys_blank_code"  0  "Other G-Codes"  0
+X                 "$mom_sys_blank_code"  0  "X Axis Position or Canned Cycle X Axis Position"  0
+Y                 "$mom_sys_blank_code"  0  "Y Axis Position or Canned Cycle Y Axis Position"  0
+Z                 "$mom_sys_blank_code"  0  "Z Axis Position or Canned Cycle Z Axis Position"  0
+G_00              "$mom_usd_add_var"  0  "New Address"  1
+fourth_axis       "$mom_sys_blank_code"  0  "4th Axis Position"  0
+fifth_axis        "$mom_sys_blank_code"  0  "5th Axis Position"  0
+I                 "$mom_sys_blank_code"  0  "X Axis Position of the Circle Center"  0
+J                 "$mom_sys_blank_code"  0  "Y Axis Position of the Circle Center"  0
+K                 "$mom_sys_blank_code"  0  "Z Axis Position of the Circle Center"  0
+R                 "$mom_sys_blank_code"  0  "Rapid Approach Position in a Canned Cycle Block"  0
+F                 "$mom_sys_blank_code"  0  "Feedrate"  0
+S                 "$mom_sys_blank_code"  0  "Spindle Speed"  0
+T                 "$mom_sys_blank_code"  0  "Tool Select Code"  0
+D                 "$mom_sys_blank_code"  0  "Tool Radius Compensation Register"  0
+H                 "$mom_sys_blank_code"  0  "Tool Length Compensation Register"  0
+dwell             "$mom_sys_blank_code"  0  "Programmed Dwell"  0
+cycle_dwell       "$mom_sys_blank_code"  0  "Delay for Canned cycle Dwell"  0
+K_cycle           "$mom_sys_blank_code"  0  "Retract Position in a Canned Cycle Block"  0
+cycle_step1       "$mom_sys_blank_code"  0  "Step Increment Modifier for Deep or Break Chip Cycle"  0
+cycle_step        "$mom_sys_blank_code"  0  "Step Increment for Deep or Break Chip Cycle"  0
+cycle_orient      "$mom_sys_blank_code"  0  "Orient Value for Bore Nodrag or Back Bore Cycle"  0
+P_cutcom          "$mom_sys_blank_code"  0  "P-Cutcom"  0
+Q_cutcom          "$mom_sys_blank_code"  0  "Q-Cutcom"  0
+E                 "$mom_sys_blank_code"  0  "Thread Increment for Threads"  0
+M_spindle         "$mom_sys_spindle_direction_code($mom_spindle_direction)"  0  "Spindle Direction M-Code"  0
+M_range           "$mom_sys_spindle_range_code($mom_spindle_range)"  0  "Spindle Range M-Code"  0
+M_coolant         "$mom_sys_coolant_code($mom_coolant_status)"  0  "Coolant M-Code"  0
+M                 "$mom_sys_optional_stop_code"  0  "Other M-Codes"  0
+Next_tool         "$mom_usd_add_var"  0  "New Address"  1
+N                 ""  0  "Sequence Number"  0
+wq_RTP            "$mom_usd_add_var"  0  "(wq_RTP)"  1
+wq_RFP            "$mom_usd_add_var"  0  "New Address"  1
+wq_SDIS           "$mom_usd_add_var"  0  "New Address"  1
+wq_DP             "$mom_usd_add_var"  0  "New Address"  1
+Text              ""  0  "Text String"  0
+wq_DPR            "$mom_usd_add_var"  0  "New Address"  1
+wq_FDEP           "$mom_usd_add_var"  0  "New Address"  1
+wq_comma_1        "$mom_usd_add_var"  0  "New Address"  1
+wq_FDPR           "$mom_usd_add_var"  0  "New Address"  1
+wq_comma_2        "$mom_usd_add_var"  0  "New Address"  1
+wq_DAM            "$mom_usd_add_var"  0  "New Address"  1
+wq_DTB            "$mom_usd_add_var"  0  "New Address"  1
+wq_comma_3        "$mom_usd_add_var"  0  "New Address"  1
+wq_DTS            "$mom_usd_add_var"  0  "New Address"  1
+wq_SDAC           "$mom_usd_add_var"  0  "New Address"  1
+wq_FFR            "$mom_usd_add_var"  0  "New Address"  1
+wq_comma_4        "$mom_usd_add_var"  0  "New Address"  1
+wq_FRF            "$mom_usd_add_var"  0  "New Address"  1
+wq_MPIT           "$mom_usd_add_var"  0  "New Address"  1
+wq_comma_5        "$mom_usd_add_var"  0  "New Address"  1
+wq_VARI           "$mom_usd_add_var"  0  "New Address"  1
+wq_PIT            "$mom_usd_add_var"  0  "New Address"  1
+wq_comma_6        "$mom_usd_add_var"  0  "New Address"  1
+wq_POSS           "$mom_usd_add_var"  0  "New Address"  1
+wq_comma_7        "$mom_usd_add_var"  0  "New Address"  1
+wq_SST            "$mom_usd_add_var"  0  "New Address"  1
+wq_comma_8        "$mom_usd_add_var"  0  "New Address"  1
+wq_SST1           "$mom_usd_add_var"  0  "New Address"  1
+wq_PTAB           "$mom_usd_add_var"  0  "New Address"  1
+wq_RFF            "$mom_usd_add_var"  0  "New Address"  1
+wq_SDIR           "$mom_usd_add_var"  0  "New Address"  1
+wq_comma_9        "$mom_usd_add_var"  0  "New Address"  1
+wq_RPA            "$mom_usd_add_var"  0  "New Address"  1
+wq_comma_10       "$mom_usd_add_var"  0  "New Address"  1
+wq_RPO            "$mom_usd_add_var"  0  "New Address"  1
+wq_comma_11       "$mom_usd_add_var"  0  "New Address"  1
+wq_RPAP           "$mom_usd_add_var"  0  "New Address"  1
+wq_comma_12       "$mom_usd_add_var"  0  "(wq_comma_12)"  1
+wq_POSS_G86       "$mom_usd_add_var"  0  "New Address"  1
+wq_cycle_end      "$mom_usd_add_var"  0  "New Address"  1
+wq_mcall_end      "$mom_usd_add_var"  0  "New Address"  1
+## MASTER SEQUENCE END
+
+## CYCLE EVENT START
+#Cycle Common Block Start
+{Cycle Parameters}
+#Cycle Common Block End
+
+#Cycle Block Share Common Block Start
+{ \
+  {Drill} \
+  {Drill Dwell} \
+  {Drill Deep} \
+  {Drill Break Chip} \
+  {Tap} \
+  {Bore} \
+  {Bore Drag} \
+  {Bore No Drag} \
+  {Bore Dwell} \
+  {Bore Manual} \
+  {Bore Back} \
+  {Bore Manual Dwell} \
+}
+#Cycle Block Share Common Block End
+## CYCLE EVENT END
+
+## BLOCK MODALITY START
+{G54}                           {G}
+{auto_tool_adj}                 {D}
+{auto_tool_change}              {M}
+{first_tool}                    {G_cutcom G_plane G_mode}
+{spindle_rpm}                   {S M_spindle}
+{tool_change}                   {G_mode G Z}
+{tool_change_1}                 {T}
+## BLOCK MODALITY END
+
+## COMPOSITE BLOCKS START
+{}
+## COMPOSITE BLOCKS END
+
+## SEQUENCE START
+#Program Start Sequence Start
+{Start of Program}         {MOM_set_seq_off PB_CMD_init_vars MOM_set_seq_on PB_CMD_pro_start}  {$gPB(event,start_prog,name)}
+#Program Start Sequence End
+
+#Operation Start Sequence Start
+{Start of Path}            {PB_CMD_start_of_operation_force_addresses comment_blk PB_CMD_set_G54}  {$gPB(event,opr_start,start_path,name)}
+{From Move}                {}  {$gPB(event,opr_start,from_move,name)}
+{First Tool}               {supa_z supa_y supa_x first_tool tool_change_1 auto_tool_change PB_CMD_next_tool_set auto_tool_adj tool_change_2}  {$gPB(event,opr_start,fst_tool,name)}
+{Auto Tool Change}         {PB_CMD_tool_change_force_addresses PB_CMD_operation_type_cancel coolant_off spindle_off supa_z supa_y supa_x first_tool tool_change_1 auto_tool_change PB_CMD_next_tool_set auto_tool_adj tool_change_2}  {$gPB(event,opr_start,auto_tc,name)}
+{Manual Tool Change}       {PB_CMD_tool_change_force_addresses stop}  {$gPB(event,opr_start,manual_tc,name)}
+{Initial Move}             {PB_CMD_operation_set_initial}  {$gPB(event,opr_start,init_move,name)}
+{First Move}               {PB_CMD_operation_set_initial}  {$gPB(event,opr_start,fst_move,name)}
+{Approach Move}            {}  {$gPB(event,opr_start,appro_move,name)}
+{Engage Move}              {}  {$gPB(event,opr_start,engage_move,name)}
+{First Cut}                {}  {$gPB(event,opr_start,fst_cut,name)}
+{First Linear Move}        {}  {$gPB(event,opr_start,fst_lin_move,name)}
+#Operation Start Sequence End
+
+##Tool Path Start
+#Control Functions Start
+{Tool Change}              {}  {$gPB(event,tool_change,name)} {}
+{Length Compensation}      {tool_length_adjust}  {$gPB(event,length_compn,name)} {length_compensation}
+{Set Modes}                {}  {$gPB(event,set_modes,name)} {set_modes}
+{Spindle RPM}              {spindle_rpm}  {$gPB(event,spindle_rpm,name)} {spindle}
+{Spindle Off}              {spindle_off}  {$gPB(event,spindle_off,name)} {spindle_off}
+{Coolant On}               {}  {$gPB(event,coolant_on,name)} {coolant}
+{Coolant Off}              {coolant_off}  {$gPB(event,coolant_off,name)} {coolant_off}
+{Inch Metric Mode}         {}  {$gPB(event,inch_metric_mode,name)} {}
+{Feedrates}                {}  {$gPB(event,feedrates,name)} {}
+{Cutcom On}                {}  {$gPB(event,cutcom_on,name)} {cutcom}
+{Cutcom Off}               {cutcom_off}  {$gPB(event,cutcom_off,name)} {}
+{Delay}                    {delay}  {$gPB(event,delay,name)} {dwell}
+{Opstop}                   {opstop}  {$gPB(event,opstop,name)} {opstop}
+{Auxfun}                   {auxfun}  {$gPB(event,auxfun,name)} {auxfun}
+{Prefun}                   {prefun}  {$gPB(event,prefun,name)} {prefun}
+{Load Tool}                {}  {$gPB(event,loadtool,name)} {mill_tool_change}
+{Stop}                     {stop}  {$gPB(event,stop,name)} {stop}
+{Tool Preselect}           {tool_preselect}  {$gPB(event,toolpreselect,name)} {tool_preselect}
+#Control Functions End
+
+#Motions Start
+{Linear Move}              {PB_CMD_coordainte_set PB_CMD_suppress_B_C linear_move}  {$gPB(event,linear,name)}
+{Circular Move}            {circular_move}  {$gPB(event,circular,name)}
+{Rapid Move}               {PB_CMD_coordainte_set PB_CMD_suppress_B_C rapid_traverse}  {$gPB(event,rapid,name)}
+#Motions End
+
+#Cycles Start
+{Cycle Parameters}         {cycle_parameters PB_CMD_cycle_def cycle_parameters_1 PB_CMD_set_cycle_plane post_cycle_set cycle_parameters_3}  {$gPB(event,cycle,com_param,name)}
+{Cycle Off}                {cycle_off PB_CMD_cycle_end}  {$gPB(event,cycle,cycle_off,name)}
+{Cycle Plane Change}       {}  {$gPB(event,cycle,plane_chng,name)}
+{Drill}                    {cycle_drill}  {$gPB(event,cycle,drill,name)}
+{Drill Dwell}              {cycle_drill_dwell}  {$gPB(event,cycle,drill_dwell,name)}
+{Drill Text}               {}  {$gPB(event,cycle,drill_text,name)}
+{Drill Csink}              {}  {$gPB(event,cycle,drill_csink,name)}
+{Drill Deep}               {cycle_drill_deep}  {$gPB(event,cycle,drill_deep,name)}
+{Drill Break Chip}         {cycle_drill_break_chip}  {$gPB(event,cycle,drill_brk_chip,name)}
+{Tap}                      {cycle_tap}  {$gPB(event,cycle,tap,name)}
+{Bore}                     {cycle_bore}  {$gPB(event,cycle,bore,name)}
+{Bore Dwell}               {cycle_bore_dwell}  {$gPB(event,cycle,bore_dwell,name)}
+{Bore Drag}                {cycle_bore_drag}  {$gPB(event,cycle,bore_drag,name)}
+{Bore No Drag}             {cycle_bore_no_drag}  {$gPB(event,cycle,bore_no_drag,name)}
+{Bore Back}                {cycle_bore_back}  {$gPB(event,cycle,bore_back,name)}
+{Bore Manual}              {cycle_bore_manual}  {$gPB(event,cycle,bore_manual,name)}
+{Bore Manual Dwell}        {cycle_bore_manual_dwell}  {$gPB(event,cycle,bore_manual_dwell,name)}
+{Peck Drill}               {}  {$gPB(event,cycle,peck_drill,name)}
+{Break Chip}               {}  {$gPB(event,cycle,break_chip,name)}
+#Cycles End
+##Tool Path End
+
+#Operation End Sequence Start
+{Retract Move}             {}  {$gPB(event,opr_end,ret_move,name)}
+{Return Move}              {}  {$gPB(event,opr_end,rtn_move,name)}
+{Gohome Move}              {}  {$gPB(event,opr_end,goh_move,name)}
+{End of Path}              {PB_CMD_end_path}  {$gPB(event,opr_end,end_path,name)}
+#Operation End Sequence End
+
+#Program End Sequence Start
+{End Of Program}           {PB_CMD_end_program MOM_set_seq_off}  {$gPB(event,end_prog,name)}
+#Program End Sequence End
+
+#Linked Posts Sequence Start
+#Linked Posts Sequence End
+
+#Virtual NC Sequence Start
+#Virtual NC Sequence End
+## SEQUENCE END
+
+## EVENTS USER INTERFACE START
+{Tool Change} \
+     {{"$gPB(event,tool_change,m_code)" 1  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,tool_change,m_code,tl_chng)" 2  a $mom_sys_tool_change_code UI_PB_tpth_EntryCallBack null}}} \
+     {{"$gPB(event,tool_change,t_code)" 1  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,tool_change,t_code,conf)" 1  n null UI_PB_tpth_ConfToolCode null}}} \
+     {{"$gPB(event,tool_change,tool_num)" 1  V} \
+        {{"null" 2  V} \
+                {"$gPB(event,tool_change,tool_num,min)" 0  i $tl_num_min null null} \
+                {"$gPB(event,tool_change,tool_num,max)" 0  i $tl_num_max null null}}} \
+     {{"$gPB(event,tool_change,time)" 1  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,tool_change,time,tl_chng)" 2  f $mom_kin_tool_change_time null null}}} \
+     {{"$gPB(event,tool_change,retract)" 1  V} \
+        {{"null" 2  H} \
+                {"$gPB(event,tool_change,retract_z)" 3  n $tl_retract_status null null} \
+                {"null" 2  f $tl_retract_z_pos null null}}}
+{Length Compensation} \
+     {{"$gPB(event,length_compn,g_code)" 1  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,length_compn,g_code,len_adj)" 2  a $mom_sys_adjust_code UI_PB_tpth_EntryCallBack null}}} \
+     {{"$gPB(event,length_compn,t_code)" 1  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,length_compn,t_code,conf)" 1  n null UI_PB_tpth_ConfToolCode null}}} \
+     {{"$gPB(event,length_compn,len_off)" 1  V} \
+        {{"null" 2  V} \
+                {"$gPB(event,length_compn,len_off,min)" 0  i $tl_len_offs_min null null} \
+                {"$gPB(event,length_compn,len_off,max)" 0  i $tl_len_offs_max null null}}}
+{Set Modes} \
+     {{"$gPB(event,set_modes,out_mode)" 1  V} \
+        {{"null" 1  V} \
+                {"null" 8  n $output_mode_opt null {"Absolute Only" "Incremental Only" "Absolute/Incremental"}}}} \
+     {{"$gPB(event,set_modes,g_code)" 1  V} \
+        {{"null" 2  V} \
+                {"$gPB(event,set_modes,g_code,absolute)" 2  a $mom_sys_output_code(ABSOLUTE) null null} \
+                {"$gPB(event,set_modes,g_code,incremental)" 2  a $mom_sys_output_code(INCREMENTAL) null null}}}
+{Spindle RPM} \
+     {{"$gPB(event,spindle_rpm,dir_m_code)" 1  V} \
+        {{"null" 2  V} \
+                {"$gPB(event,spindle_rpm,dir_m_code,cw)" 2  a $mom_sys_spindle_direction_code(CLW) UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,spindle_rpm,dir_m_code,ccw)" 2  a $mom_sys_spindle_direction_code(CCLW) UI_PB_tpth_EntryCallBack null}}} \
+     {{"$gPB(event,spindle_rpm,range_control)" 1  V} \
+        {{"null" 2  V} \
+                {"$gPB(event,spindle_rpm,range_control,dwell_time)" 0  i $spin_dwell_time null null} \
+                {"$gPB(event,spindle_rpm,range_control,range_code)" 1  n null UI_PB_tpth_SpecifySpindleRangeCodes null}}}
+{Spindle Off} \
+     {{"null" 1  V} \
+        {{"$gPB(event,spindle_off,dir_m_code)" 1  V} \
+                {"$gPB(event,spindle_off,dir_m_code,off)" 2  a $mom_sys_spindle_direction_code(OFF) UI_PB_tpth_EntryCallBack null}}}
+{Coolant On} \
+     {{"null" 1  V} \
+        {{"$gPB(event,coolant_on,m_code)" 5  V} \
+                {"$gPB(event,coolant_on,m_code,on)" 2  a $mom_sys_coolant_code(ON) UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,coolant_on,m_code,flood)" 2  a $mom_sys_coolant_code(FLOOD) UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,coolant_on,m_code,mist)" 2  a $mom_sys_coolant_code(MIST) UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,coolant_on,m_code,thru)" 2  a $mom_sys_coolant_code(THRU) UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,coolant_on,m_code,tap)" 2  a $mom_sys_coolant_code(TAP) UI_PB_tpth_EntryCallBack null}}}
+{Coolant Off} \
+     {{"null" 1  V} \
+        {{"$gPB(event,coolant_off,m_code)" 1  V} \
+                {"$gPB(event,coolant_off,m_code,off)" 2  a $mom_sys_coolant_code(OFF) UI_PB_tpth_EntryCallBack null}}}
+{Inch Metric Mode} \
+     {{"$gPB(event,inch_metric_mode,g_code)" 1  V} \
+        {{"null" 2  V} \
+                {"$gPB(event,inch_metric_mode,g_code,english)" 2  a $mom_sys_unit_code(IN) UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,inch_metric_mode,g_code,metric)" 2  a $mom_sys_unit_code(MM) UI_PB_tpth_EntryCallBack null}}}
+{Feedrates} \
+     {{"$gPB(event,feedrates,ipm_mode)" 4  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,g_code)" 2  a $mom_sys_feed_rate_mode_code(IPM) UI_PB_tpth_EntryCallBack null}} \
+        {{"$gPB(event,feedrates,format)" 1  V} \
+                {"null" 9  n $mom_sys_feed_param(IPM,format) UI_PB_tpth_EditFeedFmt null}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,max)" 2  f $mom_kin_max_fpm null null}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,min)" 2  f $mom_kin_min_fpm null null}}} \
+     {{"$gPB(event,feedrates,ipr_mode)" 4  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,g_code)" 2  a $mom_sys_feed_rate_mode_code(IPR) UI_PB_tpth_EntryCallBack null}} \
+        {{"$gPB(event,feedrates,format)" 1  V} \
+                {"null" 9  n $mom_sys_feed_param(IPR,format) UI_PB_tpth_EditFeedFmt null}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,max)" 2  f $mom_kin_max_fpr null null}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,min)" 2  f $mom_kin_min_fpr null null}}} \
+     {{"$gPB(event,feedrates,frn_mode)" 4  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,g_code)" 2  a $mom_sys_feed_rate_mode_code(FRN) UI_PB_tpth_EntryCallBack null}} \
+        {{"$gPB(event,feedrates,format)" 1  V} \
+                {"null" 9  n $mom_sys_feed_param(FRN,format) UI_PB_tpth_EditFeedFmt null}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,max)" 2  f $mom_kin_max_frn null null}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,min)" 2  f $mom_kin_min_frn null null}}} \
+     {{"$gPB(event,feedrates,dpm_mode)" 4  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,g_code)" 2  a $mom_sys_feed_rate_mode_code(DPM) UI_PB_tpth_EntryCallBack null}} \
+        {{"$gPB(event,feedrates,format)" 1  V} \
+                {"null" 9  n $mom_sys_feed_param(DPM,format) UI_PB_tpth_EditFeedFmt null}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,max)" 2  f $mom_kin_max_dpm null null}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,min)" 2  f $mom_kin_min_dpm null null}}} \
+     {{"$gPB(event,feedrates,mode,label)" 7  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,mode,lin)" 8  n $mom_sys_contour_feed_mode(LINEAR) null {"IPM" "FRN"}}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,mode,rot)" 8  n $mom_sys_contour_feed_mode(ROTARY) null {"IPM" "FRN" "DPM"}}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,mode,lin_rot)" 8  n $mom_sys_contour_feed_mode(LINEAR_ROTARY) null {"IPM" "FRN" "DPM"}}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,mode,rap_lin)" 8  n $mom_sys_rapid_feed_mode(LINEAR) null {"IPM" "FRN"}}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,mode,rap_rot)" 8  n $mom_sys_rapid_feed_mode(ROTARY) null {"IPM" "FRN" "DPM"}}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,mode,rap_lin_rot)" 8  n $mom_sys_rapid_feed_mode(LINEAR_ROTARY) null {"IPM" "FRN"}}} \
+        {{"null" 1  V} \
+                {"$gPB(event,feedrates,cycle)" 8  n $mom_sys_cycle_feed_mode null {"IPM" "IPR" "Auto"}}}}
+{Cutcom On} \
+     {{"$gPB(event,cutcom_on,g_code)" 1  V} \
+        {{"null" 2  V} \
+                {"$gPB(event,cutcom_on,left)" 2  a $mom_sys_cutcom_code(LEFT) UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,cutcom_on,right)" 2  a $mom_sys_cutcom_code(RIGHT) UI_PB_tpth_EntryCallBack null}}} \
+     {{"$gPB(event,cutcom_on,app_planes)" 2  V} \
+        {{"null" 3  H} \
+                {"XY" 3  n $cutcom_plane_xy null null} \
+                {"YZ" 3  n $cutcom_plane_yz null null} \
+                {"ZX" 3  n $cutcom_plane_zx null null}} \
+        {{"null" 1  V} \
+                {"$gPB(event,cutcom_on,edit_planes)" 1  n null UI_PB_tpth_EditPlaneCodes null}}} \
+     {{"$gPB(event,cutcom_on,reg)" 1  V} \
+        {{"null" 2  V} \
+                {"$gPB(event,cutcom_on,min)" 0  i $rad_offset_min null null} \
+                {"$gPB(event,cutcom_on,max)" 0  i $rad_offset_max null null}}} \
+     {{"$gPB(event,cutcom_on,bef)" 1  V} \
+        {{"null" 2  H} \
+                {"Yes" 4  n $cutcom_off_before_change null null} \
+                {"No" 4  n $cutcom_off_before_change null null}}}
+{Cutcom Off} \
+     {{"null" 1  V} \
+        {{"$gPB(event,cutcom_off,g_code)" 1  V} \
+                {"$gPB(event,cutcom_off,off)" 2  a $mom_sys_cutcom_code(OFF) UI_PB_tpth_EntryCallBack null}}}
+{Linear Move} \
+     {{"null" 2  V} \
+        {{"$gPB(event,linear,g_code)" 1  V} \
+                {"$gPB(event,linear,motion)" 2  a $mom_sys_linear_code UI_PB_tpth_EntryCallBack null}} \
+        {{"null" 1  H} \
+                {"$gPB(event,linear,assume)" 3  n $rap_mode_trav_rate null null}}}
+{Circular Move} \
+     {{"$gPB(event,circular,g_code)" 1  V} \
+        {{"null" 2  V} \
+                {"$gPB(event,circular,clockwise)" 2  a $mom_sys_circle_code(CLW) UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,circular,counter-clock)" 2  a $mom_sys_circle_code(CCLW) UI_PB_tpth_EntryCallBack null}}} \
+     {{"$gPB(event,circular,planes)" 2  V} \
+        {{"null" 4  H} \
+                {"XY" 4  n $mom_kin_arc_valid_plane null null} \
+                {"YZ" 4  n $mom_kin_arc_valid_plane null null} \
+                {"ZX" 4  n $mom_kin_arc_valid_plane null null} \
+                {"XYZ" 4  n $mom_kin_arc_valid_plane null null}} \
+        {{"null" 1  V} \
+                {"$gPB(event,circular,edit_planes)" 1  n null UI_PB_tpth_EditPlaneCodes null}}} \
+     {{"$gPB(event,circular,record)" 1  V} \
+        {{"null" 2  H} \
+                {"$gPB(event,circular,full_circle)" 4  n $mom_kin_arc_output_mode null null} \
+                {"$gPB(event,circular,quadrant)" 4  n $mom_kin_arc_output_mode null null}}} \
+     {{"$gPB(event,circular,radius)" 1  V} \
+        {{"null" 2  V} \
+                {"$gPB(event,circular,min)" 2  f $mom_kin_min_arc_radius null null} \
+                {"$gPB(event,circular,max)" 2  f $mom_kin_max_arc_radius null null}}} \
+     {{"$gPB(event,circular,ijk_def)" 1  V} \
+        {{"null" 1  V} \
+                {"null" 10  n $mom_sys_cir_vector UI_PB_tpth_IJKParameters {"Vector - Arc Start to Center" "Vector - Arc Center to Start" "Unsigned Vector - Arc Start to Center" "Vector - Absolute Arc Center"}}}} \
+     {{"null" 1  V} \
+        {{"null" 1  V} \
+                {"$gPB(event,circular,arc_len)" 2  f $mom_kin_min_arc_length null null}}}
+{Rapid Move} \
+     {{"null" 2  V} \
+        {{"$gPB(event,rapid,g_code)" 1  V} \
+                {"$gPB(event,rapid,motion)" 2  a $mom_sys_rapid_code UI_PB_tpth_EntryCallBack null}} \
+        {{"null" 1  H} \
+                {"$gPB(event,rapid,plane_change)" 3  n $rap_wrk_pln_chg UI_PB_tpth_EditRapidBlocks null}}}
+{Cycle Parameters} \
+     {{"$gPB(event,cycle,g_code)" 2  H} \
+        {{"null" 14  V} \
+                {"" 7  n null null null} \
+                {"" 7  n null null null} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_drill null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_drill_dwell null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_drill_deep null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_drill_break_chip null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_tap null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_bore null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_bore_drag null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_bore_nodrag null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_bore_manual null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_bore_dwell null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_bore_back null null "event,cycle,customize"} \
+                {"$gPB(event,cycle,customize,Label)" 3  n $mom_sys_sim_cycle_bore_manual_dwell null null "event,cycle,customize"}} \
+        {{"null" 14  V} \
+                {"$gPB(event,cycle,start,Label)" 2  a $mom_sys_cycle_start_code UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,cycle,cycle_off,name)" 2  a $mom_sys_cycle_off UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,cycle,drill,name)" 2  a $mom_sys_cycle_drill_code UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,cycle,drill_dwell_sf,name)" 2  a $mom_sys_cycle_drill_dwell_code UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,cycle,drill_deep_peck,name)" 2  a $mom_sys_cycle_drill_deep_code UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,cycle,drill_brk_chip,name)" 2  a $mom_sys_cycle_drill_break_chip_code UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,cycle,tap,name)" 2  a $mom_sys_cycle_tap_code UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,cycle,bore_ream,name)" 2  a $mom_sys_cycle_bore_code UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,cycle,bore_drag,name)" 2  a $mom_sys_cycle_bore_drag_code UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,cycle,bore_no-drag,name)" 2  a $mom_sys_cycle_bore_no_drag_code UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,cycle,bore_manual,name)" 2  a $mom_sys_cycle_bore_manual_code UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,cycle,bore_dwell,name)" 2  a $mom_sys_cycle_bore_dwell_code UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,cycle,bore_back,name)" 2  a $mom_sys_cycle_bore_back_code UI_PB_tpth_EntryCallBack null} \
+                {"$gPB(event,cycle,bore_manual_dwell,name)" 2  a $mom_sys_cycle_bore_manual_dwell_code UI_PB_tpth_EntryCallBack null}}} \
+     {{"null" 4  V} \
+        {{"$gPB(event,cycle,start,Label)" 2  H} \
+                {"G79 X Y Z" 3  n $cycle_start_blk UI_PB_tpth_CycleStartBlks null "event,cycle,start"} \
+                {"$gPB(event,cycle,start,text)" 7  n null null null}} \
+        {{"$gPB(event,cycle,rapid_to)" 1  V} \
+                {"null" 8  n $cycle_rapto_opt UI_PB_tpth_CycleRapidBlks {"None" "R" "Rapid Traverse & R" "Rapid"}}} \
+        {{"$gPB(event,cycle,retract_to)" 1  V} \
+                {"null" 8  n $cycle_recto_opt UI_PB_tpth_CycleRetractBlks {"None" "K" "G98/G99" "Rapid Spindle" "Cycle Off then Rapid Spindle"}}} \
+        {{"$gPB(event,cycle,plane_control)" 1  V} \
+                {"null" 8  n $cycle_plane_control_opt UI_PB_tpth_CyclePlaneElem {"None" "G17/G18/G19"}}}}
+## EVENTS USER INTERFACE END
+
+## MOM SYS VARIABLES START
+{G_cutcom} \
+      {"$mom_sys_cutcom_code($mom_cutcom_status)" "\$mom_sys_cutcom_code(LEFT)" "Cutcom (LEFT/RIGHT/OFF)"} \
+      {"$mom_sys_cutcom_code(LEFT)" "41" "Cutcom Left"} \
+      {"$mom_sys_cutcom_code(RIGHT)" "42" "Cutcom Right"} \
+      {"$mom_sys_cutcom_code(OFF)" "40" "Cutcom Off"}
+{G_plane} \
+      {"$mom_sys_cutcom_plane_code($mom_cutcom_plane)" "\$mom_sys_cutcom_plane_code(XY)" "Cutcom Plane Code (XY/ZX/YZ)"} \
+      {"$mom_sys_cutcom_plane_code($mom_pos_arc_plane)" "\$mom_sys_cutcom_plane_code(XY)" "Arc Plane Code (XY/ZX/YZ)"} \
+      {"$mom_sys_cutcom_plane_code(XY)" "17" "XY Plane Code"} \
+      {"$mom_sys_cutcom_plane_code(ZX)" "18" "ZX Plane Code"} \
+      {"$mom_sys_cutcom_plane_code(YZ)" "19" "YZ Plane Code"}
+{G_adjust} \
+      {"$mom_sys_adjust_code" "43" "Tool Len Adjust Plus"} \
+      {"$mom_sys_adjust_code_minus" "44" "Tool Len Adjust Minus"} \
+      {"$mom_sys_adjust_cancel_code" "49" "Cancel Tool Len Adjust"}
+{G_feed} \
+      {"$mom_sys_feed_rate_mode_code($feed_mode)" "\$mom_sys_feed_rate_mode_code(IPM)" "Feed Rate Mode"} \
+      {"$mom_sys_feed_rate_mode_code(IPM)" "94" "IPM Feed Rate Mode"} \
+      {"$mom_sys_feed_rate_mode_code(IPR)" "95" "IPR Feed Rate Mode"} \
+      {"$mom_sys_feed_rate_mode_code(FRN)" "93" "FRN Feed Rate Mode"} \
+      {"$mom_sys_feed_rate_mode_code(DPM)" "94" "DPM Feed Rate Mode"}
+{G_spin} \
+      {"$mom_sys_spindle_mode_code($mom_spindle_status)" "\$mom_sys_spindle_mode_code(RPM)" "Spindle output Mode (RPM/SFM)"} \
+      {"$mom_sys_spindle_mode_code(SFM)" "96" "Spindle output (CSS)"} \
+      {"$mom_sys_spindle_mode_code(RPM)" "97" "Spindle output (RPM)"}
+{G_return} \
+      {"$mom_sys_cycle_ret_code($mom_cycle_retract_mode)" "\$mom_sys_cycle_ret_code(MANUAL)" "Cycle Return (AUTO/MANUAL)"} \
+      {"$mom_sys_cycle_ret_code(AUTO)" "98" "Cycle Return (AUTO)"} \
+      {"$mom_sys_cycle_ret_code(MANUAL)" "99" "Cycle Return (MANUAL)"}
+{G_motion} \
+      {"$mom_sys_rapid_code" "0" "Rapid Move"} \
+      {"$mom_sys_linear_code" "1" "Linear Move"} \
+      {"$mom_sys_circle_code($mom_arc_direction)" "\$mom_sys_circle_code(CLW)" "Circular Interpolation (CLW/CCLW)"} \
+      {"$mom_sys_circle_code(CLW)" "2" "Circular Interpolation CLW"} \
+      {"$mom_sys_circle_code(CCLW)" "3" "Circular Interpolation CCLW"} \
+      {"$mom_sys_cycle_drill_code" "81" "Drill"} \
+      {"$mom_sys_cycle_drill_dwell_code" "82" "Drill Dwell"} \
+      {"$mom_sys_cycle_drill_deep_code" "83" "Drill Deep"} \
+      {"$mom_sys_cycle_drill_break_chip_code" "83" "Drill Break Chip"} \
+      {"$mom_sys_cycle_tap_code" "84" "Tap"} \
+      {"$mom_sys_cycle_bore_code" "85" "Bore"} \
+      {"$mom_sys_cycle_bore_drag_code" "86" "Bore Drag"} \
+      {"$mom_sys_cycle_bore_no_drag_code" "76" "Bore No Drag"} \
+      {"$mom_sys_cycle_bore_back_code" "87" "Bore Back"} \
+      {"$mom_sys_cycle_bore_manual_code" "88" "Bore Manual"} \
+      {"$mom_sys_cycle_bore_dwell_code" "89" "Bore Dwell Cycle"} \
+      {"$mom_sys_cycle_bore_manual_dwell_code" "88" "Bore Manual Dwell Cycle"} \
+      {"$mom_sys_cycle_start_code" "79" "Cycle Start Code"} \
+      {"$mom_sys_cycle_off" "80" "Cycle Off"} \
+      {"$mom_sys_cycle_reps_code" "x" "Cycle Code Representative"}
+{G_mode} \
+      {"$mom_sys_output_code($mom_output_mode)" "\$mom_sys_output_code(ABSOLUTE)" "Absolute/Incremental Mode"} \
+      {"$mom_sys_output_code(ABSOLUTE)" "90" "Absolute Mode"} \
+      {"$mom_sys_output_code(INCREMENTAL)" "91" "Incremental Mode"}
+{G} \
+      {"$mom_prefun" "" "Pre Function"} \
+      {"$mom_sys_delay_code(SECONDS)" "4" "Delay in Seconds"} \
+      {"$mom_sys_delay_code(REVOLUTIONS)" "4" "Delay in Revloutions"} \
+      {"$mom_sys_delay_code($mom_delay_mode)" "\$mom_sys_delay_code(SECONDS)" "Delay (Seconds/Revolutions)"} \
+      {"$mom_sys_reset_code" "92" "Absolute Position Reset"} \
+      {"$mom_sys_unit_code(IN)" "70" "Output Unit (Inch)"} \
+      {"$mom_sys_unit_code(MM)" "71" "Output Unit (Metric)"} \
+      {"$mom_sys_unit_code($mom_output_unit)" "\$mom_sys_unit_code(IN)" "Output Unit (Inch/Metric)"} \
+      {"$mom_work_coordinate_number + 53" "54" "Work Coordinate Selection (ZERO) (54 ~ 59)"} \
+      {"$mom_fixture_offset_value + 53" "54" "MCS Fixture Offset  (54 ~ 59)"} \
+      {"$mom_sys_return_code" "28" "Return Home"}
+{X} \
+      {"$mom_pos(0)" "" "X Coordinate"} \
+      {"$mom_from_pos(0)" "" "FROM X Coordinate"} \
+      {"$mom_cycle_feed_to_pos(0)" "" "Cycle Feed X"} \
+      {"$mom_cycle_rapid_to_pos(0)" "" "Rapid X Position in Cycle"} \
+      {"$mom_cycle_retract_to_pos(0)" "" "Retract X Position in Cycle"} \
+      {"$mom_tool_x_offset" "" "Tool X Offset"}
+{Y} \
+      {"$mom_pos(1)" "" "Y Coordinate"} \
+      {"$mom_from_pos(1)" "" "FROM Y Coordinate"} \
+      {"$mom_cycle_feed_to_pos(1)" "" "Cycle Feed Y"} \
+      {"$mom_cycle_rapid_to_pos(1)" "" "Rapid Y Position in Cycle"} \
+      {"$mom_cycle_retract_to_pos(1)" "" "Retract Y Position in Cycle"} \
+      {"$mom_tool_y_offset" "" "Tool Y Offset"}
+{Z} \
+      {"$mom_pos(2)" "" "Z Coordinate"} \
+      {"$mom_from_pos(2)" "" "FROM Z Coordinate"} \
+      {"$mom_cycle_feed_to_pos(2)" "" "Cycle Feed Z"} \
+      {"$mom_cycle_feed_to" "" "Cycle Feed To Distance"} \
+      {"$mom_cycle_rapid_to - $mom_cycle_feed_to" "" "Cycle Feed To Positive Increment"} \
+      {"$mom_cycle_feed_to - $mom_cycle_rapid_to" "" "Cycle Feed To Negative Increment"} \
+      {"$mom_cycle_rapid_to_pos(2)" "" "Rapid Z Position in Cycle"} \
+      {"$mom_cycle_retract_to_pos(2)" "" "Retract Z Position in Cycle"} \
+      {"$mom_tool_z_offset" "" "Tool Z Offset"}
+{G_00} \
+      {"" "" ""}
+{fourth_axis} \
+      {"$mom_out_angle_pos(0)" "" "4th Axis Angle"} \
+      {"$mom_out_angle_pos(1)" "" "5th Axis Angle"}
+{fifth_axis} \
+      {"$mom_out_angle_pos(0)" "" "4th Axis Angle"} \
+      {"$mom_out_angle_pos(1)" "" "5th Axis Angle"}
+{I} \
+      {"$mom_pos_arc_center(0) - $mom_prev_pos(0)" "" "Arc Start To Center"}
+{J} \
+      {"$mom_pos_arc_center(1) - $mom_prev_pos(1)" "" "Arc Start To Center"}
+{K} \
+      {"$mom_pos_arc_center(2) - $mom_prev_pos(2)" "" "Arc Start To Center"}
+{R} \
+      {"$mom_arc_radius" "" "Arc Radius"} \
+      {"$mom_cycle_rapid_to_pos($mom_cycle_spindle_axis)" "" "Rapid Position in Cycle"} \
+      {"$mom_cycle_rapid_to" "" "Cycle Rapid To Distance"}
+{F} \
+      {"$feed" "" "Feed Rate"}
+{S} \
+      {"$mom_spindle_speed" "" "Spindle Speed"} \
+      {"$mom_spindle_maximum_rpm" "" "Spindle Max RPM"}
+{T} \
+      {"$mom_tool_number" "" "Tool Number"} \
+      {"$mom_next_tool_number" "" "Next Tool Number"}
+{D} \
+      {"$mom_cutcom_adjust_register" "1" "Tool Radius Compensation"}
+{H} \
+      {"$mom_tool_adjust_register" "1" "Tool Adjust Register"} \
+      {"$mom_sys_zero" "0" "Cancel Tool Adjust"}
+{dwell} \
+      {"$mom_delay_value" "" "Programmed Dwell"}
+{cycle_dwell} \
+      {"$mom_cycle_delay" "" "Delay For Cycle Dwell"}
+{K_cycle} \
+      {"$mom_cycle_retract_to_pos($mom_cycle_spindle_axis)" "" "Retract Position in Cycle"} \
+      {"$mom_cycle_retract_to" "" "Cycle Retract To Distance"}
+{cycle_step1} \
+      {"$mom_cycle_step2" "" "Step Incr Modifier"}
+{cycle_step} \
+      {"$mom_cycle_step1" "" "Step Incr Value"}
+{cycle_orient} \
+      {"$mom_cycle_orient" "" "Cycle Orient Value"}
+{P_cutcom} \
+      {"$pval" "" "Cutcom (Custom Command)"}
+{Q_cutcom} \
+      {"$qval" "" "Cutcom (Custom Command)"}
+{E} \
+      {"$mom_thread_increment" "" "Thread Increment"}
+{M_spindle} \
+      {"$mom_sys_spindle_direction_code($mom_spindle_direction)" "\$mom_sys_spindle_direction_code(CLW)" "Spindle Direction (CLW/CCLW)"} \
+      {"$mom_sys_spindle_direction_code(CLW)" "3" "CLW Spindle Direction"} \
+      {"$mom_sys_spindle_direction_code(CCLW)" "4" "CCLW Spindle Direction"} \
+      {"$mom_sys_spindle_direction_code(OFF)" "5" "Spindle Off"}
+{M_range} \
+      {"$mom_sys_spindle_range_code($mom_spindle_range)" "41" "Spindle Range"}
+{M_coolant} \
+      {"$mom_sys_coolant_code($mom_coolant_status)" "\$mom_sys_coolant_code(FLOOD)" "Coolant Code (FLOOD/MIST/ON..)"} \
+      {"$mom_sys_coolant_code(ON)" "8" "Coolant On"} \
+      {"$mom_sys_coolant_code(FLOOD)" "8" "Coolant Flood"} \
+      {"$mom_sys_coolant_code(MIST)" "7" "Coolant Mist"} \
+      {"$mom_sys_coolant_code(THRU)" "26" "Coolant Thru"} \
+      {"$mom_sys_coolant_code(TAP)" "27" "Coolant Tap"} \
+      {"$mom_sys_coolant_code(OFF)" "9" "Coolant Off"}
+{M} \
+      {"$mom_sys_optional_stop_code" "1" "Optional Stop"} \
+      {"$mom_auxfun" "" "Aux Function"} \
+      {"$mom_sys_program_stop_code" "0" "Stop Program"} \
+      {"$mom_sys_end_of_program_code" "2" "End Of program"} \
+      {"$mom_sys_rewind_code" "30" "Rewind Program"} \
+      {"$mom_sys_tool_change_code" "6" "Tool Change"}
+{Next_tool} \
+      {"" "" ""}
+{N} \
+      {"$mom_seqnum" "" "Sequence Number"}
+{wq_RTP} \
+      {"" "" ""}
+{wq_RFP} \
+      {"" "" ""}
+{wq_SDIS} \
+      {"" "" ""}
+{wq_DP} \
+      {"" "" ""}
+{Text} \
+      {"" "" ""}
+{wq_DPR} \
+      {"" "" ""}
+{wq_FDEP} \
+      {"" "" ""}
+{wq_comma_1} \
+      {"" "" ""}
+{wq_FDPR} \
+      {"" "" ""}
+{wq_comma_2} \
+      {"" "" ""}
+{wq_DAM} \
+      {"" "" ""}
+{wq_DTB} \
+      {"" "" ""}
+{wq_comma_3} \
+      {"" "" ""}
+{wq_DTS} \
+      {"" "" ""}
+{wq_SDAC} \
+      {"" "" ""}
+{wq_FFR} \
+      {"" "" ""}
+{wq_comma_4} \
+      {"" "" ""}
+{wq_FRF} \
+      {"" "" ""}
+{wq_MPIT} \
+      {"" "" ""}
+{wq_comma_5} \
+      {"" "" ""}
+{wq_VARI} \
+      {"" "" ""}
+{wq_PIT} \
+      {"" "" ""}
+{wq_comma_6} \
+      {"" "" ""}
+{wq_POSS} \
+      {"" "" ""}
+{wq_comma_7} \
+      {"" "" ""}
+{wq_SST} \
+      {"" "" ""}
+{wq_comma_8} \
+      {"" "" ""}
+{wq_SST1} \
+      {"" "" ""}
+{wq_PTAB} \
+      {"" "" ""}
+{wq_RFF} \
+      {"" "" ""}
+{wq_SDIR} \
+      {"" "" ""}
+{wq_comma_9} \
+      {"" "" ""}
+{wq_RPA} \
+      {"" "" ""}
+{wq_comma_10} \
+      {"" "" ""}
+{wq_RPO} \
+      {"" "" ""}
+{wq_comma_11} \
+      {"" "" ""}
+{wq_RPAP} \
+      {"" "" ""}
+{wq_comma_12} \
+      {"" "" ""}
+{wq_POSS_G86} \
+      {"" "" ""}
+{wq_cycle_end} \
+      {"" "" ""}
+{wq_mcall_end} \
+      {"" "" ""}
+{New_Address} \
+      {"" "" ""}
+{PB_Dummy} \
+      {"Include_UDE" "1" ""} \
+      {"UDE_File_Name" "\$UGII_CAM_USER_DEF_EVENT_DIR/ude.cdl" ""} \
+      {"Output_VNC" "0" ""} \
+      {"VNC_Mode" "Standalone" ""} \
+      {"Main_VNC" "" ""} \
+      {"Decimal_Point" "." ""} \
+      {"Comment_Start" ";" ""} \
+      {"Comment_End" "" ""} \
+      {"seq_blk_nc_code" "0" ""} \
+      {"$mom_sys_blank_code" "" ""} \
+      {"$is_linked_post" "0" ""} \
+      {"$linked_posts_list" "\{\{\} \{this_post\}\}" ""} \
+      {"$tl_num_min" "1" ""} \
+      {"$tl_num_max" "32" ""} \
+      {"$tl_change_sec" "30" ""} \
+      {"$tl_retract_status" "1" ""} \
+      {"$tl_retract_z_pos" "99" ""} \
+      {"$output_mode_opt" "Absolute/Incremental" ""} \
+      {"$cutcom_plane_xy" "1" ""} \
+      {"$cutcom_plane_yz" "0" ""} \
+      {"$cutcom_plane_zx" "0" ""} \
+      {"$rad_offset_min" "1" ""} \
+      {"$rad_offset_max" "99" ""} \
+      {"$tl_len_offs_min" "1" ""} \
+      {"$tl_len_offs_max" "20" ""} \
+      {"$spin_fmt_type" "None" ""} \
+      {"$spin_dwell_time" "0" ""} \
+      {"$cir_record_output" "YES" ""} \
+      {"$rap_wrk_pln_chg" "0" ""} \
+      {"$rap_mode_trav_rate" "1" ""} \
+      {"$rap_mode_trav_value" "100" ""} \
+      {"$cycle_rapto_opt" "None" ""} \
+      {"$cycle_recto_opt" "None" ""} \
+      {"$cycle_plane_control_opt" "None" ""} \
+      {"$cycle_start_blk" "0" ""} \
+      {"$tool_num_output" "TOOL_NUMBER_ONLY" ""} \
+      {"$cutcom_off_before_change" "NO" ""} \
+      {"SeqNo_output" "0" ""} \
+      {"$gcode_status" "0" ""} \
+      {"$mcode_status" "0" ""} \
+      {"$oth_rev_xy_plane" "0" ""} \
+      {"$oth_rev_yz_plane" "0" ""} \
+      {"$oth_rev_zx_plane" "0" ""} \
+      {"$oth_sup_out_ijk_zero" "0" ""} \
+      {"$oth_sup_out_ijk_xyz" "0" ""} \
+      {"$mom_usd_add_var" "" ""} \
+      {"$evt_ncoutput_status" "Output_Imediately" ""} \
+      {"$4th_axis_direction" "Magnitude_Determines_Direction" ""} \
+      {"$xaxis_dia_prog" "0" ""} \
+      {"$i_dia_prog" "0" ""} \
+      {"$yaxis_dia_prog" "0" ""} \
+      {"$j_dia_prog" "0" ""} \
+      {"$xaxis_mirror" "0" ""} \
+      {"$yaxis_mirror" "0" ""} \
+      {"$zaxis_mirror" "0" ""} \
+      {"$i_mirror" "0" ""} \
+      {"$j_mirror" "0" ""} \
+      {"$k_mirror" "0" ""} \
+      {"$5th_axis_direction" "Magnitude_Determines_Direction" ""}
+{PB_Tcl_Var} \
+      {"$mom_sys_4th_axis_has_limits" "1" ""} \
+      {"$mom_sys_5th_axis_has_limits" "1" ""} \
+      {"$mom_sys_sim_cycle_drill" "0" ""} \
+      {"$mom_sys_sim_cycle_drill_dwell" "0" ""} \
+      {"$mom_sys_sim_cycle_drill_deep" "0" ""} \
+      {"$mom_sys_sim_cycle_drill_break_chip" "0" ""} \
+      {"$mom_sys_sim_cycle_tap" "0" ""} \
+      {"$mom_sys_sim_cycle_bore" "0" ""} \
+      {"$mom_sys_sim_cycle_bore_drag" "0" ""} \
+      {"$mom_sys_sim_cycle_bore_nodrag" "0" ""} \
+      {"$mom_sys_sim_cycle_bore_manual" "0" ""} \
+      {"$mom_sys_sim_cycle_bore_dwell" "0" ""} \
+      {"$mom_sys_sim_cycle_bore_manual_dwell" "0" ""} \
+      {"$mom_sys_sim_cycle_bore_back" "0" ""} \
+      {"$mom_sys_cir_vector" "Vector - Arc Start to Center" ""} \
+      {"$mom_sys_spindle_ranges" "0" ""} \
+      {"$mom_sys_gcodes_per_block" "10" ""} \
+      {"$mom_sys_mcodes_per_block" "5" ""} \
+      {"$mom_sys_rewind_stop_code" "\#" ""} \
+      {"$mom_sys_home_pos(0)" "0" ""} \
+      {"$mom_sys_home_pos(1)" "0" ""} \
+      {"$mom_sys_home_pos(2)" "0" ""} \
+      {"$mom_sys_zero" "0" ""} \
+      {"$mom_sys_opskip_block_leader" "/" ""} \
+      {"$mom_sys_seqnum_start" "1" ""} \
+      {"$mom_sys_seqnum_incr" "1" ""} \
+      {"$mom_sys_seqnum_freq" "1" ""} \
+      {"$mom_sys_seqnum_max" "9999" ""} \
+      {"$mom_sys_lathe_x_double" "1" ""} \
+      {"$mom_sys_lathe_i_double" "1" ""} \
+      {"$mom_sys_lathe_y_double" "1" ""} \
+      {"$mom_sys_lathe_j_double" "1" ""} \
+      {"$mom_sys_lathe_x_factor" "1" ""} \
+      {"$mom_sys_lathe_y_factor" "1" ""} \
+      {"$mom_sys_lathe_z_factor" "1" ""} \
+      {"$mom_sys_lathe_i_factor" "1" ""} \
+      {"$mom_sys_lathe_j_factor" "1" ""} \
+      {"$mom_sys_lathe_k_factor" "1" ""} \
+      {"$mom_sys_leader(N)" "N" ""} \
+      {"$mom_sys_leader(X)" "X" ""} \
+      {"$mom_sys_leader(Y)" "Y" ""} \
+      {"$mom_sys_leader(Z)" "Z" ""} \
+      {"$mom_sys_leader(fourth_axis)" "B" ""} \
+      {"$mom_sys_leader(fifth_axis)" "C" ""} \
+      {"$mom_sys_contour_feed_mode(LINEAR)" "IPM" ""} \
+      {"$mom_sys_rapid_feed_mode(LINEAR)" "IPM" ""} \
+      {"$mom_sys_cycle_feed_mode" "IPM" ""} \
+      {"$mom_sys_feed_param(IPM,format)" "Feed_IPM" ""} \
+      {"$mom_sys_feed_param(IPR,format)" "Feed_IPR" ""} \
+      {"$mom_sys_feed_param(FRN,format)" "Feed_INV" ""} \
+      {"$mom_sys_vnc_rapid_dogleg" "1" ""} \
+      {"$mom_sys_prev_mach_head" "" ""} \
+      {"$mom_sys_curr_mach_head" "" ""} \
+      {"$mom_sys_contour_feed_mode(ROTARY)" "IPM" ""} \
+      {"$mom_sys_contour_feed_mode(LINEAR_ROTARY)" "IPM" ""} \
+      {"$mom_sys_feed_param(DPM,format)" "Feed_DPM" ""} \
+      {"$mom_sys_rapid_feed_mode(ROTARY)" "IPM" ""} \
+      {"$mom_sys_rapid_feed_mode(LINEAR_ROTARY)" "IPM" ""}
+{Command} \
+      {"Custom Command" "" "New Custom Command"} \
+      {"MOM_set_seq_off" "" "MOM Command"} \
+      {"MOM_set_seq_on" "" "MOM Command"} \
+      {"PB_CMD_FEEDRATE_NUMBER" "" "Custom Command"} \
+      {"PB_CMD_MCS_CSYS_initialize" "" "Custom Command"} \
+      {"PB_CMD_before_motion" "" "Custom Command"} \
+      {"PB_CMD_clamp_fifth_axis" "" "Custom Command"} \
+      {"PB_CMD_clamp_fourth_axis" "" "Custom Command"} \
+      {"PB_CMD_coordainte_set" "" "Custom Command"} \
+      {"PB_CMD_custom_command" "" "Custom Command"} \
+      {"PB_CMD_cycle_def" "" "Custom Command"} \
+      {"PB_CMD_cycle_end" "" "Custom Command"} \
+      {"PB_CMD_end_of_alignment_character" "" "Custom Command"} \
+      {"PB_CMD_end_path" "" "Custom Command"} \
+      {"PB_CMD_end_program" "" "Custom Command"} \
+      {"PB_CMD_fifth_axis_rotate_move" "" "Custom Command"} \
+      {"PB_CMD_fourth_axis_rotate_move" "" "Custom Command"} \
+      {"PB_CMD_handle_sync_event" "" "Custom Command"} \
+      {"PB_CMD_init_rotary" "" "Custom Command"} \
+      {"PB_CMD_init_vars" "" "Custom Command"} \
+      {"PB_CMD_kin_before_motion" "" "Custom Command"} \
+      {"PB_CMD_kin_end_of_path" "" "Custom Command"} \
+      {"PB_CMD_kin_feedrate_set" "" "Custom Command"} \
+      {"PB_CMD_kin_handle_sync_event" "" "Custom Command"} \
+      {"PB_CMD_kin_init_mill_turn" "" "Custom Command"} \
+      {"PB_CMD_kin_init_mill_xzc" "" "Custom Command"} \
+      {"PB_CMD_kin_init_new_iks" "" "Custom Command"} \
+      {"PB_CMD_kin_init_probing_cycles" "" "Custom Command"} \
+      {"PB_CMD_kin_init_rotary" "" "Custom Command"} \
+      {"PB_CMD_kin_linearize_motion" "" "Custom Command"} \
+      {"PB_CMD_kin_mill_turn_initialize" "" "Custom Command"} \
+      {"PB_CMD_kin_mill_xzc_init" "" "Custom Command"} \
+      {"PB_CMD_kin_set_csys" "" "Custom Command"} \
+      {"PB_CMD_kin_start_of_path" "" "Custom Command"} \
+      {"PB_CMD_kin_start_of_program" "" "Custom Command"} \
+      {"PB_CMD_linear_move" "" "Custom Command"} \
+      {"PB_CMD_linearize_motion" "" "Custom Command"} \
+      {"PB_CMD_next_tool_set" "" "Custom Command"} \
+      {"PB_CMD_operation_set_initial" "" "Custom Command"} \
+      {"PB_CMD_operation_type_cancel" "" "Custom Command"} \
+      {"PB_CMD_pause" "" "Custom Command"} \
+      {"PB_CMD_pro_start" "" "Custom Command"} \
+      {"PB_CMD_reload_iks_parameters" "" "Custom Command"} \
+      {"PB_CMD_reposition_move" "" "Custom Command"} \
+      {"PB_CMD_retract_move" "" "Custom Command"} \
+      {"PB_CMD_reverse_rotation_vector" "" "Custom Command"} \
+      {"PB_CMD_revert_dual_head_kin_vars" "" "Custom Command"} \
+      {"PB_CMD_revise_new_iks" "" "Custom Command"} \
+      {"PB_CMD_set_G54" "" "Custom Command"} \
+      {"PB_CMD_set_csys" "" "Custom Command"} \
+      {"PB_CMD_set_cycle_plane" "" "Custom Command"} \
+      {"PB_CMD_start_of_alignment_character" "" "Custom Command"} \
+      {"PB_CMD_start_of_operation_force_addresses" "" "Custom Command"} \
+      {"PB_CMD_suppress_B_C" "" "Custom Command"} \
+      {"PB_CMD_tool_change_force_addresses" "" "Custom Command"} \
+      {"PB_CMD_unclamp_fifth_axis" "" "Custom Command"} \
+      {"PB_CMD_unclamp_fourth_axis" "" "Custom Command"}
+{Operator Message} \
+      {"comment_blk" "($mom_operation_name)" "Operator Message"}
+{PB_Spindle} \
+      {"" "" ""}
+{PB_ZeroFmt} \
+      {"$zero_int_fmt" "Zero_int" ""} \
+      {"$zero_real_fmt" "Zero_real" ""}
+{VNC_Instruction} \
+      {"" "" ""}
+{PB_Rapid} \
+      {"$pb_rapid_1" "rapid_traverse" ""} \
+      {"$pb_rapid_2" "" ""}
+## MOM SYS VARIABLES END

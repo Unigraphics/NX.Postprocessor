@@ -1,0 +1,88 @@
+##############################################################################
+#
+# Programado by:  Javi Garcia    18-08-2003
+# Machine: ARISTO        NC: ARISTO
+#
+# Revisions
+# 18-Ago-2003 # Javi Garcia # Initial
+# 15-Mar-2005 # Javi Garcia # Updated to NX3
+#
+##############################################################################
+
+MACHINE GENERIC_MACHINE
+
+FORMATTING
+{
+
+ WORD_SEPARATOR     ""
+ END_OF_LINE        ","
+# SEQUENCE Seq_no 1 1 1
+
+ FORMAT  Block_num  "&__6_00"
+ FORMAT  Coordinate "&__8_00_"
+ FORMAT  zero_coord "&_01_00"
+ FORMAT  Socket     "%1d"
+
+ ADDRESS N {
+		  FORMAT Block_num
+		  FORCE	 off
+		     }
+ ADDRESS G { 
+        FORMAT Socket
+        FORCE always
+        LEADER  "G"
+        TRAILER ","
+           }
+ ADDRESS D { 
+        FORMAT Socket
+        FORCE off
+           }
+ ADDRESS X {
+        FORMAT Coordinate
+        ZERO_FORMAT zero_coord
+        FORCE always
+           }
+ ADDRESS Y {
+        FORMAT Coordinate
+        ZERO_FORMAT zero_coord
+        FORCE always
+           }
+ ADDRESS I {
+        FORMAT Coordinate
+        ZERO_FORMAT zero_coord
+        FORCE always
+           }
+ ADDRESS J {
+        FORMAT Coordinate
+        ZERO_FORMAT zero_coord
+        FORCE always
+           }
+ 
+
+ BLOCK_TEMPLATE Seq_no	{N [$mom_seqnum] }
+
+ BLOCK_TEMPLATE Linear  {
+          G[$mom_sys_linear_code]
+          X[$mom_pos(0) * 100]
+          Y[$mom_pos(1) * 100]
+          }
+ BLOCK_TEMPLATE Circle_CLW  {
+          G[$mom_sys_circle_code_CLW]
+          X[$mom_pos(0) * 100]
+          Y[$mom_pos(1) * 100]
+          I[$mom_pos_arc_center(0) * 100]
+          J[$mom_pos_arc_center(1) * 100]
+          }
+ BLOCK_TEMPLATE Circle_CCLW {
+          G[$mom_sys_circle_code_CCLW]
+          X[$mom_pos(0) * 100]
+          Y[$mom_pos(1) * 100]
+          I[$mom_pos_arc_center(0) * 100]
+          J[$mom_pos_arc_center(1) * 100]
+          }
+ BLOCK_TEMPLATE P_up  { D[$mom_sys_pen_up_code] }
+ BLOCK_TEMPLATE P_down  { D[$mom_sys_pen_down_code] }
+}
+
+
+

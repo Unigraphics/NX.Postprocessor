@@ -1,0 +1,2163 @@
+##############################################################################
+# Description
+#	Post-Processeur pour Machine Deckel 4 Axes
+#			HEIDENHAIN TNC 530 (Langage Exclusivement)
+#	Client : JMD
+#
+#
+#
+# Revisions
+#
+#	Date		Who		Reason
+#	04-Sep-2005	J. Moreschi	Originale (NX 3.0.2.3)
+#	20-Nov-2006	J. Moreschi	Ajout Gestion Sens de Rotation de Broche (RESET_speed_m)
+#					Revision Fin de Programme
+#					Revision Retour aux Origines
+#					Revision Cinematique Machine
+#	11-Jan-2007	J. Moreschi	Ajout Block_Form
+#
+# $HISTORY$
+#
+###############################################################################
+
+##############################################################
+### Notice de la Machine Deckel 4 Axes / HEIDENHAIN TNC 530  #
+##############################################################
+#
+#
+# Detail des Axes :
+# ===============
+#
+# Configuration Verticale (Broche suivant Z) " en X Y Z
+# Configuration 4 Axes
+# Axe Rotatif table A sans Limites
+# Option : Plan incliné (CYCLE 19)
+#
+# Fichiers :
+# JMD_DECKEL_TNC430.tcl
+# JMD_DECKEL_TNC430.def
+#
+# Les Mots Mineurs qui sont entre Crochets [mineur] sont Optionnels
+#
+###
+###
+# Nom du Fichier et Repertoire DNC
+# ================================
+#
+# Exemple : 
+# =======
+#
+#   ==> Nom de la Part UG :  ESSAI.PRT
+#
+#   0  BEGIN PGM ESSAI MM
+#   1  etc ...
+#   .. END PGM ESSAI MM
+#
+#
+# Nota : L'Extension par Defaut sur Deckel est .H , le Nom du programme
+#        doit Comporter 13 Caracteres .
+#
+# Le Fichier ISO (.H) sera Automatiquement crée dans le Repertoire DNC si la 
+# Variable Windows "JMD_DNC_DECKEL" est Declarée .
+#
+# Exemple :
+# =======
+# 
+# Nom de la Variable    : JMD_DNC_DECKEL
+# Valeur de la Variable : C:\DNC\DECKEL  ==> Repertoire Physique Existant (IMPERATIF)
+#
+###
+###
+# Gestion Axe Rotatif en 4 Axes positionnement (Axe Rotatif A)
+# ===========================================================
+#
+# La Rotation de l'Axe est gérée par l'Orientation de l'Outil (i,j,k)
+# sur les ordres de Mouvement (GOTO/x,y,z,i,j,k)
+#
+# Remarque : Vecteur i toujours à Zero
+# --------
+#
+# L'axe Rotatif A est sans Limites 
+#
+# La Gestion du Plan Incliné est Automatique (CYCL DEF 19.1 Aa)
+#
+# Toutes Nouvelles Positions avec de l'Axe Rotatif Entrainent un Dégagement Z (Position Changement d'Outil) et XY
+# 
+# Par défaut l'axe Rotatif tournent au plus Court si une Orientation (ijk) est programmée
+# 
+#
+# RAPID
+# GOTO/166.7000,170.0000,59.8500,0.0000000,1.0000000,0.0000000
+# ... L Z-1 FMAX M91				==> Degagement Butee Machine
+# ... L A-270 FMAX				==> Rotation Table
+# ... CYCL DEF 19.0 PLAN D'USINAGE		==> Initialisation Plan Incliné
+# ... CYCL DEF 19.1 A-270			==> Définition plan Incliné
+#
+# RAPID
+# GOTO/166.7000,75.0000,59.8500
+# ... L X+166.7 Y-59.85 FMAX			==> Approche Outil
+#  
+###
+###
+# Gestion Axe Rotatifs en 4 Axes Continu (Axe Rotatif A)
+# =====================================================
+#
+# La Rotation de l'Axe est gérée par l'Orientation de l'Outil (i,j,k)
+# sur les ordres de mouvement (GOTO/x,y,z,i,j,k)
+#
+# Remarque : Vecteur i toujours à Zero
+# --------
+#
+# Le MSYS UG et l'Origine Piéce doivent être au CENTRE de l'Axe A  
+# Il n'y a pas de Plan Incliné (CYCL DEF 19.1 Aa)
+# 
+# 
+# L'Avance est exprimé en Millimetres Minute
+# 
+###
+###
+# Gestion de l'Usinage par Point à Haute Vitesse (CYCLE DEF 32.0 , CYCL DEF 32.1)
+# ==============================================================================
+#
+# ==> CYCL DEF 32.0 TOLERANCE
+# ==> CYCL DEF 32.1 T Tolerance Programmée
+#
+# Post command UG -> en Début d'Opération pour Activation              (Tolérance Differente de 0 et Mode Actif)
+# Post command UG -> en Début sur l'Opération suivante pour Annulation (Tolérance à 0 ou Mode Inactif)
+# Post command UG -> en Fin d'Opération pour Annulation                (Tolérance à 0 ou Mode Inactif)
+#
+# Il faut Ajouter "EVENT smooth" dans le Fichier \mach\user_def_event\ude_deckel.cdl comme suit :
+#
+# EVENT smooth
+# {
+#     UI_LABEL "Tolerance UGV"
+#     CATEGORY MILL
+#     PARAM smooth_command_status
+#     {
+#       TYPE o
+#       DEFVAL "Actif"
+#       OPTIONS "Actif","Inactif"
+#       UI_LABEL "Mode"
+#     }
+#
+#     PARAM smooth_tol
+#     {
+#        TYPE   d
+#        DEFVAL ".05"
+#        UI_LABEL "Tolerance"
+#     }
+# }
+#
+#
+# Nota : Pour Annuler la Fonction Mettre la Tolerance à 0 ou Mode Inactif .
+#
+###
+###
+# Gestion des Interpolations Splines (Nurbs UG)
+# =============================================
+#
+# Automatique quand le Post-Processeur Rencontre des Nurbs.
+# Creation d'un Parcours d'Outil en Langage Heidenhain .
+# 
+# Exemple :
+# 
+# FEDRAT/200.0000
+# NURBS/
+# KNOT/1.0000000
+# CNTRL/0.0000,-55.0772,10.5123
+# CNTRL/0.0000,-48.1729,25.8788
+# CNTRL/0.0000,-36.5234,36.1222
+#
+# Programme Genere :
+#
+# 0 BEGIN PGM 123 MM
+# 1 BLK FORM 0.1 Z X-800 Y-450 Z-450
+# 2 BLK FORM 0.2 X+800 Y+450 Z+450
+# ........
+# 23 L Y-55 Z-5 F150 *
+# 24 SPL Y-36.523 Z+36.122 *
+# 25 K3Y+2.235 K2Y+1.4238 E+1 K1Y-3.495 E+1 *
+# 26 K3Z+4.979 K2Z-1.5372 E+1 K1Z-3.0729 E+1 F200 *
+# ...........
+#
+###
+###
+# Changement d'Outil
+# ==================
+#
+# Mettre le Numero d'Outil avec la Description de l'Outil
+#
+# TOOL,n > de 1 à 30
+#
+#
+# ZOFF,Longueur  > Modification du Point Pilote Longueur = 0 ==> Pointe Outil
+#
+#                  Exemple : ZOFF=50 ==> GOTO/x,y,0 -> Xx Yy Z50.
+#
+#
+###
+###
+# Gestion Fraise Boule et Fraise Torique
+# ======================================
+#
+# Possibilite de Piloter le Bout d'Outil Boule et Torique ou Centre Outil .
+# Par Defaut ==> Bout Outil
+#
+# Post Commande UG (en Debut d'Operation)
+#
+# Exemple : GOTO/x,y,0 -> Xx Yy Z10  ==> Avec Outil Boule Diametre 20 avec Centre Outil Boule Piloté
+#           GOTO/x,y,0 -> Xx Yy Z5   ==> Avec Outil Torique de Rayon de Coin 5 avec Centre Outil Piloté
+#
+# Il faut Ajouter "EVENT tracking_tool" dans le Fichier \mach\user_def_event\ude.cdl comme suit :
+#
+# EVENT tracking_tool
+# {
+#    UI_LABEL "Point Piloté"
+#
+#    PARAM tracking_point_text
+#    {
+#       TYPE   o
+#       DEFVAL   "Centre Outil"
+#       OPTIONS  "Centre Outil","Bout Outil"
+#       UI_LABEL "Point Piloté"
+#   }
+# }
+#
+# Nota : En mode Nurbs cette Fonction est Ignorée .
+#
+###
+###
+# Gestion Zero Flottant (POINT ZERO)
+# =================================
+#
+# Permet d'Activer et d'Utiliser les Origines Flottantes .
+# 
+# Post Commande UG (en Debut d'Operation) -> Origine -> Numero d'Origine -> 1 à 30
+#
+# ==> ... CYCL DEF 7.0 POINT ZERO
+# ==> ... CYCL DEF 7.1 # Numero Origine Programée
+#
+#
+# Il faut Ajouter "EVENT zero" dans le Fichier \mach\user_def_event\ude_deckel.cdl comme suit :
+#
+# EVENT zero
+# {
+#    UI_LABEL "Point Zero"
+#    CATEGORY MILL DRILL
+#    PARAM zero_register
+#    {
+#       TYPE   i
+#       DEFVAL "1"
+#       UI_LABEL "Numero Origine"
+#    }
+# }
+#
+# Nota : Par Defaut Aucune Origine n'est Activée .
+#
+###
+###
+# Arrosage
+# ========
+#
+# Post command UG -> (Arrosage Marche , Arrosage Arret)
+#
+# Coolant On type FLOOD	> L M8
+# Coolant On type MIST	> L M8
+# Coolant On type TAP	> L M8
+# Coolant Off 		> L M9
+#
+###
+###
+# Commentaire Machine
+# ===================
+#
+# Post command UG -> (Message Operateur , Pprint)
+#
+# PPRINT/commentaire >   ;COMMENTAIRE
+# DISPLY/commentaire >   ;COMMENTAIRE
+#
+###
+###
+# Bloc Optionnel (/)
+# ==================
+#
+# Post command UG -> (Optional Skip On , Optional Skip Off)
+#
+# OPSKIP/ON > /....
+#
+# OPSKIP/OFF > ....
+#
+###
+###
+# Arret Machine et Arret Optionnel
+# ================================
+#
+# Post command UG -> (Arret Machine ou Arret Optionnel) , le Commentaire en Appended Text Active
+#
+# STOP >   .. L M0
+#
+# STOP/commentaire   > .. L M0 ;COMMENTAIRE
+#                      
+# OPSTOP > .. L M1
+#
+# OPSTOP/commentaire > .. L M1 ;COMMENTAIRE
+#
+#
+###
+###
+# Degagement Outil
+# ================
+#
+#
+# GOHOME/x,y,z		G00 Xx Yy Zz
+#
+# GOHOME		G00 Z-1 M91
+#			G00 X-450 Y492 M91
+#       
+###
+###
+# Correction de Rayon (RL , RR) dans le Plan
+# ==========================================
+#
+# CUTCOM/(LEFT,RIGHT) -> RL ou RR
+#
+# CUTCOM/OFF -> R0
+#
+###
+###
+# Sous Programme Machine
+# ======================
+#
+# Post command UG en Debut et Fin d'Operation
+#
+# Il faut Ajouter "EVENT spc" dans le Fichier \mach\user_def_event\ude.cdl
+# comme suit :
+#
+# EVENT spc
+# {
+#    UI_LABEL "Sous Programme"
+#    CATEGORY MILL
+#    PARAM spc_number
+#    {
+#       TYPE   i
+#       DEFVAL "1"
+#       TOGGLE On
+#       UI_LABEL "Numero Sous Programme"
+#    }
+#    PARAM action_spc
+#    {
+#       TYPE o
+#       DEFVAL "Debut"
+#       OPTIONS "Debut","Fin"
+#       UI_LABEL "Action"
+#    }
+# }
+#
+#
+# L'utilisation des Sous Programmes Machine se fait de la Maniere suivante :
+#
+# ==> Mettre "Mots PP (Post Processor) de Depart" sur la Premiere Operation d'Usinage 
+# ==> Debut ==> Numero du Sous Programme (1 à 99)
+#
+# ==> Mettre "Mots PP (Post Processor) de Fin" sur la Derniere Operation d'Usinage   
+# ==> Fin ==> Numero du Sous Programme (1 à 99)
+#
+# Nota : Les Numeros de Debut et Fin du Sous Programme doivent être Identiques pour
+#        Permettre la Repetition .
+#
+# L'operation d'Usinage pourra etre ensuite Copiees de la Maniere suivante :
+#
+# ==> Selection de l'Operation ==> Objet ==> Transformer ==> Conversion ==> etc ...
+#
+# Les Sous Programmes Machine seront Ignorés dans les Cas suivants :
+#
+#  o Pour Tout Cycle de Percage
+#  o Arret du Sequencement des Blocs Machine
+#  o Transformation Avec Facteur d'Echelle
+#  o Transformation Avec Rotation Autour d'un Point
+#  o Transformation Avec Mirroir Autour d'une Droite
+#  o Transformation Avec Reposition
+#  o Mode Sortie Nurbs Actif
+#
+###
+###
+# Gestion Arrêt Précis
+# ==================== 
+#
+# Sans M90 en Mode Travail la TNC arrête Brièvement l'Outil aux Angles
+# Avec M90 en Mode Travail les Coins sont Arrondis et la Surface de la Pièce est plus Lisse
+#
+# Post command UG en Debut d'Operation
+#
+# Il faut Ajouter "EVENT prec_motion" dans le Fichier \mach\user_def_event\ude_deckel.cdl comme suit :
+#
+# EVENT prec_motion
+# {
+#    UI_LABEL "Arret Precis"
+#
+#    PARAM prec_motion_text
+#    {
+#       TYPE   o
+#       DEFVAL   "Normal"
+#       OPTIONS  "Normal","Fin"
+#       UI_LABEL "Type Arrêt Precis"
+#    }
+# }
+#
+# Nota : Par Defaut pas de Presence de M90 (Option Mode Fin)
+#
+###
+###
+# Cycle Machine 'CYCLE DEF 200 PERCAGE ~' ( 5 types de trous dans une operation UG)
+# Cycle de Percage Simple [avec ou sans Tempo]
+#
+#
+# CYCLE/DRILL,RAPTO,z,FEEDTO,-z,[RTRCTO,z ou AUTO],(MMPM,MMPR),f,[DWELL,[REV],t]
+#
+#
+# RAPTO,z = Q200=z
+#
+# RTRCTO,z = Q204=z , si absence de RTRCTO => Q204 = RAPTO
+#
+# DWELL,t = Q211=t
+#
+# Q202 = 500 (Profondeur avant Chaque Debourrage)
+#                
+###
+###
+# Cycle Machine 'CYCL DEF 203 PERCAGE UNIVERSEL ~' ( 5 types de trous dans une operation UG)
+# Cycle de Percage avec Debourrage [avec ou sans Tempo]
+#
+#
+# CYCLE/DRILL,DEEP,STEP,a,[b],[c],RAPTO,z,FEEDTO,-z,[RTRCTO,z ou AUTO],MMPM,f,[DWELL,[REV],t]
+#
+# Principe de STEP :
+#
+# a = Profondeur avant chaque Debourrage => Q202 = a
+# b = Reduction Profondeur de Debourrage => Q212 = b (si b>=a alors b=0)
+# c = Profondeur de Debourrage Mini      => Q205 = c (si c=0  alors c=0.1)
+#
+# DWELL,t = Q211=t
+#
+# Q208=5000 (Avance Retrait)
+#
+#
+###
+###
+# Cycle Machine 'CYCL DEF 203 PERCAGE UNIVERSEL ~' ( 5 types de trous dans une operation UG)
+# Cycle de Percage avec Brise-Copeaux [avec ou sans Tempo]
+#
+#
+# CYCLE/DRILL,BRKCHP,STEP,a,RAPTO,z,FEEDTO,-z,[RTRCTO,z ou AUTO],MMPM,f,[DWELL,[REV],t]
+#
+#
+# Principe de STEP :
+#
+# a = Profondeur avant chaque Brise-Copeaux => Q213 = Nombre de Brise Copeaux (FEEDTO/a)
+#
+# DWELL,t = Q211=t
+#
+# Q208=5000 (Avance Retrait)
+#
+# Q256=0.5 (Retrait de Brise Copeaux)
+#
+###
+###
+# Cycle Machine 'CYCL DEF 207 NOUV. TARAUDAGE RIGIDE ~' ( 5 types de trous dans une operation UG)
+# ou 'CYCL DEF 206 NOUVEAU TARAUDAGE'
+#
+# CYCLE/TAP,RAPTO,z,FEEDTO,-z,[RTRCTO,z ou AUTO],MMPR,f,[OPTION]
+#
+# Avec OPTION ==> Inactif ==> Taraudage Rigide
+#  ==> CYCL DEF 207 NOUV. TARAUDAGE RIGIDE
+#
+# Avec OPTION ==> Actif  ==> Taraudage avec Mandrin de Compensation
+#  ==> CYCL DEF 206 NOUVEAU TARAUDAGE ~
+#
+###
+###
+# Cycle Machine 'CYCL DEF 201 ALESAGE ~' ( 5 types de trous dans une operation UG)
+# Cycle d'Alesage a l'Alesoir [avec ou Tempo]
+#
+#
+# CYCLE/BORE,RAPTO,z,FEEDTO,-z,[RTRCTO,z ou AUTO],MMPM,f,[DWELL,[REV],t]
+#
+# DWELL,t = Q211=t
+#
+# Q208=0 (Avance Retrait = Avance Plongée)
+#
+#
+###
+###
+# Cycle machine 'CYCL DEF 202 ALESAGE AVEC ALESOIR ~' ( 5 types de trous dans une operation UG)
+# Cycle d'Alesage avec Arret Broche [avec ou Tempo]
+#
+#
+# CYCLE/BORE,DRAG,RAPTO,z,FEEDTO,-z,[RTRCTO,z ou AUTO],MMPM,f,[DWELL,[REV],t]
+#
+# DWELL,t = Q211=t
+#
+# Q208=5000 (Avance Retrait)
+#
+# Q214=0 (ne pas Dégager l'Outil)
+#
+###
+###
+# Cycle machine 'CYCL DEF 202 ALESAGE AVEC ALESOIR ~' ( 5 types de trous dans une operation UG)
+# Cycle d'Alesage avec Arret Broche Orientée [avec ou Tempo]
+#
+#
+# CYCLE/BORE,NODRAG,[a],RAPTO,z,FEEDTO,-z,[RTRCTO,z ou AUTO],MMPM,f,[DWELL,[REV],t]
+#
+# DWELL,t = Q211=t
+#
+# Q208=5000 (Avance Retrait)
+#
+# a = Angle Pointe Outil (sens Trigo, 0 vers les X+) pour Q214 et Q336
+# si 'a' autre que 0 , 90 , 180 ou 270 => Q214=0 (ne pas Dégager l'Outil)
+#
+###
+###
+# Cycle machine 'CYCLE DEF 200 PERCAGE ~' ( 5 types de trous dans une operation UG)
+# Cycle de Chanfrein Pointage [avec ou Tempo]
+#
+#
+# CYCLE/DRILL,CSINK,CSKDIA,d,TLANGL,a,[HOLDIA,d],RAPTO,z $
+# ,[RTRCTO,z ou AUTO],MMPM,f,[DWELL,[REV],t]
+#
+###
+###
+###############################################################################
+
+MACHINE DECKEL_TNC530
+
+INCLUDE
+{
+   $UGII_CAM_USER_DEF_EVENT_DIR/ude_deckel.cdl
+   $UGII_CAM_USER_DEF_EVENT_DIR/ude.cdl
+}
+
+
+FORMATTING
+{
+
+ WORD_SEPARATOR     " "
+ END_OF_LINE        ""
+ SEQUENCE Seq_no    1 1 1
+
+ FORMAT  Coordinate   "&+_5.3_"
+ FORMAT  Coordinate_c "&__5.3_"
+ FORMAT  Coefficient  "&+01.8_" 
+ FORMAT  Exposant     "&+_3_00" 
+ FORMAT  Dwell_sec    "&__4.3_"
+ FORMAT  Register_6   "&__6_00"
+ FORMAT  Register_5   "&__5_00"
+ FORMAT  Register_4   "&__4_00"
+ FORMAT  Register_3   "&__3_00"
+ FORMAT  Register_2   "&__2_00"
+ FORMAT  Register_g   "&_02_00"
+ FORMAT  Register_c   "%s"
+ FORMAT  Feed_MMPM    "&__5_00" 
+ FORMAT  zero_coord   "&+01.0_"
+ FORMAT  zero_coord_c "&_01.0_"
+ FORMAT  zero         "&_01_00"
+ FORMAT  zero_1       "&_01_00"
+ FORMAT  zero_2       "&_02_00"
+ FORMAT  zero_2_1     "&__2.1_"
+
+
+ADDRESS seq  {
+              LEADER [$seq_lang]
+              FORMAT Register_6
+	      ZERO_FORMAT zero_1
+              MAX    999999
+              MIN    0
+              FORCE  off
+             }
+
+ADDRESS Zero  {
+              LEADER "#"
+              FORMAT Register_3
+	      ZERO_FORMAT zero_1
+              MAX    999
+              MIN    0
+              FORCE  OFF
+             }
+
+ADDRESS G    {
+             FORMAT Register_g
+	     ZERO_FORMAT zero_2
+             MAX    99
+             MIN    0
+             FORCE  OFF
+             }
+
+ADDRESS motion_g {
+                 LEADER "G"
+                 FORMAT Register_g
+	         ZERO_FORMAT zero_2
+                 MAX    99
+                 MIN    0
+                 FORCE  always
+                }
+
+ADDRESS motion_h {
+                 LEADER ""
+                 FORMAT Register_c
+                 FORCE  always
+                 }
+
+ADDRESS plane_g {
+                LEADER ""
+                FORMAT Register_c
+                FORCE  always
+                }
+
+ADDRESS cutcom_g {
+                 LEADER "R"
+                 FORMAT Register_c
+                 FORCE  off
+                 }
+ 
+ADDRESS mode_g  {
+                LEADER "G"
+                FORMAT Register_g
+                MAX    99
+                MIN    1
+                FORCE  always
+                }
+
+ADDRESS cycle_g {
+                LEADER "CYCL DEF "
+                FORMAT Register_3
+	        ZERO_FORMAT zero_2
+                MAX    999
+                MIN    0
+                FORCE  off
+                }
+
+ADDRESS preset_x  {
+                  LEADER "!"
+	          TRAILER "!"
+                  FORMAT Coordinate
+	          ZERO_FORMAT zero_coord
+                  MAX    99999.999
+                  MIN    -99999.999
+                  FORCE  always
+                  }
+
+ADDRESS preset_y  {
+                  LEADER "!"
+	          TRAILER "!"
+                  FORMAT Coordinate
+	          ZERO_FORMAT zero_coord
+                  MAX    99999.999
+                  MIN    -99999.999
+                  FORCE  always
+                  }
+
+ADDRESS preset_z  {
+                  LEADER "!"
+	          TRAILER "!"
+                  FORMAT Coordinate
+	          ZERO_FORMAT zero_coord
+                  MAX    99999.999
+                  MIN    -99999.999
+                  FORCE  always
+                  }
+
+ADDRESS call_lbl {
+                 LEADER "CALL LBL "
+	         TRAILER " REP"
+                 FORMAT Register_2
+	         ZERO_FORMAT zero_2
+                 MAX    99
+                 MIN    1
+                 FORCE  always
+                 }
+
+ADDRESS def_lbl {
+                LEADER "LBL "
+	        TRAILER ""
+                FORMAT Register_2
+	        ZERO_FORMAT zero_2
+                MAX    99
+                MIN    1
+                FORCE  always
+                }
+ 
+ADDRESS X     {
+              LEADER "X!"
+	      TRAILER "!"
+              FORMAT Coordinate
+	      ZERO_FORMAT zero_coord
+              MAX    99999.999
+              MIN    -99999.999
+              FORCE  off
+              }
+
+ADDRESS IX    {
+              LEADER "IX!"
+	      TRAILER "!"
+              FORMAT Coordinate
+	      ZERO_FORMAT zero_coord
+              MAX    99999.999
+              MIN    -99999.999
+              FORCE  always
+              }
+
+ADDRESS I     {
+              LEADER "I!"
+	      TRAILER "!"
+              FORMAT Coordinate
+	      ZERO_FORMAT zero_coord
+              MAX    99999.999
+              MIN    -99999.999
+              FORCE  always
+              }
+
+ADDRESS Y     {
+              LEADER "Y!"
+	      TRAILER "!"
+              FORMAT Coordinate
+	      ZERO_FORMAT zero_coord
+              MAX    99999.999
+              MIN    -99999.999
+              FORCE  off
+              }
+
+ADDRESS J     {
+              LEADER "J!"
+	      TRAILER "!"
+              FORMAT Coordinate
+	      ZERO_FORMAT zero_coord
+              MAX    99999.999
+              MIN    -99999.999
+              FORCE  always
+              }
+
+ADDRESS IY    {
+              LEADER "IY!"
+	      TRAILER "!"
+              FORMAT Coordinate
+	      ZERO_FORMAT zero_coord
+              MAX    99999.999
+              MIN    -99999.999
+              FORCE  always
+              }
+
+ADDRESS Z     {
+              LEADER "Z!"
+	      TRAILER "!"
+              FORMAT Coordinate
+	      ZERO_FORMAT zero_coord
+              MAX    99999.999
+              MIN    -99999.999
+              FORCE  off
+              }
+
+ADDRESS K     {
+              LEADER "K!"
+	      TRAILER "!"
+              FORMAT Coordinate
+	      ZERO_FORMAT zero_coord
+              MAX    99999.999
+              MIN    -99999.999
+              FORCE  always
+              }
+
+ADDRESS IZ    {
+              LEADER "IZ!"
+	      TRAILER "!"
+              FORMAT Coordinate
+	      ZERO_FORMAT zero_coord
+              MAX    99999.999
+              MIN    -99999.999
+              FORCE  always
+              }
+
+ADDRESS IPA   {
+              LEADER "IPA!"
+	      TRAILER "!"
+              FORMAT Coordinate
+	      ZERO_FORMAT zero_coord
+              MAX    999.0
+              MIN    0.0
+              FORCE  off
+              }
+
+ADDRESS H     {
+              LEADER "H!"
+	      TRAILER "!"
+              FORMAT Coordinate
+	      ZERO_FORMAT zero_coord
+              MAX    999.0
+              MIN    -999.0
+              FORCE  off
+              }
+
+ADDRESS FOUR  {
+              LEADER "A!"
+	      TRAILER "!"
+              FORMAT Coordinate
+	      ZERO_FORMAT zero_coord
+              MAX    99999.999
+              MIN    -99999.999
+              FORCE  off
+              }
+
+
+ADDRESS matrix_four  {
+              LEADER "A!"
+	      TRAILER "!"
+              FORMAT Coordinate
+	      ZERO_FORMAT zero_coord
+              MAX    99999.999
+              MIN    -99999.999
+              FORCE  off
+            }
+
+ADDRESS matrix_off_four_reg  {
+              LEADER "A!"
+	      TRAILER "!"
+              FORMAT Coordinate
+	      ZERO_FORMAT zero_coord
+              MAX    99999.999
+              MIN    -99999.999
+              FORCE  off
+              }
+
+
+ADDRESS FIVE  {
+              LEADER "C!"
+	      TRAILER "!"
+              FORMAT Coordinate
+	      ZERO_FORMAT zero_coord
+              MAX    99999.999
+              MIN    -99999.999
+              FORCE  off
+              }
+
+ADDRESS X_ret  {
+               LEADER "X!"
+	       TRAILER "!"
+               FORMAT Coordinate
+	       ZERO_FORMAT zero_coord
+               MAX    99999.999
+               MIN    -99999.999
+               FORCE  always
+               }
+
+ADDRESS Y_ret  {
+               LEADER "Y!"
+	       TRAILER "!"
+               FORMAT Coordinate
+	       ZERO_FORMAT zero_coord
+               MAX    99999.999
+               MIN    -99999.999
+               FORCE  always
+               }
+
+ADDRESS Z_ret  {
+               LEADER "Z!"
+	       TRAILER "!"
+               FORMAT Coordinate
+	       ZERO_FORMAT zero_coord
+               MAX    99999.999
+               MIN    -99999.999
+               FORCE  always
+               }
+ 
+ADDRESS PX    {
+              LEADER "X!"
+	      TRAILER "!"
+              FORMAT Coordinate
+	      ZERO_FORMAT zero_coord
+              MAX    99999.999
+              MIN    -99999.999
+              FORCE  always
+              }
+
+ADDRESS PY    {
+              LEADER "Y!"
+	      TRAILER "!"
+              FORMAT Coordinate
+	      ZERO_FORMAT zero_coord
+              MAX    99999.999
+              MIN    -99999.999
+              FORCE  always
+              }
+
+ADDRESS PZ    {
+              LEADER "Z!"
+	      TRAILER "!"
+              FORMAT Coordinate
+	      ZERO_FORMAT zero_coord
+              MAX    99999.999
+              MIN    -99999.999
+              FORCE  always
+              }
+
+ADDRESS COX1  {
+              LEADER "K1X!"
+	      TRAILER "!"
+              FORMAT Coefficient
+	      ZERO_FORMAT zero_coord
+              MAX    9.99999999
+              MIN    -9.99999999
+              FORCE  always
+              }
+
+ADDRESS COX2  {
+              LEADER "K2X!"
+	      TRAILER "!"
+              FORMAT Coefficient
+	      ZERO_FORMAT zero_coord
+              MAX    9.99999999
+              MIN    -9.99999999
+              FORCE  always
+              }
+
+ADDRESS COX3 {
+              LEADER "K3X!"
+	      TRAILER "!"
+              FORMAT Coefficient
+	      ZERO_FORMAT zero_coord
+              MAX    9.99999999
+              MIN    -9.99999999
+              FORCE  always
+              }
+
+ADDRESS COY1  {
+              LEADER "K1Y!"
+	      TRAILER "!"
+              FORMAT Coefficient
+	      ZERO_FORMAT zero_coord
+              MAX    9.99999999
+              MIN    -9.99999999
+              FORCE  always
+              }
+
+ADDRESS COY2  {
+              LEADER "K2Y!"
+	      TRAILER "!"
+              FORMAT Coefficient
+	      ZERO_FORMAT zero_coord
+              MAX    9.99999999
+              MIN    -9.99999999
+              FORCE  always
+              }
+
+ADDRESS COY3  {
+              LEADER "K3Y!"
+	      TRAILER "!"
+              FORMAT Coefficient
+	      ZERO_FORMAT zero_coord
+              MAX    9.99999999
+              MIN    -9.99999999
+              FORCE  always
+              }
+
+ADDRESS COZ1  {
+              LEADER "K1Z!"
+	      TRAILER "!"
+              FORMAT Coefficient
+	      ZERO_FORMAT zero_coord
+              MAX    9.99999999
+              MIN    -9.99999999
+              FORCE  always
+              }
+
+ADDRESS COZ1  {
+              LEADER "K1Z!"
+	      TRAILER "!"
+              FORMAT Coefficient
+	      ZERO_FORMAT zero_coord
+              MAX    9.99999999
+              MIN    -9.99999999
+              FORCE  always
+              }
+
+ADDRESS COZ2  {
+              LEADER "K2Z!"
+	      TRAILER "!"
+              FORMAT Coefficient
+	      ZERO_FORMAT zero_coord
+              MAX    9.99999999
+              MIN    -9.99999999
+              FORCE  always
+              }
+
+ADDRESS COZ3  {
+              LEADER "K3Z!"
+	      TRAILER "!"
+              FORMAT Coefficient
+	      ZERO_FORMAT zero_coord
+              MAX    9.99999999
+              MIN    -9.99999999
+              FORCE  always
+              }
+
+ADDRESS EX    {
+              LEADER "E"
+              FORMAT Exposant
+              MAX    999
+              MIN    0
+              FORCE  always
+              }
+  
+ADDRESS dwell  {
+               LEADER "TEMP. @"
+	       TRAILER "!"
+               FORMAT Dwell_sec
+	       ZERO_FORMAT zero_coord
+               MAX    9999
+               MIN    0
+               FORCE  always
+               }
+
+ADDRESS P     {
+              LEADER "P"
+	      TRAILER "!"
+              FORMAT Coordinate
+	      ZERO_FORMAT zero_coord
+              MAX    999.999
+              MIN    -999.999
+              FORCE  off
+              }
+
+ADDRESS Q     {
+              LEADER "Q"
+	      TRAILER "!"
+              FORMAT Coordinate
+	      ZERO_FORMAT zero_coord
+              MAX    999.999
+              MIN    -999.999
+              FORCE  off
+              }
+
+ADDRESS F     {
+              FORMAT Feed_MMPM
+              MAX    99999
+              MIN    0
+              FORCE  off
+	      OMIT "0"
+              }
+
+ADDRESS S     {
+              FORMAT Register_5
+	      ZERO_FORMAT zero
+              MAX    99999
+              MIN    0 
+              FORCE  off
+              }
+
+ADDRESS T     {
+	      LEADER "TOOL CALL "
+              FORMAT Register_2
+	      ZERO_FORMAT zero
+              MAX    30
+              MIN    0
+              FORCE  always
+              }
+
+ADDRESS presel  {
+	        LEADER "TOOL DEF "
+                FORMAT Register_2
+	        ZERO_FORMAT zero
+                MAX    30
+                MIN    0
+                FORCE  always
+                }
+
+ADDRESS coolant_m  {
+                   LEADER "M"
+                   FORMAT Register_2
+                   MAX    99
+                   MIN    0
+                   FORCE  off
+                   }
+
+ADDRESS spindle_m  {
+                   LEADER "M"
+                   FORMAT Register_2
+                   FORCE  off
+                   }
+ 
+ADDRESS M     {
+              FORMAT Register_2
+	      ZERO_FORMAT zero
+              FORCE  always
+	      }
+
+ADDRESS tc_m  {
+              LEADER "M"
+              FORMAT Register_c
+              FORCE  always
+              }
+
+ADDRESS R     {
+              LEADER "R!"
+	      TRAILER "!"
+              FORMAT Coordinate
+	      ZERO_FORMAT zero_coord
+              FORCE always
+              }
+
+ADDRESS c_rap  {
+               LEADER " Q200=@"
+	       TRAILER "!"
+               FORMAT Coordinate_c
+	       ZERO_FORMAT zero_coord_c
+               MAX    99999.999
+               MIN    -99999.999
+               FORCE  off
+               }
+
+ADDRESS c_depth  {
+                 LEADER " Q201=@"
+	         TRAILER "!"
+                 FORMAT Coordinate_c
+	         ZERO_FORMAT zero_coord_c
+                 MAX    99999.999
+                 MIN    -99999.999
+                 FORCE  off
+                 }
+
+ADDRESS c_step  {
+                LEADER " Q202=@"
+	        TRAILER "!"
+                FORMAT Coordinate_c
+	        ZERO_FORMAT zero_coord_c
+                MAX    99999.999
+                MIN    -99999.999
+                FORCE  off
+                }
+
+ADDRESS c_z   {
+              LEADER " Q203=!"
+	      TRAILER "!"
+              FORMAT Coordinate
+	      ZERO_FORMAT zero_coord
+              MAX    99999.999
+              MIN    -99999.999
+              FORCE  off
+              }
+
+ADDRESS c_depth_min  {
+                     LEADER " Q205=@"
+	             TRAILER "!"
+                     FORMAT Coordinate_c
+	             ZERO_FORMAT zero_coord_c
+                     MAX    99999.999
+                     MIN    -99999.999
+                     FORCE  off
+                     }
+
+ADDRESS c_f   {
+              LEADER " Q206=@"
+              FORMAT Feed_MMPM
+              MAX    99999
+              MIN    1
+              FORCE  off
+              }
+
+ADDRESS c_f_ret  {
+                 LEADER " Q208=@"
+                 FORMAT Feed_MMPM
+	         ZERO_FORMAT zero 
+                 MAX    99999
+                 MIN    0
+                 FORCE  off
+                 }
+
+ADDRESS c_ret {
+              LEADER " Q204=@"
+	      TRAILER "!"
+              FORMAT Coordinate_c
+	      ZERO_FORMAT zero_coord_c
+              MAX    99999.999
+              MIN    -99999.999
+              FORCE  off
+              }
+
+ ADDRESS c_t  {
+              LEADER " Q210=@"
+	      TRAILER "!"
+              FORMAT Dwell_sec
+	      ZERO_FORMAT zero_coord
+              MAX    9999
+              MIN    0
+              FORCE  off
+              }
+
+ADDRESS c_dwell {
+                LEADER " Q211=@"
+	        TRAILER "!"
+                FORMAT Dwell_sec
+	        ZERO_FORMAT zero_coord
+                MAX    9999
+                MIN    0
+                FORCE  off
+                } 
+
+ADDRESS c_increase {
+                   LEADER " Q212=@"
+	           TRAILER "!"
+                   FORMAT Coordinate_c
+	           ZERO_FORMAT zero_coord_c
+                   MAX    99999.999
+                   MIN    -99999.999
+                   FORCE  off
+                   }
+
+ADDRESS c_breakchip {
+                    LEADER " Q213=@"
+	            TRAILER "!"
+                    FORMAT Coordinate_c
+	            ZERO_FORMAT zero_coord_c
+                    MAX    99999.999
+                    MIN    -99999.999
+                    FORCE  off
+                    }
+
+ADDRESS c_no_drag_axis {
+                       LEADER " Q214=@"
+	               TRAILER "!"
+                       FORMAT Coordinate_c
+	               ZERO_FORMAT zero_coord_c
+                       MAX    99999.999
+                       MIN    -99999.999
+                       FORCE  off
+                       }
+
+ADDRESS c_lead {
+               LEADER " Q239=!"
+	       TRAILER "!"
+               FORMAT Coordinate
+	       ZERO_FORMAT zero_coord
+               MAX    99999.999
+               MIN    -99999.999
+               FORCE  off
+               }
+
+ADDRESS c_breakchip_ret {
+                        LEADER " Q256=@"
+	                TRAILER "!"
+                        FORMAT Coordinate_c
+	                ZERO_FORMAT zero_coord_c
+                        MAX    99999.999
+                        MIN    -99999.999
+                        FORCE  off
+                        }
+
+ADDRESS c_no_drag_angle {
+                        LEADER " Q336=@"
+	                TRAILER "!"
+                        FORMAT Coordinate_c
+	                ZERO_FORMAT zero_coord_c
+                        MAX    99999.999
+                        MIN    -99999.999
+                        FORCE  off
+                        }
+
+ADDRESS c_text_lead {
+                    LEADER " Q334=@"
+	            TRAILER "!"
+                    FORMAT Coordinate_c
+	            ZERO_FORMAT zero_coord_c
+                    MAX    99999.999
+                    MIN    -99999.999
+                    FORCE  off
+                    }
+
+ADDRESS c_text_dia {
+                   LEADER " Q335=@"
+	           TRAILER "!"
+                   FORMAT Coordinate_c
+	           ZERO_FORMAT zero_coord_c
+                   MAX    99999.999
+                   MIN    -99999.999
+                   FORCE  off
+                   }
+
+ADDRESS c_text_trou {
+                    LEADER " Q342=@"
+	            TRAILER "!"
+                    FORMAT Coordinate_c
+	            ZERO_FORMAT zero_coord_c
+                    MAX    99999.999
+                    MIN    -99999.999
+	            OMIT "0"
+                    FORCE  off
+                    }
+
+ADDRESS smooth_reg {
+                   LEADER "T@"
+	           TRAILER "!"
+                   FORMAT Coordinate_c
+	           ZERO_FORMAT zero_coord_c
+                   MAX    99999.999
+                   MIN    -99999.999
+                   FORCE  off
+	           OMIT "0"
+                   }
+
+ADDRESS coarse_fine_m  {
+                       LEADER "M"
+                       FORMAT Register_2
+                       FORCE  always
+	               OMIT "0"
+                       }
+
+ADDRESS TXT  {
+              FORMAT Register_c
+              FORCE  always
+              LEADER ""
+             }
+
+ADDRESS NOMBRE  {
+                 FORMAT Coordinate_c
+	         ZERO_FORMAT zero_coord_c
+                 FORCE  always
+                 LEADER ""
+                }
+
+ADDRESS matrix_reg {
+                   LEADER ""
+	           TRAILER "@"
+                   FORMAT zero_2_1
+		   ZERO_FORMAT zero_coord
+                   MAX    99.99
+                   MIN    -99.99
+                   FORCE  always
+                   }
+
+
+BLOCK_TEMPLATE Seq_no    { seq[$mom_seqnum]}
+
+BLOCK_TEMPLATE format5_3 {NOMBRE[$nombre]}
+
+BLOCK_TEMPLATE tool_radius {NOMBRE[$nombre] "RAYON ="NOMBRE[$mom_tool_corner1_radius]}
+
+
+BLOCK_TEMPLATE init    {  cycle_g[999]
+			coolant_m[$mom_sys_coolant_code(OFF)]
+			spindle_m[$mom_sys_spindle_direction_code(OFF)]
+                         cutcom_g[$mom_sys_cutcom_code(OFF)]
+		               IZ[0]
+			        K[0]
+}
+
+BLOCK_TEMPLATE init_smooth  {smooth_reg[0]}
+
+BLOCK_TEMPLATE start_prog_0 {"BEGIN PGM" TXT[$name_partno] "MM"}
+
+BLOCK_TEMPLATE start_prog_h {"BEGIN PGM" TXT[$nurbs_partno] "MM"}
+
+BLOCK_TEMPLATE start_prog_1 {"BLK FORM 0.1" plane_g[$mom_sys_cutcom_plane_code($opt_cutcom_plane)]
+				                  X[$mom_block_form_x_mini] Y[$mom_block_form_y_mini] Z[$mom_block_form_z_mini]}
+
+BLOCK_TEMPLATE start_prog_2 {"BLK FORM 0.2" X[$mom_block_form_x_maxi] Y[$mom_block_form_y_maxi] Z[$mom_block_form_z_maxi]}
+
+BLOCK_TEMPLATE ret_xy_i {
+			motion_g[$mom_sys_rapid_code]
+			cutcom_g[$opt_cutcom_code]\opt
+			   X_ret[-450]
+			   Y_ret[492]
+			"M91"
+}
+
+BLOCK_TEMPLATE ret_xy_h {
+			"L"
+			cutcom_g[$opt_cutcom_code]\opt
+			   X_ret[-450]
+			   Y_ret[492]
+			"FMAX"
+			"M91"
+}
+
+BLOCK_TEMPLATE ret_y_i {
+			motion_g[$mom_sys_rapid_code]
+			cutcom_g[$opt_cutcom_code]\opt
+			   Y_ret[492]
+			"M91"
+}
+
+BLOCK_TEMPLATE ret_y_h {
+			"L"
+			cutcom_g[$opt_cutcom_code]\opt
+			   Y_ret[492]
+			"FMAX"
+			"M91"
+}
+
+BLOCK_TEMPLATE ret_z_i {
+			motion_g[$mom_sys_rapid_code]
+			cutcom_g[$opt_cutcom_code]\opt
+			   Z_ret[-1]
+			"M91"
+}
+
+BLOCK_TEMPLATE ret_z_h {
+			"L"
+			cutcom_g[$opt_cutcom_code]\opt
+			   Z_ret[-1]
+			"FMAX"
+			"M91"
+}
+
+
+BLOCK_TEMPLATE Zero_nb {Zero[$zero]}
+
+BLOCK_TEMPLATE rapid_xy_i {
+		 motion_g[$mom_sys_rapid_code]
+		 cutcom_g[$opt_cutcom_code]\opt
+			X[$mom_pos(0)]
+			Y[$mom_pos(1)]
+			S[$mom_spindle_rpm]
+		spindle_m[$mom_sys_spindle_direction_code($mom_spindle_direction)]
+}
+
+BLOCK_TEMPLATE rapid_xy_h {
+			"L"
+			X[$mom_pos(0)]
+			Y[$mom_pos(1)]
+		 cutcom_g[$opt_cutcom_code]\opt
+			S[$mom_spindle_rpm]
+			"FMAX"
+		spindle_m[$mom_sys_spindle_direction_code($mom_spindle_direction)]
+
+}
+
+BLOCK_TEMPLATE rapid_z_i {
+		 motion_g[$mom_sys_rapid_code]
+		 cutcom_g[$opt_cutcom_code]\opt
+			Z[$mom_pos(2)]
+			S[$mom_spindle_rpm]
+		spindle_m[$mom_sys_spindle_direction_code($mom_spindle_direction)]
+}
+
+BLOCK_TEMPLATE rapid_z_h {
+			"L"
+			Z[$mom_pos(2)]
+		 cutcom_g[$opt_cutcom_code]\opt
+			S[$mom_spindle_rpm]
+			"FMAX"
+		spindle_m[$mom_sys_spindle_direction_code($mom_spindle_direction)]
+
+}
+
+BLOCK_TEMPLATE rapid_four_h {
+			"L"
+			cutcom_g[$opt_cutcom_code]\opt
+			    FOUR[$mom_out_angle_pos(0)]
+			       S[$mom_spindle_rpm]
+			       "FMAX"
+		       spindle_m[$mom_sys_spindle_direction_code($mom_spindle_direction)]      
+}
+
+BLOCK_TEMPLATE rapid_four_i {
+			motion_g[$mom_sys_rapid_code]
+			cutcom_g[$opt_cutcom_code]\opt
+			    FOUR[$mom_out_angle_pos(0)]
+			       S[$mom_spindle_rpm]
+		       spindle_m[$mom_sys_spindle_direction_code($mom_spindle_direction)]      
+}
+
+BLOCK_TEMPLATE linear_i  { 
+		 motion_g[$mom_sys_linear_code]
+		 cutcom_g[$opt_cutcom_code]\opt
+			X[$mom_pos(0)]
+			Y[$mom_pos(1)]
+			Z[$mom_pos(2)]
+		     FOUR[$mom_out_angle_pos(0)]
+			F[$mom_feed_rate]
+	    coarse_fine_m[$coarse_fine]
+}
+
+BLOCK_TEMPLATE linear_h  { 
+			"L"
+			X[$mom_pos(0)]
+			Y[$mom_pos(1)]
+			Z[$mom_pos(2)]
+		     FOUR[$mom_out_angle_pos(0)]
+		 cutcom_g[$opt_cutcom_code]\opt
+			F[$mom_feed_rate]
+	    coarse_fine_m[$coarse_fine]
+}
+
+BLOCK_TEMPLATE linear_z  { 
+		 motion_g[$mom_sys_linear_code]
+			Z[$mom_pos(2)]
+		 cutcom_g[$opt_cutcom_code]\opt
+			F[$mom_feed_rate]
+}
+
+
+BLOCK_TEMPLATE circle_i  { 
+		 motion_g[$mom_sys_circle_code($mom_arc_direction)]
+			X[$mom_pos(0)]
+			Y[$mom_pos(1)]
+			Z[$mom_pos(2)]
+			R[$mom_arc_radius]
+			F[$mom_feed_rate]
+}
+
+BLOCK_TEMPLATE circle_h  { 
+			"CR"
+			X[$mom_pos(0)]
+			Y[$mom_pos(1)]
+			Z[$mom_pos(2)]
+			R[$mom_arc_radius]
+		 motion_h[$h_circle_code($mom_arc_direction)]
+			F[$mom_feed_rate]
+}
+
+BLOCK_TEMPLATE center_circle_i  {
+		        "G91" 
+			I[$mom_prev_pos(0) - $mom_pos_arc_center(0)]
+			J[$mom_prev_pos(1) - $mom_pos_arc_center(1)]
+			K[$mom_prev_pos(2) - $mom_pos_arc_center(2)]
+}
+
+BLOCK_TEMPLATE center_circle_h  { 
+			"CC"
+#			IX[$mom_prev_pos(0) - $mom_pos_arc_center(0)]
+#			IY[$mom_prev_pos(1) - $mom_pos_arc_center(1)]
+#			IZ[$mom_prev_pos(2) - $mom_pos_arc_center(2)]
+			 X[$mom_pos_arc_center(0)]
+			 Y[$mom_pos_arc_center(1)]
+			 Z[$mom_pos_arc_center(2)]
+}
+
+
+BLOCK_TEMPLATE helical_i  { 
+                        motion_g[$mom_sys_helical_polar_code($mom_arc_direction)]
+			       X[$mom_pos(0)]
+			       Y[$mom_pos(1)]
+			       H[$delta_angle * $signe]
+			       Z[$mom_pos(2) - $mom_prev_pos(2)]
+			motion_h[$h_circle_code($mom_arc_direction)]
+			       F[$mom_feed_rate]
+}
+
+BLOCK_TEMPLATE helical_h  { 
+			        "CP"
+			       X[$mom_pos(0)]
+			       Y[$mom_pos(1)]
+			     IPA[$delta_angle]
+			       Z[$mom_pos(2)]
+			motion_h[$h_circle_code($mom_arc_direction)]
+			       F[$mom_feed_rate]
+}
+
+BLOCK_TEMPLATE Nurbs_point   {	"SPL"
+                                PX[$nurbs_point_x]
+                                PY[$nurbs_point_y]
+                                PZ[$nurbs_point_z]
+}
+
+BLOCK_TEMPLATE Nurbs_coeff_x   {
+				COX3[$k3x] EX[$e3x]
+				COX2[$k2x] EX[$e2x]
+				COX1[$k1x] EX[$e3z]
+}
+
+BLOCK_TEMPLATE Nurbs_coeff_y   {
+				COY3[$k3y] EX[$e3y]
+				COY2[$k2y] EX[$e2y]
+				COY1[$k1y] EX[$e1y]
+                                   F[$f1]\opt
+}
+
+BLOCK_TEMPLATE Nurbs_coeff_z   {
+				COZ3[$k3z] EX[$e3z]
+				COZ2[$k2z] EX[$e2z]
+				COZ1[$k1z] EX[$e1z]
+                                   F[$f2]\opt
+}
+
+
+BLOCK_TEMPLATE cycle_plane_change { "L" Z[$mom_cycle_rapid_to_pos(2)] "FMAX"}
+
+BLOCK_TEMPLATE cycle_call_pos {         "L"
+			        cutcom_g[$opt_cutcom_code]\opt
+			               X[$mom_pos(0)]
+			               Y[$mom_pos(1)]
+				       "FMAX"
+			               "M99"
+} 
+
+BLOCK_TEMPLATE cycle_call{ "L" "M99"}  
+
+BLOCK_TEMPLATE init_cycle {
+				cycle_g[999]
+ 				  c_rap[99999.999]
+				c_depth[99999.999]
+				    c_f[99999]
+				 c_step[99999.999]
+				    c_t[3600]
+                                    c_z[99999.999]	
+				  c_ret[99999.999]
+			     c_increase[99999.999]
+			    c_breakchip[99999]
+			    c_depth_min[99999.999]
+				c_dwell[3600]
+				c_f_ret[99999]
+			c_breakchip_ret[99999.999]
+			 c_no_drag_axis[99999.999]
+			c_no_drag_angle[99999.999]
+				 c_lead[99999.999]
+			    c_text_lead[99999.999]
+			     c_text_dia[99999.999]
+}       
+
+# Percage Simple
+
+BLOCK_TEMPLATE cycle_drill_1   { cycle_g[$mom_sys_cycle_drill_code] "PERCAGE ~"}
+BLOCK_TEMPLATE cycle_drill_2   {   c_rap[$mom_cycle_rapid_to]       ";DISTANCE D'APPROCHE ~"}
+BLOCK_TEMPLATE cycle_drill_3   { c_depth[$mom_cycle_feed_to]        ";PROFONDEUR ~"}
+BLOCK_TEMPLATE cycle_drill_4   {     c_f[$mom_cycle_feed_rate]      ";AVANCE PLONGEE PROF. ~"}
+BLOCK_TEMPLATE cycle_drill_5   {  c_step[$zhome]                    ";PROFONDEUR DE PASSE ~"}
+BLOCK_TEMPLATE cycle_drill_6   {     c_t[0]                         ";TEMPO. EN HAUT ~"}
+BLOCK_TEMPLATE cycle_drill_7   {     c_z[$mom_pos(2)]               ";COOR. SURFACE ~"}
+BLOCK_TEMPLATE cycle_drill_8   {   c_ret[$mom_cycle_retract_to]     ";2eme DISTANCE D'APPROCHE ~"}
+BLOCK_TEMPLATE cycle_drill_9   { c_dwell[0]                         ";TEMPO. AU FOND"}
+#BLOCK_TEMPLATE cycle_drill_10 { c_breakchip_ret[0.2]               ";RETR. AVEC BRISE-COPEAUX ~"}
+
+
+# Percage Simple Temporise
+
+BLOCK_TEMPLATE cycle_drill_dwell_1   { cycle_g[$mom_sys_cycle_drill_code] "PERCAGE ~"}
+BLOCK_TEMPLATE cycle_drill_dwell_2   {   c_rap[$mom_cycle_rapid_to]       ";DISTANCE D'APPROCHE ~"}
+BLOCK_TEMPLATE cycle_drill_dwell_3   { c_depth[$mom_cycle_feed_to]        ";PROFONDEUR ~"}
+BLOCK_TEMPLATE cycle_drill_dwell_4   {     c_f[$mom_cycle_feed_rate]      ";AVANCE PLONGEE PROF. ~"}
+BLOCK_TEMPLATE cycle_drill_dwell_5   {  c_step[$zhome]                    ";PROFONDEUR DE PASSE ~"}
+BLOCK_TEMPLATE cycle_drill_dwell_6   {     c_t[0]                         ";TEMPO. EN HAUT ~"}
+BLOCK_TEMPLATE cycle_drill_dwell_7   {     c_z[$mom_pos(2)]               ";COOR. SURFACE ~"}
+BLOCK_TEMPLATE cycle_drill_dwell_8   {   c_ret[$mom_cycle_retract_to]     ";2eme DISTANCE D'APPROCHE ~"}
+BLOCK_TEMPLATE cycle_drill_dwell_9   { c_dwell[$mom_cycle_delay]          ";TEMPO. AU FOND"}
+#BLOCK_TEMPLATE cycle_drill_dwell_10 { c_breakchip_ret[0.2]               ";RETR. AVEC BRISE-COPEAUX ~"}
+            
+
+# Percage avec Debourrage (avec ou sans Tempo)
+
+BLOCK_TEMPLATE cycle_drill_deep_1  {         cycle_g[$mom_sys_cycle_drill_deep_code] "PERCAGE UNIVERSEL ~"}
+BLOCK_TEMPLATE cycle_drill_deep_2  {           c_rap[$mom_cycle_rapid_to]            ";DISTANCE D'APPROCHE ~"}
+BLOCK_TEMPLATE cycle_drill_deep_3  {         c_depth[$mom_cycle_feed_to]             ";PROFONDEUR ~"}
+BLOCK_TEMPLATE cycle_drill_deep_4  {             c_f[$mom_cycle_feed_rate]           ";AVANCE PLONGEE PROF. ~"}
+BLOCK_TEMPLATE cycle_drill_deep_5  {          c_step[$mom_cycle_step1]               ";PROFONDEUR DE PASSE ~"}
+BLOCK_TEMPLATE cycle_drill_deep_6  {             c_t[0]                              ";TEMPO. EN HAUT ~"}
+BLOCK_TEMPLATE cycle_drill_deep_7  {             c_z[$mom_pos(2)]                    ";COOR. SURFACE ~"}	
+BLOCK_TEMPLATE cycle_drill_deep_8  {           c_ret[$mom_cycle_retract_to]          ";2eme DISTANCE D'APPROCHE ~"}
+BLOCK_TEMPLATE cycle_drill_deep_9  {      c_increase[$mom_cycle_step2]               ";VALEUR REDUCTION ~"}
+BLOCK_TEMPLATE cycle_drill_deep_10 {     c_breakchip[0]                              ";BRISE-COPEAUX ~"}
+BLOCK_TEMPLATE cycle_drill_deep_11 {     c_depth_min[$mom_cycle_step3]               ";PROF. PASSE MIN. ~"}
+BLOCK_TEMPLATE cycle_drill_deep_12 {         c_dwell[$mom_cycle_delay]               ";TEMPO. AU FOND ~"}
+BLOCK_TEMPLATE cycle_drill_deep_13 {         c_f_ret[5000]                           ";AVANCE RETRAIT ~"}
+BLOCK_TEMPLATE cycle_drill_deep_14 { c_breakchip_ret[0.0]                            ";RETR. AVEC BRISE-COPEAUX ~"}
+
+
+# Percage avec Brise Copeaux (avec ou sans Tempo)
+
+BLOCK_TEMPLATE cycle_breakchip_1  {         cycle_g[$mom_sys_cycle_drill_deep_code] "PERCAGE UNIVERSEL ~"}
+BLOCK_TEMPLATE cycle_breakchip_2  {           c_rap[$mom_cycle_rapid_to]            ";DISTANCE D'APPROCHE ~"}
+BLOCK_TEMPLATE cycle_breakchip_3  {         c_depth[$mom_cycle_feed_to]             ";PROFONDEUR ~"}
+BLOCK_TEMPLATE cycle_breakchip_4  {             c_f[$mom_cycle_feed_rate]           ";AVANCE PLONGEE PROF. ~"}
+BLOCK_TEMPLATE cycle_breakchip_5  {          c_step[$mom_cycle_step1]               ";PROFONDEUR DE PASSE ~"}
+BLOCK_TEMPLATE cycle_breakchip_6  {             c_t[0]                              ";TEMPO. EN HAUT ~"}
+BLOCK_TEMPLATE cycle_breakchip_7  {             c_z[$mom_pos(2)]                    ";COOR. SURFACE ~"}	
+BLOCK_TEMPLATE cycle_breakchip_8  {           c_ret[$mom_cycle_retract_to]          ";2eme DISTANCE D'APPROCHE ~"}
+BLOCK_TEMPLATE cycle_breakchip_9  {      c_increase[0]                              ";VALEUR REDUCTION ~"}
+BLOCK_TEMPLATE cycle_breakchip_10 {     c_breakchip[$breakchip_number]              ";BRISE-COPEAUX ~"}
+BLOCK_TEMPLATE cycle_breakchip_11 {     c_depth_min[0]                              ";PROF. PASSE MIN. ~"}
+BLOCK_TEMPLATE cycle_breakchip_12 {         c_dwell[$mom_cycle_delay]               ";TEMPO. AU FOND ~"}
+BLOCK_TEMPLATE cycle_breakchip_13 {         c_f_ret[5000]                           ";AVANCE RETRAIT ~"}
+BLOCK_TEMPLATE cycle_breakchip_14 { c_breakchip_ret[0.5]                            ";RETR. AVEC BRISE-COPEAUX ~"}
+
+
+# Taraudage
+
+BLOCK_TEMPLATE cycle_tap_1 { cycle_g[$mom_sys_cycle_tap_code]               "NOUV. TARAUDAGE RIGIDE ~"}
+BLOCK_TEMPLATE cycle_tap_2 {   c_rap[$mom_cycle_rapid_to]                   ";DISTANCE D'APPROCHE ~"}
+BLOCK_TEMPLATE cycle_tap_3 { c_depth[$mom_cycle_feed_to]                    ";PROFONDEUR ~"}
+BLOCK_TEMPLATE cycle_tap_4 {  c_lead[$mom_cycle_feed_rate/$mom_spindle_rpm] ";PAS DE VIS ~"}
+BLOCK_TEMPLATE cycle_tap_5 {     c_z[$mom_pos(2)]                           ";COOR. SURFACE ~"}	
+BLOCK_TEMPLATE cycle_tap_6 {   c_ret[$mom_cycle_retract_to]                 ";2eme DISTANCE D'APPROCHE ~"}
+
+# Taraudage avec Option Activée
+
+BLOCK_TEMPLATE cycle_tap_option_1 { cycle_g[$mom_sys_cycle_tap_code_option] "NOUVEAU TARAUDAGE ~"}
+BLOCK_TEMPLATE cycle_tap_option_2 {   c_rap[$mom_cycle_rapid_to]            ";DISTANCE D'APPROCHE ~"}
+BLOCK_TEMPLATE cycle_tap_option_3 { c_depth[$mom_cycle_feed_to]             ";PROFONDEUR ~"}
+BLOCK_TEMPLATE cycle_tap_option_4 {     c_f[$mom_cycle_feed_rate]           ";AVANCE PLONGEE PROF. ~"}
+BLOCK_TEMPLATE cycle_tap_option_5 { c_dwell[$mom_cycle_delay]               ";TEMPO. AU FOND ~"}
+BLOCK_TEMPLATE cycle_tap_option_6 {     c_z[$mom_pos(2)]                    ";COOR. SURFACE ~"}	
+BLOCK_TEMPLATE cycle_tap_option_7 {   c_ret[$mom_cycle_retract_to]          ";2eme DISTANCE D'APPROCHE ~"}
+
+
+# Alesage Simple
+
+BLOCK_TEMPLATE cycle_bore_1 { cycle_g[$mom_sys_cycle_bore_code] "ALESAGE ~"}
+BLOCK_TEMPLATE cycle_bore_2 {   c_rap[$mom_cycle_rapid_to]      ";DISTANCE D'APPROCHE ~"}
+BLOCK_TEMPLATE cycle_bore_3 { c_depth[$mom_cycle_feed_to]       ";PROFONDEUR ~"}
+BLOCK_TEMPLATE cycle_bore_4 {     c_f[$mom_cycle_feed_rate]     ";AVANCE PLONGEE PROF. ~"}
+BLOCK_TEMPLATE cycle_bore_5 { c_dwell[0]                        ";TEMPO. AU FOND ~"}
+BLOCK_TEMPLATE cycle_bore_6 { c_f_ret[0]                        ";AVANCE RETRAIT ~"}
+BLOCK_TEMPLATE cycle_bore_7 {     c_z[$mom_pos(2)]              ";COOR. SURFACE ~"}	
+BLOCK_TEMPLATE cycle_bore_8 {   c_ret[$mom_cycle_retract_to]    ";2eme DISTANCE D'APPROCHE ~"}
+
+# Alesage Simple Temporise
+            
+BLOCK_TEMPLATE cycle_bore_dwell_1 { cycle_g[$mom_sys_cycle_bore_code] "ALESAGE ~"}
+BLOCK_TEMPLATE cycle_bore_dwell_2 {   c_rap[$mom_cycle_rapid_to]      ";DISTANCE D'APPROCHE ~"}
+BLOCK_TEMPLATE cycle_bore_dwell_3 { c_depth[$mom_cycle_feed_to]       ";PROFONDEUR ~"}
+BLOCK_TEMPLATE cycle_bore_dwell_4 {     c_f[$mom_cycle_feed_rate]     ";AVANCE PLONGEE PROF. ~"}
+BLOCK_TEMPLATE cycle_bore_dwell_5 { c_dwell[$mom_cycle_delay]         ";TEMPO. AU FOND ~"}
+BLOCK_TEMPLATE cycle_bore_dwell_6 { c_f_ret[0]                        ";AVANCE RETRAIT ~"}
+BLOCK_TEMPLATE cycle_bore_dwell_7 {     c_z[$mom_pos(2)]              ";COOR. SURFACE ~"}	
+BLOCK_TEMPLATE cycle_bore_dwell_8 {   c_ret[$mom_cycle_retract_to]    ";2eme DISTANCE D'APPROCHE ~"}
+
+
+# Alesage avec Arret Broche (avec ou sans Tempo)
+
+BLOCK_TEMPLATE cycle_bore_drag_1  {         cycle_g[$mom_sys_cycle_bore_drag_code] "ALESAGE AVEC ALESOIR ~"}
+BLOCK_TEMPLATE cycle_bore_drag_2  {           c_rap[$mom_cycle_rapid_to]           ";DISTANCE D'APPROCHE ~"}
+BLOCK_TEMPLATE cycle_bore_drag_3  {         c_depth[$mom_cycle_feed_to]            ";PROFONDEUR ~"}
+BLOCK_TEMPLATE cycle_bore_drag_4  {             c_f[$mom_cycle_feed_rate]          ";AVANCE PLONGEE PROF. ~"}
+BLOCK_TEMPLATE cycle_bore_drag_5  {         c_dwell[$mom_cycle_delay]              ";TEMPO. AU FOND ~"}
+BLOCK_TEMPLATE cycle_bore_drag_6  {         c_f_ret[5000]                          ";AVANCE RETRAIT ~"}
+BLOCK_TEMPLATE cycle_bore_drag_7  {             c_z[$mom_pos(2)]                   ";COOR. SURFACE ~"}		
+BLOCK_TEMPLATE cycle_bore_drag_8  {           c_ret[$mom_cycle_retract_to]         ";2eme DISTANCE D'APPROCHE ~"}
+BLOCK_TEMPLATE cycle_bore_drag_9  {  c_no_drag_axis[0]                             ";SENS DEGAGEMENT ~"}
+BLOCK_TEMPLATE cycle_bore_drag_10 { c_no_drag_angle[0]                             ";ANGLE BROCHE ~"}
+
+
+# Alesage avec Indexation Broche (avec ou sans Tempo)
+
+BLOCK_TEMPLATE cycle_bore_no_drag_1  {         cycle_g[$mom_sys_cycle_bore_no_drag_code] "ALESAGE AVEC ALESOIR ~"}
+BLOCK_TEMPLATE cycle_bore_no_drag_2  {           c_rap[$mom_cycle_rapid_to]              ";DISTANCE D'APPROCHE ~"}
+BLOCK_TEMPLATE cycle_bore_no_drag_3  {         c_depth[$mom_cycle_feed_to]               ";PROFONDEUR ~"}
+BLOCK_TEMPLATE cycle_bore_no_drag_4  {             c_f[$mom_cycle_feed_rate]             ";AVANCE PLONGEE PROF. ~"}
+BLOCK_TEMPLATE cycle_bore_no_drag_5  {         c_dwell[$mom_cycle_delay]                 ";TEMPO. AU FOND ~"}
+BLOCK_TEMPLATE cycle_bore_no_drag_6  {         c_f_ret[5000]                             ";AVANCE RETRAIT ~"}
+BLOCK_TEMPLATE cycle_bore_no_drag_7  {             c_z[$mom_pos(2)]                      ";COOR. SURFACE ~"}		
+BLOCK_TEMPLATE cycle_bore_no_drag_8  {           c_ret[$mom_cycle_retract_to]            ";2eme DISTANCE D'APPROCHE ~"}
+BLOCK_TEMPLATE cycle_bore_no_drag_9  {  c_no_drag_axis[$no_drag_axis]                    ";SENS DEGAGEMENT ~"}
+BLOCK_TEMPLATE cycle_bore_no_drag_10 { c_no_drag_angle[$no_drag_angle]                   ";ANGLE BROCHE ~"}
+
+
+
+	    BLOCK_TEMPLATE Zero_nb_1        {"CYCL DEF 7.0" "POINT ZERO"}
+
+	    BLOCK_TEMPLATE Zero_nb_2        {"CYCL DEF 7.1" Zero[$zero]}
+
+            BLOCK_TEMPLATE preset           {"CYCL DEF 7.0" "POINT ZERO"}
+
+            BLOCK_TEMPLATE preset_1         {"CYCL DEF 7.1 X" preset_x[$x_preset_value]}
+
+            BLOCK_TEMPLATE preset_2         {"CYCL DEF 7.2 Y" preset_y[$y_preset_value]}
+
+            BLOCK_TEMPLATE preset_3         {"CYCL DEF 7.3 Z" preset_z[$z_preset_value]}
+
+	    BLOCK_TEMPLATE call_spc	    {call_lbl[$mom_spc_number]}
+
+	    BLOCK_TEMPLATE def_spc	    {def_lbl[$mom_spc_number]}
+
+	    BLOCK_TEMPLATE Smooth_off       {"CYCL DEF 32.1"}
+
+	    BLOCK_TEMPLATE Smooth_tol_1     {"CYCL DEF 32.0" "TOLERANCE"}
+
+	    BLOCK_TEMPLATE Smooth_tol_2     {"CYCL DEF 32.1" smooth_reg[$mom_smooth_tol]}
+
+            BLOCK_TEMPLATE spindle_start    {
+					     "TOOL CALL Z" S[$mom_spindle_rpm]
+					    }
+
+       
+            BLOCK_TEMPLATE spindle_off      {"L" spindle_m[$mom_sys_spindle_direction_code(OFF)]} 
+
+            BLOCK_TEMPLATE spindle_orient   {"L" spindle_m[$mom_sys_spindle_orient]} 
+
+	    BLOCK_TEMPLATE coolant_on       {"L" coolant_m[$mom_sys_coolant_code($mom_coolant_status)]\opt}
+
+            BLOCK_TEMPLATE coolant_off      {"L" coolant_m[$mom_sys_coolant_code(OFF)]}
+
+            BLOCK_TEMPLATE cutcom_off       {"L" cutcom_g[$mom_sys_cutcom_code(OFF)]}
+
+            BLOCK_TEMPLATE delay_1          {"CYCL DEF 9.0" "TEMPORISATION"}
+
+            BLOCK_TEMPLATE delay_2          {"CYCL DEF 9.1" dwell[$mom_delay_value]}
+
+	    BLOCK_TEMPLATE matrix_on_1      {"CYCL DEF 19.0" "PLAN D'USINAGE"}		
+					     
+	    BLOCK_TEMPLATE matrix_on_2      {"CYCL DEF 19.1" matrix_four[$mom_out_angle_pos(0)]}		
+					      
+	    BLOCK_TEMPLATE matrix_off_1     {"CYCL DEF" matrix_reg[19.0] "PLAN D'USINAGE"}						   
+
+	    BLOCK_TEMPLATE matrix_off_2     {"CYCL DEF" matrix_reg[19.1] matrix_off_four_reg[0.0]}
+
+
+            BLOCK_TEMPLATE tool_change      {	T[$mom_tool_number] 
+					  plane_g[$mom_sys_cutcom_plane_code($opt_cutcom_plane)]
+						S[$mom_spindle_rpm]
+					    }
+
+            BLOCK_TEMPLATE tool_preselect   { presel[$mom_next_tool_number]}
+
+            BLOCK_TEMPLATE auxiliary        {"L" M[$mom_auxfun]}
+
+            BLOCK_TEMPLATE opstop           {"L" M[$mom_sys_optional_stop_code]}
+
+            BLOCK_TEMPLATE stop             {"L" M[$mom_sys_program_stop_code]}
+
+            BLOCK_TEMPLATE end_of_program_0 {"END PGM" TXT[$name_partno] "MM"}
+
+            BLOCK_TEMPLATE end_of_program_h {"END PGM" TXT[$nurbs_partno] "MM"}
+
+	    BLOCK_TEMPLATE end_of_program   {"L" M[$mom_sys_end_of_program_code]}
+
+### Proc OUTPUT_adr ###
+
+BLOCK_TEMPLATE output_adr_X {X[$mom_pos(0)]}
+BLOCK_TEMPLATE output_adr_Y {Y[$mom_pos(1)]}
+BLOCK_TEMPLATE output_adr_Z {Z[$mom_pos(2)]}
+BLOCK_TEMPLATE output_adr_FOUR {FOUR[$mom_out_angle_pos(0)]}
+BLOCK_TEMPLATE output_adr_matrix_four {matrix_four[$mom_out_angle_pos(0)]}
+BLOCK_TEMPLATE output_adr_smooth_reg {smooth_reg[$mom_smooth_tol]}
+
+###            
+
+
+### Proc RESET_adr ###
+
+BLOCK_TEMPLATE reset_adr_X {X[99999.999]}
+BLOCK_TEMPLATE reset_adr_Y {Y[99999.999]}
+BLOCK_TEMPLATE reset_adr_Z {Z[99999.999]}
+BLOCK_TEMPLATE reset_adr_FOUR {FOUR[99999.999]}
+BLOCK_TEMPLATE reset_adr_matrix_four {matrix_four[99999.999]}
+BLOCK_TEMPLATE reset_adr_matrix_off_four_reg {matrix_off_four_reg[99999.999]}
+BLOCK_TEMPLATE reset_adr_matrix_reg {matrix_reg[99.9]}
+
+BLOCK_TEMPLATE reset_adr_S {S[99999]}
+BLOCK_TEMPLATE reset_adr_F {F[99999]}
+BLOCK_TEMPLATE reset_adr_IPA {IPA[999]}
+BLOCK_TEMPLATE reset_adr_H {H[999]}
+BLOCK_TEMPLATE reset_adr_M_SPEED {spindle_m[99]}
+
+###
+
+### Proc UPDATE_adr ###   
+
+BLOCK_TEMPLATE update_adr_FOUR {FOUR[$adr_val]}    
+
+### 
+
+
+}
+
+TURRET 1
+{
+   POCKET 1
+   {
+      HOLDING_SYSTEM "330"
+      PRELOAD_TOOL ugt0202_009 0
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY "Mill Unit"
+      }
+   }
+   POCKET 2
+   {
+      HOLDING_SYSTEM "HSK100A"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY "Mill Unit"
+      }
+   }
+   POCKET 3
+   {
+      HOLDING_SYSTEM "HSK100A"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY "Mill Unit"
+      }
+   }
+   POCKET 4
+   {
+      HOLDING_SYSTEM "HSK100A"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY "Mill Unit"
+      }
+   }
+   POCKET 5
+   {
+      HOLDING_SYSTEM "HSK100A"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY "Mill Unit"
+      }
+   }
+   POCKET 6
+   {
+      HOLDING_SYSTEM "HSK100A"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY "Mill Unit"
+      }
+   }
+   POCKET 7
+   {
+      HOLDING_SYSTEM "HSK100A"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY "Mill Unit"
+      }
+   }
+   POCKET 8
+   {
+      HOLDING_SYSTEM "HSK100A"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY "Mill Unit"
+      }
+   }
+   POCKET 9
+   {
+      HOLDING_SYSTEM "HSK100A"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY "Mill Unit"
+      }
+   }
+   POCKET 10
+   {
+      HOLDING_SYSTEM "HSK100A"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY "Mill Unit"
+      }
+   }
+   POCKET 11
+   {
+      HOLDING_SYSTEM "HSK100A"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY "Mill Unit"
+      }
+   }
+   POCKET 12
+   {
+      HOLDING_SYSTEM "HSK100A"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY "Mill Unit"
+      }
+   }
+   POCKET 13
+   {
+      HOLDING_SYSTEM "HSK100A"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY "Mill Unit"
+      }
+   }
+   POCKET 14
+   {
+      HOLDING_SYSTEM "HSK100A"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY "Mill Unit"
+      }
+   }
+   POCKET 15
+   {
+      HOLDING_SYSTEM "HSK100A"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY "Mill Unit"
+      }
+   }
+   POCKET 16
+   {
+      HOLDING_SYSTEM "HSK100A"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY "Mill Unit"
+      }
+   }                
+   POCKET 17
+   {
+      HOLDING_SYSTEM "HSK100A"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY "Mill Unit"
+      }
+   }
+   POCKET 18
+   {
+      HOLDING_SYSTEM "HSK100A"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY "Mill Unit"
+      }
+   }
+   POCKET 19
+   {
+      HOLDING_SYSTEM "HSK100A"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY "Mill Unit"
+      }
+   }
+   POCKET 20
+   {
+      HOLDING_SYSTEM "HSK100A"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY "Mill Unit"
+      }
+   }
+   POCKET 21
+   {
+      HOLDING_SYSTEM "HSK100A"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY "Mill Unit"
+      }
+   }
+   POCKET 22
+   {
+      HOLDING_SYSTEM "HSK100A"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY "Mill Unit"
+      }
+   }
+   POCKET 23
+   {
+      HOLDING_SYSTEM "HSK100A"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY "Mill Unit"
+      }
+   }
+   POCKET 24
+   {
+      HOLDING_SYSTEM "HSK100A"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY "Mill Unit"
+      }
+   }
+   POCKET 25
+   {
+      HOLDING_SYSTEM "HSK100A"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY "Mill Unit"
+      }
+   }
+   POCKET 26
+   {
+      HOLDING_SYSTEM "HSK100A"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY "Mill Unit"
+      }
+   }
+   POCKET 27
+   {
+      HOLDING_SYSTEM "HSK100A"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY "Mill Unit"
+      }
+   }
+   POCKET 28
+   {
+      HOLDING_SYSTEM "HSK100A"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY "Mill Unit"
+      }
+   }
+   POCKET 29
+   {
+      HOLDING_SYSTEM "HSK100A"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY "Mill Unit"
+      }
+   }
+   POCKET 30
+   {
+      HOLDING_SYSTEM "HSK100A"
+      TOOL_CONSTRAINTS
+      {
+         ANGLES 0.0
+         XFORM_ANGLES X 0.0 Y 0.0 Z 0.0
+         QUERY "Mill Unit"
+      }
+   }                  
+}

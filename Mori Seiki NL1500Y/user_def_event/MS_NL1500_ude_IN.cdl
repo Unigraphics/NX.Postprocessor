@@ -1,0 +1,537 @@
+
+### MS_NL1500Y_ude_in.cdl
+
+
+######
+#
+#   It iherits from the MS_NT4200
+#   
+######
+
+MACHINE FANUC
+
+EVENT operator_message 
+{
+  UI_LABEL "Operator Message"
+  PARAM operator_message
+   {
+      TYPE   s
+      TOGGLE   On
+      UI_LABEL "Operator Message"
+   }
+}
+#--------------------------------------------------------------------------- 
+
+EVENT coolant 
+{
+   POST_EVENT "coolant_on"
+   UI_LABEL "Coolant On"
+   CATEGORY MILL DRILL LATHE
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM coolant_mode
+   {
+      TYPE o
+      DEFVAL "Flood"
+      OPTIONS "On","Flood","Mist","Tap","Thru"
+      UI_LABEL "Type"
+   }
+   PARAM coolant_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+
+EVENT coolant_off
+{
+#   POST_EVENT "Coolant"
+   UI_LABEL "Coolant Off"
+   CATEGORY MILL DRILL LATHE
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM coolant_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+#---------------------------------------------------------------------------
+
+EVENT set_polar_xzc
+{
+   UI_LABEL "Live Tooling Mode (LOWER Turret)"
+
+   PARAM coordinate_output_mode
+   {
+      TYPE o
+      DEFVAL  "XZC Output"
+      OPTIONS "XZC Output","C-Axis Mill Rotary Interpolate"
+      UI_LABEL "Lower Turret Output Mode"
+   }
+}
+
+#--------------------------------------------------------------------------- 
+
+EVENT clamp 
+{ 
+   UI_LABEL "Clamp"
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM clamp_axis 
+   {
+      TYPE o
+      DEFVAL "Xaxis"
+      OPTIONS "Xaxis","Yaxis","Zaxis","Aaxis","Baxis","Caxis","Auto"
+      UI_LABEL "Clamp Axis"
+   }
+   PARAM clamp_status
+   {   
+      TYPE o
+      DEFVAL "On"
+      OPTIONS "On","Off","Axis On","Axis Off"
+      UI_LABEL "Clamp Status"
+   }
+   PARAM clamp_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+
+#--------------------------------------------------------------------------- 
+
+ EVENT zero 
+ {
+   UI_LABEL "G54-G59 Work Coord Zero"
+   CATEGORY MILL DRILL LATHE
+   PARAM work_coordinate_number
+   {
+      TYPE i
+      DEFVAL "1"
+      UI_LABEL "G54-G59 Enter 1 thru 6"
+   }
+}
+
+#--------------------------------------------------------------------------- 
+EVENT cutcom
+{
+   UI_LABEL "Cutter Compensation"
+   CATEGORY MILL DRILL LATHE
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM cutcom_mode
+   {
+      TYPE o
+      DEFVAL "On"
+      OPTIONS "Off","On","Left","Right"
+      UI_LABEL "Mode"
+   }
+   PARAM on_option 
+   {
+      TYPE o
+      DEFVAL "Before each Engage"
+      OPTIONS "Before each Engage","After each Engage","Before 1st Motion"
+      UI_LABEL "On"
+   }
+   PARAM off_option
+   {
+      TYPE o
+      DEFVAL "Before each Retract"
+      OPTIONS "Before each Retract","After each Retract","After Last Motion"
+      UI_LABEL "Off"
+   }
+   PARAM Overide_operation_param
+   {
+      TYPE   b
+      DEFVAL "TRUE"
+      UI_LABEL "Overide operation param"
+   }
+   PARAM cutcom_adjust_register
+   {
+      TYPE   i
+      DEFVAL "0"
+      TOGGLE On
+      UI_LABEL "Adjust Register"
+   }
+   PARAM cutcom_plane
+   {
+      TYPE o
+      DEFVAL "NONE"
+      OPTIONS "NONE","XY","XZ","YZ"
+      UI_LABEL "Plane"
+   }
+   PARAM full_cutcom_output 
+   {
+      TYPE   b
+      DEFVAL "FALSE"
+      UI_LABEL "Full Cutcom Output"
+#
+#   Not available in Event generation code 
+#
+   }
+
+   PARAM cutcom_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+
+EVENT dwell 
+{
+   POST_EVENT "delay"
+   UI_LABEL "Dwell"
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM delay_mode
+   {
+      TYPE o
+      DEFVAL "Seconds"
+      OPTIONS "Seconds","Revolutions"
+      UI_LABEL "Dwell Type"
+   }
+
+   PARAM delay_value 
+   {
+      TYPE   d
+      DEFVAL "0.0000"
+      UI_LABEL "Dwell Value"
+   }
+   PARAM delay_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+
+
+#--------------------------------------------------------------------------- 
+EVENT auxfun
+{ 
+   UI_LABEL "Auxfun M Code"
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM auxfun
+   {
+      TYPE   i
+      DEFVAL "0"
+      UI_LABEL "M Code Value"
+   }
+   PARAM auxfun_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+#--------------------------------------------------------------------------- 
+EVENT prefun
+{
+   UI_LABEL "Prefun G Code"
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM prefun
+   {
+      TYPE   i
+      DEFVAL "0"
+      UI_LABEL "G Code Value"
+   }
+   PARAM prefun_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+
+EVENT insert
+{
+   UI_LABEL "Insert"
+   PARAM Instruction
+   {
+      TYPE    s
+   }
+}
+
+EVENT text
+{
+  UI_LABEL "User Defined"
+  PARAM user_defined_text
+   {
+      TYPE   s
+      TOGGLE On
+      UI_LABEL "User Defined Command"
+   }
+}
+
+EVENT pprint 
+{
+  UI_LABEL "Pprint"
+  PARAM pprint
+   {
+      TYPE   s
+      TOGGLE On
+      UI_LABEL "Pprint"
+   }
+}
+#--------------------------------------------------------------------------- 
+
+EVENT stop 
+{
+   UI_LABEL "Stop"
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM stop_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+
+EVENT opstop
+{
+   UI_LABEL "Optional Stop"
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM opstop_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+
+EVENT opskip_on
+{
+   UI_LABEL "Optional Skip On"
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM opskip_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+
+EVENT opskip_off
+{
+   UI_LABEL "Optional Skip Off"
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM opskip_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+
+#-----------------------------------------------------
+
+EVENT set_modes
+{
+   UI_LABEL "Set Modes"
+   CATEGORY MILL DRILL LATHE
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+
+#   PARAM machine_mode
+#   {
+#      TYPE o
+#      DEFVAL "Mill"
+#      OPTIONS "Mill","Turn","Punch","Laser","Torch","Wire","Inactive"
+#      UI_LABEL "Machine Mode"
+#   }
+
+   PARAM feed_set_mode
+   {
+      TYPE o
+      DEFVAL "Off"
+      OPTIONS "Off","IPM","MMPM","IPR","MMPR","FRN","Inactive"
+      UI_LABEL "Feedrate Mode"
+   }
+   PARAM output_mode
+   {
+      TYPE o
+      DEFVAL "Absolute"
+      OPTIONS "Absolute","Increment","Inactive"
+      UI_LABEL "Output Mode"
+   }
+   PARAM arc_mode
+   {
+      TYPE o
+      DEFVAL   "Linear"
+      OPTIONS  "Linear","Circular","Inactive"
+      UI_LABEL "Arc Mode"
+   }
+
+#   PARAM parallel_to_axis
+#   {
+#      TYPE o
+#      DEFVAL   "Zaxis"
+#      OPTIONS  "Zaxis","Waxis","Vaxis","Inactive"
+#      UI_LABEL "Parallel Axis"
+#   }
+
+   PARAM modes_text
+   {
+      TYPE   s
+      TOGGLE   Off
+      UI_LABEL "Text"
+   }
+}
+
+#---------------------------------------------------------------------------
+# EVENT set_axis
+# {
+#   UI_LABEL "Set Axis"
+#   PARAM command_status
+#   {
+#      TYPE o
+#      DEFVAL "Active"
+#      OPTIONS "Active","Inactive","User Defined"
+#      UI_LABEL "Status"
+#   }
+#   PARAM axis_position
+#   {
+#      TYPE   o
+#      DEFVAL   "ZAXIS"
+#      OPTIONS  "ZAXIS","WAXIS"
+#      UI_LABEL "Axis"
+#   }
+#   PARAM axis_position_value
+#   {
+#      TYPE   d
+#      DEFVAL   "0.0000"
+#      TOGGLE   On
+#      UI_LABEL "Position"
+#   }
+# }
+
+#--------------------------------------------------------------------------- 
+EVENT origin 
+{
+   UI_LABEL "Origin"
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+   PARAM X 
+   {
+      TYPE   d
+      DEFVAL "0.0000"
+   }
+
+   PARAM Y
+   {
+      TYPE   d
+      DEFVAL "0.0000"
+   }
+   PARAM Z
+   {
+      TYPE   d
+      DEFVAL "0.0000"
+   }
+   PARAM origin_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+}
+
+
+
+#---------------------------------------------------------------------------
+
+EVENT head 
+{ 
+   UI_LABEL "Head - Define in METHODS Group" 
+   PARAM command_status 
+   { 
+      TYPE o 
+      DEFVAL "Active" 
+      OPTIONS "Active","Inactive"
+      UI_LABEL "Status" 
+   }
+   PARAM head_name 
+   { 
+      TYPE   s 
+      TOGGLE Off 
+      UI_LABEL "Name" 
+   } 
+}
+
+
+

@@ -1,0 +1,275 @@
+##############################################################################
+# 
+# Created by:  Javi Garcia     11-Mar-2002
+# Machine: MURATEC MT12        NC: FANUC 16T
+#
+# Revisiones
+# 21-Mar-2002 # Javi Garcia # Initial version
+# 02-Apr-2002 # Javi Garcia # Removed G40-G41-G42
+# 17-Apr-2002 # Javi Garcia # Tapping cycle G184 added
+#
+###############################################################################
+
+MACHINE millturn_lathe
+
+INCLUDE
+{
+   $UGII_CAM_USER_DEF_EVENT_DIR/ude.cdl
+}
+
+
+FORMATTING
+{
+
+ WORD_SEPARATOR " "
+ END_OF_LINE    ""
+ SEQUENCE Seq_no  10  10  1
+
+ FORMAT  Coordinate "&__5.3_"
+ FORMAT  Dwell_sec  "&__3.3_"
+ FORMAT  Spindle    "&__5_00"
+ FORMAT  Seqno      "&__5_00"
+ FORMAT  Register   "&_02_00"
+ FORMAT  string     "%s"
+ FORMAT  Feed_IPM   "&__3.2_"
+ FORMAT  Feed_IPR   "&__4.2_"
+ FORMAT  Feed_MMPM  "&__5.1_"
+ FORMAT  Feed_MMPR  "&__6.2_"
+ FORMAT  Feed_FRN   "&__4.3_"
+ FORMAT  Feed_INV   "&__6.2_"
+ FORMAT  Feed       "&__7.1_"
+ FORMAT  feed_thread "&__5_00"
+ FORMAT  zero       "&_02_00"
+ FORMAT  zero_coord "&_01.0_"
+ FORMAT  zero_spin  "&_01_00"
+ FORMAT  Tcode      "&_04_00"
+
+
+ FORMAT  EventNum   "%-5d"
+ FORMAT  AbsCoord   "%9.4f"
+ FORMAT  RotCoord   "%8.3f"
+ FORMAT  ComFeed    "%7.2f"
+ FORMAT  Rev        "%5d"
+ FORMAT  Minutes    "%9.4f"
+
+
+ ADDRESS N  {
+              FORMAT Seqno
+              MAX    9999
+              MIN    1
+              FORCE  off
+            }
+ ADDRESS G  {
+              FORMAT Register
+              ZERO_FORMAT zero
+              MAX    99
+              MIN    0
+              FORCE  off
+            }
+ ADDRESS G_feed {
+              LEADER "G"
+              FORMAT Register
+              ZERO_FORMAT zero
+              FORCE  off
+            }
+ ADDRESS G_motion {
+              LEADER "G"
+              FORMAT Register
+              ZERO_FORMAT zero
+              FORCE  off
+            }
+ ADDRESS G_thread {
+              LEADER "G"
+              FORMAT Register
+              ZERO_FORMAT zero
+              FORCE  always
+            }
+ ADDRESS G_mode {
+              LEADER "G"
+              ZERO_FORMAT zero
+              FORMAT Register
+              FORCE  off
+            }
+ ADDRESS G_return {
+              LEADER "G"
+              FORMAT Register
+              ZERO_FORMAT zero
+              FORCE  off
+            }
+ ADDRESS X  {
+              FORMAT Coordinate
+              ZERO_FORMAT zero_coord
+              MAX    9999.9999
+              MIN    -9999.9999
+              FORCE off
+            }
+ ADDRESS Z  {
+              FORMAT Coordinate
+              ZERO_FORMAT zero_coord
+              MAX    9999.9999
+              MIN    -9999.9999
+              FORCE off
+            }
+ ADDRESS I  {
+              FORMAT Coordinate
+              ZERO_FORMAT zero_coord
+              MAX    9999.9999
+              MIN    -9999.9999
+              FORCE off
+            }
+ ADDRESS K  {
+              FORMAT Coordinate
+              ZERO_FORMAT zero_coord
+              MAX    9999.9999
+              MIN    -9999.9999
+              FORCE off
+            }
+ ADDRESS E  {
+              FORMAT Coordinate
+              ZERO_FORMAT zero_coord
+              MAX    9999.9999
+              MIN    -9999.9999
+              FORCE off
+            }
+ ADDRESS R  {
+              FORMAT Coordinate
+              ZERO_FORMAT zero_coord
+              MAX    9999.9999
+              MIN    -9999.9999
+              FORCE off
+            }
+ ADDRESS dwell  {
+              FORMAT Dwell_sec
+              MAX    99999.999
+              MIN    0.000
+              FORCE  off
+              LEADER "X"
+            }
+ ADDRESS F  {
+              FORMAT Feed
+              MAX    9999.9
+              MIN    0.01
+              FORCE  off
+            }
+ ADDRESS F_thread  {
+              LEADER "F"
+              FORMAT feed_thread
+              FORCE  off
+            }
+ ADDRESS S  {
+              FORMAT Spindle
+              ZERO_FORMAT zero_spin
+              MAX    99999
+              MIN    0
+              FORCE  off
+            }
+ ADDRESS T  {
+              FORMAT Tcode
+              FORCE  always
+            }
+ ADDRESS M_coolant  {
+              LEADER "M"
+              FORMAT Register
+              ZERO_FORMAT zero
+              FORCE  off
+            }
+ ADDRESS M_spindle  {
+              LEADER "M"
+              FORMAT Register
+              ZERO_FORMAT zero
+              FORCE  always
+            }
+ ADDRESS M  {
+              FORMAT Register
+              ZERO_FORMAT zero
+              FORCE  off
+            }
+
+
+ BLOCK_TEMPLATE Seq_no  {N[$mom_seqnum]}
+
+ BLOCK_TEMPLATE rapid {
+       G_motion[$mom_sys_rapid_code]
+       X[$mom_pos(0) *2]
+       Z[$mom_pos(2)]
+       M_coolant[$mom_sys_coolant_code(ON)]
+       }
+
+ BLOCK_TEMPLATE linear  {
+       G_feed[$mom_sys_feed_rate_mode_code($mom_feed_rate_mode)]\opt
+       G_motion[$mom_sys_linear_code]
+       X[$mom_pos(0) *2]
+       Z[$mom_pos(2)]
+       F[$feed]
+       M_coolant[$mom_sys_coolant_code(ON)]
+       }
+
+ BLOCK_TEMPLATE circle_rp  {
+       G_feed[$mom_sys_feed_rate_mode_code($mom_feed_rate_mode)]\opt
+       G_motion[$mom_sys_circle_code($mom_arc_direction)]
+       X[$mom_pos(0) *2]
+       Z[$mom_pos(2)]
+       R[$mom_arc_radius]
+       F[$feed]
+       M_coolant[$mom_sys_coolant_code(ON)]
+       }
+ BLOCK_TEMPLATE circle_rn  {
+       G_feed[$mom_sys_feed_rate_mode_code($mom_feed_rate_mode)]\opt
+       G_motion[$mom_sys_circle_code($mom_arc_direction)]
+       X[$mom_pos(0) *2]
+       Z[$mom_pos(2)]
+       R[$mom_arc_radius * -1]
+       F[$feed]
+       M_coolant[$mom_sys_coolant_code(ON)]
+       }
+
+ BLOCK_TEMPLATE thread_axial {
+       G_motion[$mom_sys_cycle_tap_code_axial]
+       R[$mom_prev_pos(2)]
+       Z[$mom_pos(2)]
+       S[$mom_spindle_rpm]
+       F_thread[$feed * 1000]
+       "T500"
+       }
+
+ BLOCK_TEMPLATE spindle_rpm {
+       G[$mom_sys_spindle_mode_code(RPM)]
+       S[$mom_spindle_rpm]
+       M_spindle[$mom_sys_spindle_direction_code($mom_spindle_direction)]
+       }
+       
+ BLOCK_TEMPLATE spindle_max {
+       G[$mom_sys_spindle_max_rpm_code]
+       S[$mom_spindle_maximum_rpm]
+       }
+
+ BLOCK_TEMPLATE spindle_css {
+       G[$mom_sys_spindle_mode_code(SMM)]
+       S[$mom_spindle_speed]
+       M_spindle[$mom_sys_spindle_direction_code($mom_spindle_direction)]
+       }
+
+ BLOCK_TEMPLATE spindle_off {
+       M[$mom_sys_spindle_direction_code(OFF)]
+       }
+
+ BLOCK_TEMPLATE cycle_off   { G_motion[$mom_sys_cycle_off] }
+ 
+ BLOCK_TEMPLATE coolant_on { M_coolant[$mom_sys_coolant_code(ON)] }
+
+ BLOCK_TEMPLATE coolant_off { M_coolant[$mom_sys_coolant_code(OFF)] }
+
+ BLOCK_TEMPLATE delay {
+       G[$mom_sys_delay_code($mom_delay_mode)] 
+       dwell[$mom_delay_value]
+       }
+
+ BLOCK_TEMPLATE tool_change {
+       T[($mom_tool_number * 100) + $mom_tool_number]
+       }
+
+ BLOCK_TEMPLATE auxiliary { M[$mom_auxfun] }
+
+ BLOCK_TEMPLATE preparatory { G[$mom_prefun] }
+
+}

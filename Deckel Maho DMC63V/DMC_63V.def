@@ -1,0 +1,1113 @@
+###############################################################
+# Description												#			
+# Postprocessor for machine: DMU-35M wich 3-axis					#
+# Serial number: 11065355634									#
+# CNC Control: HAIDENHAIN TNC 310 							#
+# Software version: 286-140-xx	                                                                                #
+#														#			
+# Revisions												#
+#														#
+#   Date            		Who        		Reason						#
+#  01-Mar-2002		Oleg Chizh 		First Release				#
+#														#
+# $HISTORY$												#
+#														#
+###############################################################
+MACHINE DMU_63V
+ 
+FORMATTING
+{
+  	WORD_SEPARATOR " "
+  	END_OF_LINE ""
+  	SEQUENCE sequence_number 1 1 1
+
+################ FORMAT DECLARATIONS #################
+  	FORMAT AbsCoord "&__5.4_"
+  	FORMAT Coordinate "&__4.3_"
+  	FORMAT Exp "%.3Ef"
+  	FORMAT Digit_2 "&__2_00"
+  	FORMAT Digit_4 "&__4_00"
+  	FORMAT Digit_5 "&__5_00"
+  	FORMAT Dwell_sec "&_01.3_"
+  	FORMAT EventNum "&+03_00"
+  	FORMAT Feed "%d"
+  	FORMAT Feed_DPM "&__5.2_"
+  	FORMAT Feed_FRN "&__4.1_"
+  	FORMAT Feed_INV "&__6.2_"
+  	FORMAT Feed_IPM "&__4.1_"
+  	FORMAT Feed_IPR "&__4.2_"
+  	FORMAT Feed_MMPM "%d"
+  	FORMAT Feed_MMPR "&__5.0_"
+  	FORMAT Hcode "&_02_00"
+  	FORMAT Rev "&__4_00"
+  	FORMAT String "%s"
+  	FORMAT Tcode "&_05_00"
+  	FORMAT Zero "&_01_00"
+
+################ ADDRESS DECLARATIONS ################
+	ADDRESS R 
+	{ 
+      		LEADER 				"R"
+      		FORMAT 				String
+      		FORCE 				off
+   	}
+   	ADDRESS Angle 
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				360.0 Warning
+      		MIN         				0 Warning
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"ANGLE "
+   	}  
+   	ADDRESS Tol 
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				10.0 Warning
+      		MIN         				0.0 Warning
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"T"
+   	} 
+   	ADDRESS K3X
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				99999.9999 Warning
+      		MIN         				-99999.9999 Warning
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"K3X"
+   	}
+   	ADDRESS K2X
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				99999.9999 Warning
+      		MIN         				-99999.9999 Warning
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"K2X"
+   	}
+   	ADDRESS K1X
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				99999.9999 Warning
+      		MIN         				-99999.9999 Warning
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"K1X"
+   	}
+   	ADDRESS K3Y
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				99999.9999 Warning
+      		MIN         				-99999.9999 Warning
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"K3Y"
+   	}
+   	ADDRESS K2Y
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				99999.9999 Warning
+      		MIN         				-99999.9999 Warning
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"K2Y"
+   	}
+   	ADDRESS K1Y
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				99999.9999 Warning
+      		MIN         				-99999.9999 Warning
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"K1Y"
+   	}
+   	ADDRESS K3Z
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				99999.9999 Warning
+      		MIN         				-99999.9999 Warning
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"K3Z"
+   	}
+   	ADDRESS K2Z
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				99999.9999 Warning
+      		MIN         				-99999.9999 Warning
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"K2Z"
+   	}
+   	ADDRESS K1Z
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				99999.9999 Warning
+      		MIN         				-99999.9999 Warning
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"K1Z"
+   	}
+	ADDRESS Q200 
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				9999.9999 Truncate
+      		MIN         				-9999.9999 Truncate
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"Q200="
+   	}
+   	ADDRESS Q200_17 
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				9999.9999 Truncate
+      		MIN         				-9999.9999 Truncate
+      		ZERO_FORMAT 		Zero
+      		LEADER 				""
+   	}      
+	ADDRESS Q201 
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				9999.9999 Truncate
+      		MIN         				-9999.9999 Truncate
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"Q201="
+   	}   
+	ADDRESS Q206 
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				9999.9999 Truncate
+      		MIN         				-9999.9999 Truncate
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"Q206="
+   	}   
+	ADDRESS Q202 
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				9999.9999 Truncate
+      		MIN         				-9999.9999 Truncate
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"Q202="
+   	}   
+	ADDRESS Q210 
+  	{
+      		FORMAT      			Dwell_sec
+      		FORCE       			off
+      		MAX         				9999.9999 Truncate
+      		MIN         				-9999.9999 Truncate
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"Q210="
+   	}   
+	ADDRESS Q203 
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				9999.9999 Truncate
+      		MIN         				-9999.9999 Truncate
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"Q203="
+   	}   
+	ADDRESS Q204 
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				9999.9999 Truncate
+      		MIN         				-9999.9999 Truncate
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"Q204="
+   	}   
+	ADDRESS Q211 
+  	{
+      		FORMAT      			Dwell_sec
+      		FORCE       			off
+      		MAX         				9999.9999 Truncate
+      		MIN         				-9999.9999 Truncate
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"Q211="
+   	}   
+   	ADDRESS Q212 
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				9999.9999 Truncate
+      		MIN         				-9999.9999 Truncate
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"Q212="
+   	}   
+	ADDRESS Q213 
+  	{
+      		FORMAT      			Digit_4
+      		FORCE       			off
+      		MAX         				9999 	Truncate
+      		MIN         				0 		Truncate
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"Q213="
+   	}   
+   	ADDRESS Q205 
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				9999.9999 Truncate
+      		MIN         				-9999.9999 Truncate
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"Q205="
+   	}
+   	ADDRESS Q208 
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				9999.9999 Truncate
+      		MIN         				-9999.9999 Truncate
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"Q208="
+   	}   
+	ADDRESS Q256 
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				9999.9999 Truncate
+      		MIN         				-9999.9999 Truncate
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"Q256="
+   	}
+	ADDRESS Q214 
+  	{
+      		FORMAT      			Digit_2
+      		FORCE       			off
+      		MAX         				4 Truncate
+      		MIN         				0 Truncate
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"Q214="
+   	}   
+	ADDRESS Q249
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				9999.9999 Truncate
+      		MIN         				-9999.9999 Truncate
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"Q249="
+   	}
+	ADDRESS Q250
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				9999.9999 Truncate
+      		MIN         				-9999.9999 Truncate
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"Q250="
+   	}
+	ADDRESS Q251 
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				9999.9999 Truncate
+      		MIN         				-9999.9999 Truncate
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"Q251="
+   	}
+	ADDRESS Q252 
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				9999.9999 Truncate
+      		MIN         				-9999.9999 Truncate
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"Q252="
+   	}
+	ADDRESS Q253 
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				9999.9999 Truncate
+      		MIN         				-9999.9999 Truncate
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"Q253="
+   	}
+
+	ADDRESS Q254 
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				9999.9999 Truncate
+      		MIN         				-9999.9999 Truncate
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"Q254="
+   	}
+
+	ADDRESS Q255 
+  	{
+      		FORMAT      			Dwell_sec
+      		FORCE       			off
+      		MAX         				9999.9999 Truncate
+      		MIN         				-9999.9999 Truncate
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"Q255="
+   	}  
+   	ADDRESS G_motion
+  	{
+      		FORMAT      			Digit_2
+      		FORCE       			off
+      		LEADER      			"G"
+  	}
+   	ADDRESS G_plane 
+  	{
+      		FORMAT      			Digit_2
+      		FORCE       			off
+      		LEADER      			"G"
+  	}
+    	ADDRESS G 
+  	{
+      		FORMAT      			Digit_2
+      		FORCE       			off
+      		MAX         				99 Truncate
+      		MIN         				0 Truncate
+  	}
+  	ADDRESS X 
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				9999.9999 Truncate
+      		MIN         				-9999.9999 Truncate
+      		ZERO_FORMAT 		Zero
+  	}
+  	ADDRESS Y 
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				9999.9999 Truncate
+      		MIN         				-9999.9999 Truncate
+      		ZERO_FORMAT 		Zero
+  	}
+  	ADDRESS Z 
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				9999.9999 Truncate
+      		MIN         				-9999.9999 Truncate
+      		ZERO_FORMAT 		Zero
+  	}
+  	ADDRESS XC 
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				9999.9999 Truncate
+      		MIN         				-9999.9999 Truncate
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"X"
+  	}
+  	ADDRESS YC 
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				9999.9999 Truncate
+      		MIN         				-9999.9999 Truncate
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"Y"
+  	}
+  	ADDRESS ZC 
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				9999.9999 Truncate
+      		MIN         				-9999.9999 Truncate
+      		ZERO_FORMAT 		Zero
+      		LEADER 				"Z"
+  	}
+  	ADDRESS fourth_axis 
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				5400.000 Warning
+      		MIN         				-5400.000 Warning
+      		LEADER      			[$mom_sys_leader(fourth_axis)]
+      		ZERO_FORMAT 		Zero
+  	}
+  	ADDRESS fifth_axis 
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				5400.000 Warning
+      		MIN         				-5400.000 Warning
+      		LEADER      			[$mom_sys_leader(fifth_axis)]
+      		ZERO_FORMAT 		Zero
+  	}
+  	ADDRESS I 
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				9999.9999 Truncate
+      		MIN         				-9999.9999 Truncate
+      		ZERO_FORMAT 		Zero
+  	}
+  	ADDRESS J 
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				9999.9999 Truncate
+      		MIN         				-9999.9999 Truncate
+      		ZERO_FORMAT 		Zero
+  	}
+  	ADDRESS K 
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				9999.9999 Truncate
+      		MIN         				-9999.9999 Truncate
+      		ZERO_FORMAT 		Zero
+  	}
+  	ADDRESS F 
+  	{
+      		FORMAT      			Feed
+      		FORCE       			off
+      		MAX         				30000 Truncate
+      		MIN         				0.1 Truncate
+      		ZERO_FORMAT 		Zero
+		LEADER 				"F"
+  	}
+  	ADDRESS S 
+  	{
+      		FORMAT      			Digit_5
+      		FORCE       			off
+      		MAX         				99999 Truncate
+      		MIN         				0 Truncate
+  	}
+  	ADDRESS T 
+  	{
+      		FORMAT      			Tcode
+      		FORCE       			off
+      		MAX         				9999 Truncate
+      		MIN         				0 Truncate
+  	}
+   	ADDRESS dwell 
+  	{
+      		FORMAT      			Dwell_sec
+      		FORCE       			off
+      		MAX         				99999.999 Truncate
+      		MIN         				0.001 Truncate
+      		LEADER      			"TIME "
+      		ZERO_FORMAT 		Zero
+  	}
+  	ADDRESS cycle_step 
+  	{
+      		FORMAT      			Coordinate
+      		FORCE       			off
+      		MAX         				9999.9999 Truncate
+      		MIN         				-9999.9999 Truncate
+      		LEADER      			"Q"
+      		ZERO_FORMAT 		Zero
+  	}
+  	ADDRESS M_spindle 
+  	{
+      		FORMAT      			Digit_2
+      		FORCE       			off
+      		LEADER      			"M"
+  	}
+  	ADDRESS M_coolant 
+  	{
+      		FORMAT      			Digit_2
+      		FORCE       			off
+      		MAX         				99 Truncate
+      		MIN         				0 Truncate
+      		LEADER      			"M"
+  	}
+  	ADDRESS M 
+  	{
+      		FORMAT      			Digit_2
+      		FORCE       			off
+      		MAX         				99 Truncate
+      		MIN         				0 Truncate
+              ZERO_FORMAT Zero
+  	}
+  	ADDRESS N 
+  	{
+      		FORMAT      			Digit_2
+      		FORCE       			off
+      		LEADER      			""
+  	}
+################ ADDRESS DECLARATIONS ################
+  	ADDRESS LF_AAXIS 
+  	{
+##     		FORMAT      			AbsCoord
+      		FORMAT      			Coordinate
+      		FORCE       			always
+      		LEADER     	 		""
+      		ZERO_FORMAT 		Zero
+  	}
+  	ADDRESS LF_BAXIS 
+  	{
+      		FORMAT      			AbsCoord
+      		FORCE       			always
+      		LEADER      			""
+      		ZERO_FORMAT 		Zero
+  	}
+  	ADDRESS LF_XABS 
+  	{
+      		FORMAT      			AbsCoord
+      		FORCE       			always
+      		LEADER      			""
+      		ZERO_FORMAT 		Zero
+  	}
+  	ADDRESS LF_FEED 
+  	{
+      		FORMAT      			Feed
+      		FORCE       			always
+      		LEADER      			""
+      		ZERO_FORMAT 		Zero
+  	}
+  	ADDRESS LF_YABS 
+  	{
+      		FORMAT      			AbsCoord
+      		FORCE       			always
+      		LEADER      			""
+      		ZERO_FORMAT 		Zero
+  	}
+  	ADDRESS LF_SPEED 
+  	{
+      		FORMAT      			Rev
+      		FORCE       			always
+      		LEADER      			""
+  	}
+  	ADDRESS LF_ZABS 
+  	{
+      		FORMAT      			AbsCoord
+      		FORCE       			always
+      		LEADER      			""
+      		ZERO_FORMAT 		Zero
+  	}
+  	ADDRESS Space
+  	{
+  		LEADER 				""
+      		FORMAT 				String
+      		FORCE 				always
+      	}	
+############ BLOCK TEMPLATE DECLARATIONS #############
+  	BLOCK_TEMPLATE start_block
+  	{
+  		"BLK FORM 0.1 Z"
+  		X[$mom_point1_pos(0)]
+  		Y[$mom_point1_pos(1)]
+  		Z[$mom_point1_pos(2)]
+  	}
+  	BLOCK_TEMPLATE end_block
+  	{
+  		"BLK FORM 0.2"
+  		X[$mom_point2_pos(0)]
+  		Y[$mom_point2_pos(1)]
+  		Z[$mom_point2_pos(2)]
+  	}
+  	BLOCK_TEMPLATE spindle_orient_1
+  	{
+  		"CYCL DEF 13.0 ORIENTATION"
+  	}
+  	BLOCK_TEMPLATE spindle_orient_2
+  	{
+  		"CYCL DEF 13.1"
+  		Angle[$mom_angle_orient]
+  	}
+  	BLOCK_TEMPLATE tolerances_1
+  	{
+  		"CYCL DEF 32.0 TOLERANCE"
+  	}
+  	BLOCK_TEMPLATE tolerances_2
+  	{
+  		"CYCL DEF 32.1"
+  		Tol[$tolerances]
+  	}
+  	BLOCK_TEMPLATE spline_tnc
+  	{
+  		"SPL"
+  		X[$xe]
+  		Y[$ye]
+  		Z[$ze]
+  		K3X[$x0]
+  		Space[$E_string_x0]
+  		K2X[$x1]
+  		Space[$E_string_x1]
+  		K1X[$x2]
+  		Space[$E_string_x2]
+  		K3Y[$y0]
+  		Space[$E_string_y0]
+  		K2Y[$y1]
+  		Space[$E_string_y1]
+  		K1Y[$y2]
+  		Space[$E_string_y2]
+  		K3Z[$z0]
+  		Space[$E_string_z0]
+  		K2Z[$z1]
+  		Space[$E_string_z1]
+  		K1Z[$z2]
+  		Space[$E_string_z2]
+ 	} 
+	BLOCK_TEMPLATE spline_tnc_m90
+  	{
+  		"SPL"
+  		X[$xe]
+  		Y[$ye]
+  		Z[$ze]
+  		K3X[$x0]
+  		Space[$E_string_x0]
+  		K2X[$x1]
+  		Space[$E_string_x1]
+  		K1X[$x2]
+  		Space[$E_string_x2]
+  		K3Y[$y0]
+  		Space[$E_string_y0]
+  		K2Y[$y1]
+  		Space[$E_string_y1]
+  		K1Y[$y2]
+  		Space[$E_string_y2]
+  		K3Z[$z0]
+  		Space[$E_string_z0]
+  		K2Z[$z1]
+  		Space[$E_string_z1]
+  		K1Z[$z2]
+  		Space[$E_string_z2]
+  		"M90"
+ 	} 
+ 	BLOCK_TEMPLATE start_spline
+  	{
+  		"L"
+  		X[$xe]
+  		Y[$ye]
+  		Z[$ze]
+  		"M90"
+#		F[$mom_feed_rate]
+ 	} 
+	BLOCK_TEMPLATE start_spline_m90
+  	{
+  		"L"
+  		X[$xe]
+  		Y[$ye]
+  		Z[$ze]
+#		F[$mom_feed_rate]
+#  		"M90"
+ 	} 	
+	
+  	BLOCK_TEMPLATE spline_end_point
+  	{
+  		"SPL"
+  		X[$xe]
+  		Y[$ye]
+  		Z[$ze]
+  		"~"
+  	}
+  	BLOCK_TEMPLATE spline_coefficients_x
+  	{
+  		K3X[$x0]
+  		K2X[$x1]
+  		K1X[$x2]
+  		"~"
+  	}
+  	BLOCK_TEMPLATE spline_coefficients_y
+  	{
+  		K3Y[$y0]
+  		K2Y[$y1]
+  		K1Y[$y2]
+  		"~"
+  	}
+  	BLOCK_TEMPLATE spline_coefficients_z
+  	{
+  		K3Z[$z0]
+  		K2Z[$z1]
+  		K1Z[$z2]
+   	}  	
+  	BLOCK_TEMPLATE auxfun 
+  	{
+       		M[$mom_auxfun]
+  	}
+   	BLOCK_TEMPLATE circle_center 
+   	{ 
+      		"CC"\opt
+      		XC[$mom_arc_center(0)]
+      		YC[$mom_arc_center(1)]
+      		ZC[$mom_arc_center(2)]
+   	}
+   	BLOCK_TEMPLATE circle_end_cw 
+   	{ 
+      		"C"\opt
+      		X[$mom_pos(0)]
+      		Y[$mom_pos(1)]
+      		Z[$mom_pos(2)]
+      		"DR-"\opt
+      		R[$cutcom_mode]\opt
+#      		F[$mom_feed_rate]
+#		M_coolant[$mom_sys_coolant_code(ON)]\opt
+   	}
+   	BLOCK_TEMPLATE circle_end_ccw 
+   	{ 
+      		"C"\opt
+      		X[$mom_pos(0)]
+      		Y[$mom_pos(1)]
+      		Z[$mom_pos(2)]
+      		"DR+"\opt
+      		R[$cutcom_mode]\opt
+#      		F[$mom_feed_rate]
+#		M_coolant[$mom_sys_coolant_code(ON)]\opt      		
+   	}
+  	BLOCK_TEMPLATE coolant_off 
+  	{
+       		M_coolant[$mom_sys_coolant_code(OFF)]
+  	}
+  	BLOCK_TEMPLATE coolant_on 
+  	{
+       		M_coolant[$mom_sys_coolant_code(ON)]\opt
+  	}
+	BLOCK_TEMPLATE cycle_call 
+  	{
+  		"CYCL CALL"
+  	}
+    	BLOCK_TEMPLATE delay_1 
+  	{
+       		"CYCL DEF 9.0 DWELL TIME"
+  	}
+	BLOCK_TEMPLATE delay_2 
+  	{
+       		"CYCL DEF 9.0"
+       		dwell[$mom_delay_value]
+  	}
+  	BLOCK_TEMPLATE end_of_path 
+  	{
+       		M_spindle[$mom_sys_spindle_direction_code(OFF)]
+  	}
+  	BLOCK_TEMPLATE end_of_path_1 
+  	{
+       		M_coolant[$mom_sys_coolant_code(OFF)]
+  	}
+  	BLOCK_TEMPLATE end_of_program 
+  	{
+       		M[$mom_sys_end_of_program_code]
+  	}
+  	BLOCK_TEMPLATE from 
+  	{
+       		"L"
+       		X[$mom_from_pos(0)]
+       		Y[$mom_from_pos(1)]
+       		Z[$mom_from_pos(2)]
+       		"FMAX"
+#       		M_coolant[$mom_sys_coolant_code(ON)]\opt       		
+  	}
+	BLOCK_TEMPLATE feedrate_tnc
+	{
+		F[$mom_feed_rate]
+	}
+	BLOCK_TEMPLATE linear_move 
+	{
+		"L"
+		X[$mom_pos(0)]
+		Y[$mom_pos(1)]
+		Z[$mom_pos(2)]
+		R[$cutcom_mode]\opt
+#		F[$mom_feed_rate]
+#       		M_coolant[$mom_sys_coolant_code(ON)]\opt		
+	}
+	BLOCK_TEMPLATE linear_move_prev 
+	{
+		"L"
+		X[$mom_prev_pos(0)]
+		Y[$mom_prev_pos(1)]
+		Z[$mom_prev_pos(2)]
+		R[$cutcom_mode]\opt
+#		F[$mom_feed_rate]
+#       		M_coolant[$mom_sys_coolant_code(ON)]\opt		
+	}
+	BLOCK_TEMPLATE linear_move_m90
+	{
+		"L"
+		X[$mom_pos(0)]
+		Y[$mom_pos(1)]
+		Z[$mom_pos(2)]
+		R[$cutcom_mode]\opt
+		"M90"
+#		F[$mom_feed_rate]
+#       		M_coolant[$mom_sys_coolant_code(ON)]\opt		
+	}
+	
+	BLOCK_TEMPLATE linear_move_m97
+	{
+		"L"
+		X[$mom_pos(0)]
+		Y[$mom_pos(1)]
+		Z[$mom_pos(2)]
+		R[$cutcom_mode]\opt
+		"M97"
+#		F[$mom_feed_rate]
+#       		M_coolant[$mom_sys_coolant_code(ON)]\opt		
+	}
+
+  	BLOCK_TEMPLATE opstop 
+  	{
+       		M[$mom_sys_optional_stop_code]\opt\nows
+  	}
+  	BLOCK_TEMPLATE prefun 
+  	{
+       		G[$mom_prefun]
+  	}
+	BLOCK_TEMPLATE rapid_cycle_xy
+	{
+		"L"
+		X[$mom_pos(0)]
+		Y[$mom_pos(1)]
+		"FMAX"
+		M_spindle[$mom_sys_spindle_range_code($mom_spindle_range)]\opt
+#       		M_coolant[$mom_sys_coolant_code(ON)]\opt				
+	}
+	BLOCK_TEMPLATE rapid_cycle_z
+	{
+		"L"
+		Z[$mom_pos(2)]
+		"FMAX"
+		M_spindle[$mom_sys_spindle_range_code($mom_spindle_range)]\opt
+#       		M_coolant[$mom_sys_coolant_code(ON)]\opt		
+	}
+	BLOCK_TEMPLATE rapid_cycle_xy_prev
+	{
+		"L"
+		X[$mom_prev_pos(0)]
+		Y[$mom_prev_pos(1)]
+		"FMAX"
+		M_spindle[$mom_sys_spindle_range_code($mom_spindle_range)]\opt
+#       		M_coolant[$mom_sys_coolant_code(ON)]\opt				
+	}
+	BLOCK_TEMPLATE rapid_cycle_z_prev
+	{
+		"L"
+		Z[$mom_prev_pos(2)]
+		"FMAX"
+		M_spindle[$mom_sys_spindle_range_code($mom_spindle_range)]\opt
+#       		M_coolant[$mom_sys_coolant_code(ON)]\opt		
+	}
+	BLOCK_TEMPLATE rapid_move
+	{
+		"L"
+		X[$mom_pos(0)]
+		Y[$mom_pos(1)]
+		Z[$mom_pos(2)]
+      		R[$cutcom_mode]\opt
+		"FMAX"
+		M_spindle[$mom_sys_spindle_range_code($mom_spindle_range)]\opt
+#       		M_coolant[$mom_sys_coolant_code(ON)]\opt		
+	}
+  	BLOCK_TEMPLATE sequence_number 
+  	{
+       		N[$mom_seqnum]
+  	}
+  	BLOCK_TEMPLATE spindle_off 
+  	{
+       		M_spindle[$mom_sys_spindle_direction_code(OFF)]
+  	}
+  	BLOCK_TEMPLATE spindle_rpm 
+  	{
+		M_spindle[$mom_sys_spindle_direction_code($mom_spindle_direction)]\opt
+  	}
+  	BLOCK_TEMPLATE stop 
+  	{
+       		M[$mom_sys_program_stop_code]
+  	}
+### BLOCK TEMPLATE DECLARATIONS FOR TNC CONTROL ###
+	BLOCK_TEMPLATE cycle_17_1
+	{
+		"CYCL DEF 17.0 RIGID TAPPING GS"
+	}
+	BLOCK_TEMPLATE cycle_17_2
+	{
+		"CYCL DEF 17.1 SET UP"
+		Q200_17[$mom_cycle_rapid_to]
+	}
+	BLOCK_TEMPLATE cycle_17_3
+	{
+		"CYCL DEF 17.2 DEPTH"
+		Q200_17[$mom_cycle_feed_to]
+	}
+	BLOCK_TEMPLATE cycle_17_4
+	{
+		"CYCL DEF 17.3 PITCH"
+		Q200_17[$mom_cycle_feed_rate_per_rev]
+	}
+  	BLOCK_TEMPLATE cycle_200
+	{
+		"CYCL DEF 200 DRILLING ~"	
+	}
+	BLOCK_TEMPLATE cycle_201
+	{
+		"CYCL DEF 201 REAMING ~"
+	}
+	BLOCK_TEMPLATE cycle_202
+	{
+		"CYCL DEF 202 BORING ~"
+	}
+	BLOCK_TEMPLATE cycle_203
+	{
+		"CYCL DEF 203 UNIVERSAL DRILLING ~"	
+	}
+	BLOCK_TEMPLATE cycle_204
+	{
+		"CYCL DEF 204 BACK BORING ~"	
+	}
+	BLOCK_TEMPLATE tnc_q200
+	{
+		Q200[$mom_cycle_rapid_to]
+		"  ;RASSTO. BEZOPASNOSTI ~"
+	}
+	BLOCK_TEMPLATE tnc_q201
+	{
+		Q201[$mom_cycle_feed_to]
+		"  ;GLUBINA ~"
+	}
+	BLOCK_TEMPLATE tnc_q206
+	{
+		Q206[$mom_cycle_feed_rate]
+		"  ;PODACHA NA GLUBINU ~"
+	}
+	BLOCK_TEMPLATE tnc_q202
+	{
+		Q202[$mom_cycle_feed_to]
+		"  ;GLUBINA PODACHI ~"
+	}
+	BLOCK_TEMPLATE tnc_q202_1
+	{
+		Q202[$mom_cycle_step1]
+		"  ;GLUBINA PODACHI ~"
+	}
+	BLOCK_TEMPLATE tnc_q210
+	{
+		Q210[$dwell_at_top]
+		"  ;WREMIA PRE.NA WERCHU ~"
+	}
+	BLOCK_TEMPLATE tnc_q203
+	{
+		Q203[$surface_coordinate]
+		"  ;KOORD.POWIERCHNOSTI ~"
+	}
+	BLOCK_TEMPLATE tnc_q204
+	{
+		Q204[$mom_cycle_retract_to]
+		"  ;2-JE BEZOP.RASSTOJ. ~"
+	}
+	BLOCK_TEMPLATE tnc_q204_1
+	{
+		Q204[$mom_cycle_retract_to]
+		"  ;2-JE BEZOP.RASSTOJ."
+	}
+	BLOCK_TEMPLATE tnc_q211
+	{
+		Q211[$dwell_at_top]
+		"  ;WREMIA PREBYW. WNIZU"
+	}
+	BLOCK_TEMPLATE tnc_q211_1
+	{
+		Q211[$dwell_at_top]
+		"  ;WREMIA PREBYW. WNIZU ~"
+	}	
+	BLOCK_TEMPLATE tnc_q214
+	{
+		Q214[$mom_cycle_orient]
+		"  ;NAPRAWL.SWOBOD.CHODA ~"
+	}
+	BLOCK_TEMPLATE tnc_q214_1
+	{
+		Q214[$mom_cycle_orient]
+		"  ;NAPRAWL.SWOBOD.CHODA"
+	}			
+	BLOCK_TEMPLATE tnc_q212
+	{
+		Q212[$mom_cycle_step3]
+		"  ;SNIMAEMYJ MATERIAL ~"
+	}
+	BLOCK_TEMPLATE tnc_q213
+	{
+		Q213[$mom_cycle_cam]
+		"  ;KOL. LOMKI STRUSHKI ~"
+	}
+	BLOCK_TEMPLATE tnc_q205
+	{
+		Q205[$mom_cycle_step2]
+		"  ;MIN. GLUBINA PODACHI ~"
+	}
+	BLOCK_TEMPLATE tnc_q208
+	{
+		Q208[$mom_cycle_feed_rate*3]
+		"  ;PODACHA WOZWRATA ~"
+	}
+	BLOCK_TEMPLATE tnc_q256
+	{
+		Q256[$mom_cycle_step3]
+		"  ;ODJEZD PRI LOMANII ~"
+	}
+	BLOCK_TEMPLATE tnc_q256_1
+	{
+		Q256[$mom_cycle_step3]
+		"  ;ODJEZD PRI LOMANII"
+	}	
+	BLOCK_TEMPLATE tnc_q249
+	{
+		Q249[$mom_cycle_feed_to]
+		"  ;GLUBOKOE ZENKEROWAN. ~"
+	}
+	BLOCK_TEMPLATE tnc_q250
+	{
+		Q250[$mom_cycle_feed_to+$mom_cycle_rapid_to]
+		"  ;TOLSCHCHINA MATER. ~"
+	}
+	BLOCK_TEMPLATE tnc_q251
+	{
+		Q251[$mom_cycle_offset_tool]
+		"  ;RAZMER EKSCENTRIKA ~"
+	}
+	BLOCK_TEMPLATE tnc_q252
+	{
+		Q252[$mom_cycle_tool_higth]
+		"  ;WYSOTA KROMOK ~"
+	}
+	BLOCK_TEMPLATE tnc_q253
+	{
+		Q253[$mom_cycle_feed_rate*3]
+		"  ;PODACHA PRED.POZIC. ~"
+	}
+	BLOCK_TEMPLATE tnc_q254
+	{
+		Q254[$mom_cycle_feed_rate]
+		"  ;PODACHA ZENKER. ~"
+	}
+	BLOCK_TEMPLATE tnc_q255
+	{
+		Q255[$dwell_at_top]
+		"  ;WREMIA PREBYWANIA ~"
+	}
+	BLOCK_TEMPLATE tnc_q336
+	{
+		"Q336=0.0   ;UGOL SCHPINDEL"
+	}
+	BLOCK_TEMPLATE go_offset 
+	{	
+		"L"
+		Z[$mom_prev_pos(2)+$mom_offset_dist]
+		"FMAX"
+	}
+	BLOCK_TEMPLATE go_point 
+	{
+		"L"
+		X[$mom_retract_point_pos(0)]
+		Y[$mom_retract_point_pos(1)]
+		Z[$mom_retract_point_pos(2)]
+		"FMAX"
+	}
+	
+### BLOCK TEMPLATE DECLARATIONS ###
+  	BLOCK_TEMPLATE comment_data 
+  	{
+       		LF_XABS[$mom_pos(0)]
+       		LF_YABS[$mom_pos(1)]
+       		LF_ZABS[$mom_pos(2)]
+       		LF_AAXIS[$mom_pos(3)]
+       		LF_BAXIS[$mom_pos(4)]
+       		LF_FEED[$mom_feed_rate]
+       		LF_SPEED[$mom_spindle_speed]
+  	}
+}

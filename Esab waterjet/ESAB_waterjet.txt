@@ -1,0 +1,5 @@
+ESAB.txt
+UG/Post for an ESAB Water Jet Cutter with an ESAB CNC
+
+
+Use PLANAR MILL cutting operations; turns jet on and off at ENGAGE and RETRACT.

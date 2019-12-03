@@ -1,0 +1,525 @@
+##############################################################################
+# Description
+#	Post-Processeur pour Machine Deckel 4 Axes
+#			HEIDENHAIN TNC 530 (Langage Exclusivement)
+#	Client : JMD
+#
+#
+#
+# Revisions
+#
+# Date		Who		Reason
+# 04-Sep-2005   J. Moreschi	Originale (NX 3.0.2.3)
+#
+# $HISTORY$
+#
+###############################################################################
+
+##############################################################
+### Notice de la Machine Deckel 4 Axes / HEIDENHAIN TNC 530  #
+##############################################################
+#
+#
+# Detail des Axes :
+# ===============
+#
+# Configuration Verticale (Broche suivant Z) " en X Y Z
+# Configuration 4 Axes
+# Axe Rotatif table A sans Limites
+# Option : Plan incliné (CYCLE 19)
+#
+# Fichiers :
+# JMD_DECKEL_TNC430.tcl
+# JMD_DECKEL_TNC430.def
+#
+# Les Mots Mineurs qui sont entre Crochets [mineur] sont Optionnels
+#
+###
+###
+# Nom du Fichier et Repertoire DNC
+# ================================
+#
+# Exemple : 
+# =======
+#
+#   ==> Nom de la Part UG :  ESSAI.PRT
+#
+#   0  BEGIN PGM ESSAI MM
+#   1  etc ...
+#   .. END PGM ESSAI MM
+#
+#
+# Nota : L'Extension par Defaut sur Deckel est .H , le Nom du programme
+#        doit Comporter 13 Caracteres .
+#
+# Le Fichier ISO (.H) sera Automatiquement crée dans le Repertoire DNC si la 
+# Variable Windows "JMD_DNC_DECKEL" est Declarée .
+#
+# Exemple :
+# =======
+# 
+# Nom de la Variable    : JMD_DNC_DECKEL
+# Valeur de la Variable : C:\DNC\DECKEL  ==> Repertoire Physique Existant (IMPERATIF)
+#
+###
+###
+# Gestion Axe Rotatif en 4 Axes positionnement (Axe Rotatif A)
+# ===========================================================
+#
+# La Rotation de l'Axe est gérée par l'Orientation de l'Outil (i,j,k)
+# sur les ordres de Mouvement (GOTO/x,y,z,i,j,k)
+#
+# Remarque : Vecteur i toujours à Zero
+# --------
+#
+# L'axe Rotatif A est sans Limites 
+#
+# La Gestion du Plan Incliné est Automatique (CYCL DEF 19.1 Aa)
+#
+# Toutes Nouvelles Positions avec de l'Axe Rotatif Entrainent un Dégagement Z (Position Changement d'Outil) et XY
+# 
+# Par défaut l'axe Rotatif tournent au plus Court si une Orientation (ijk) est programmée
+# 
+#
+# RAPID
+# GOTO/166.7000,170.0000,59.8500,0.0000000,1.0000000,0.0000000
+# ... L Z+492 FMAX M91				==> Degagement Butee Machine
+# ... L A-270 FMAX				==> Rotation Table
+# ... CYCL DEF 19.0 PLAN D'USINAGE		==> Initialisation Plan Incliné
+# ... CYCL DEF 19.1 A-270			==> Définition plan Incliné
+#
+# RAPID
+# GOTO/166.7000,75.0000,59.8500
+# ... L X+166.7 Y-59.85 FMAX			==> Approche Outil
+#  
+###
+###
+# Gestion Axe Rotatifs en 4 Axes Continu (Axe Rotatif A)
+# =====================================================
+#
+# La Rotation de l'Axe est gérée par l'Orientation de l'Outil (i,j,k)
+# sur les ordres de mouvement (GOTO/x,y,z,i,j,k)
+#
+# Remarque : Vecteur i toujours à Zero
+# --------
+#
+# Le MSYS UG et l'Origine Piéce doivent être au CENTRE de l'Axe A  
+# Il n'y a pas de Plan Incliné (CYCL DEF 19.1 Aa)
+# 
+# 
+# L'Avance est exprimé en Millimetres Minute
+# 
+###
+###
+# Gestion de l'Usinage par Point à Haute Vitesse (CYCLE DEF 32.0 , CYCL DEF 32.1)
+# ==============================================================================
+#
+# ==> CYCL DEF 32.0 TOLERANCE
+# ==> CYCL DEF 32.1 T Tolerance Programmée
+#
+# Post command UG -> en Début d'Opération pour Activation              (Tolérance Differente de 0 et Mode Actif)
+# Post command UG -> en Début sur l'Opération suivante pour Annulation (Tolérance à 0 ou Mode Inactif)
+# Post command UG -> en Fin d'Opération pour Annulation                (Tolérance à 0 ou Mode Inactif)
+#
+# Il faut Ajouter "EVENT smooth" dans le Fichier \mach\user_def_event\ude_deckel.cdl comme suit :
+#
+# EVENT smooth
+# {
+#     UI_LABEL "Tolerance UGV"
+#     CATEGORY MILL
+#     PARAM smooth_command_status
+#     {
+#       TYPE o
+#       DEFVAL "Actif"
+#       OPTIONS "Actif","Inactif"
+#       UI_LABEL "Mode"
+#     }
+#
+#     PARAM smooth_tol
+#     {
+#        TYPE   d
+#        DEFVAL ".05"
+#        UI_LABEL "Tolerance"
+#     }
+# }
+#
+#
+# Nota : Pour Annuler la Fonction Mettre la Tolerance à 0 ou Mode Inactif .
+#
+###
+###
+# Gestion des Interpolations Splines (Nurbs UG)
+# =============================================
+#
+# Automatique quand le Post-Processeur Rencontre des Nurbs.
+# Creation d'un Parcours d'Outil en Langage Heidenhain .
+# 
+# Exemple :
+# 
+# FEDRAT/200.0000
+# NURBS/
+# KNOT/1.0000000
+# CNTRL/0.0000,-55.0772,10.5123
+# CNTRL/0.0000,-48.1729,25.8788
+# CNTRL/0.0000,-36.5234,36.1222
+#
+# Programme Genere :
+#
+# 0 BEGIN PGM 123 MM
+# 1 BLK FORM 0.1 Z X-800 Y-450 Z-450
+# 2 BLK FORM 0.2 X+800 Y+450 Z+450
+# ........
+# 23 L Y-55 Z-5 F150 *
+# 24 SPL Y-36.523 Z+36.122 *
+# 25 K3Y+2.235 K2Y+1.4238 E+1 K1Y-3.495 E+1 *
+# 26 K3Z+4.979 K2Z-1.5372 E+1 K1Z-3.0729 E+1 F200 *
+# ...........
+#
+###
+###
+# Changement d'Outil
+# ==================
+#
+# Mettre le Numero d'Outil avec la Description de l'Outil
+#
+# TOOL,n > de 1 à 30
+#
+#
+# ZOFF,Longueur  > Modification du Point Pilote Longueur = 0 ==> Pointe Outil
+#
+#                  Exemple : ZOFF=50 ==> GOTO/x,y,0 -> Xx Yy Z50.
+#
+#
+###
+###
+# Gestion Fraise Boule et Fraise Torique
+# ======================================
+#
+# Possibilite de Piloter le Bout d'Outil Boule et Torique ou Centre Outil .
+# Par Defaut ==> Bout Outil
+#
+# Post Commande UG (en Debut d'Operation)
+#
+# Exemple : GOTO/x,y,0 -> Xx Yy Z10  ==> Avec Outil Boule Diametre 20 avec Centre Outil Boule Piloté
+#           GOTO/x,y,0 -> Xx Yy Z5   ==> Avec Outil Torique de Rayon de Coin 5 avec Centre Outil Piloté
+#
+# Il faut Ajouter "EVENT tracking_tool" dans le Fichier \mach\user_def_event\ude.cdl comme suit :
+#
+# EVENT tracking_tool
+# {
+#    UI_LABEL "Point Piloté"
+#
+#    PARAM tracking_point_text
+#    {
+#       TYPE   o
+#       DEFVAL   "Centre Outil"
+#       OPTIONS  "Centre Outil","Bout Outil"
+#       UI_LABEL "Point Piloté"
+#   }
+# }
+#
+# Nota : En mode Nurbs cette Fonction est Ignorée .
+#
+###
+###
+# Gestion Zero Flottant (POINT ZERO)
+# =================================
+#
+# Permet d'Activer et d'Utiliser les Origines Flottantes .
+# 
+# Post Commande UG (en Debut d'Operation) -> Origine -> Numero d'Origine -> 1 à 30
+#
+# ==> ... CYCL DEF 7.0 POINT ZERO
+# ==> ... CYCL DEF 7.1 # Numero Origine Programée
+#
+#
+# Il faut Ajouter "EVENT zero" dans le Fichier \mach\user_def_event\ude_deckel.cdl comme suit :
+#
+# EVENT zero
+# {
+#    UI_LABEL "Point Zero"
+#    CATEGORY MILL DRILL
+#    PARAM zero_register
+#    {
+#       TYPE   i
+#       DEFVAL "1"
+#       UI_LABEL "Numero Origine"
+#    }
+# }
+#
+# Nota : Par Defaut Aucune Origine n'est Activée .
+#
+###
+###
+# Arrosage
+# ========
+#
+# Post command UG -> (Arrosage Marche , Arrosage Arret)
+#
+# Coolant On type FLOOD	> L M8
+# Coolant On type MIST	> L M8
+# Coolant On type TAP	> L M8
+# Coolant Off 		> L M9
+#
+###
+###
+# Commentaire Machine
+# ===================
+#
+# Post command UG -> (Message Operateur , Pprint)
+#
+# PPRINT/commentaire >   ;COMMENTAIRE
+# DISPLY/commentaire >   ;COMMENTAIRE
+#
+###
+###
+# Bloc Optionnel (/)
+# ==================
+#
+# Post command UG -> (Optional Skip On , Optional Skip Off)
+#
+# OPSKIP/ON > /....
+#
+# OPSKIP/OFF > ....
+#
+###
+###
+# Arret Machine et Arret Optionnel
+# ================================
+#
+# Post command UG -> (Arret Machine ou Arret Optionnel) , le Commentaire en Appended Text Active
+#
+# STOP >   .. L M0
+#
+# STOP/commentaire   > .. L M0 ;COMMENTAIRE
+#                      
+# OPSTOP > .. L M1
+#
+# OPSTOP/commentaire > .. L M1 ;COMMENTAIRE
+#
+#
+###
+###
+# Degagement Outil
+# ================
+#
+#
+# GOHOME/x,y,z		G00 Xx Yy Zz
+#
+# GOHOME		G00 Z492 M91
+#			G00 X-450 Y492 M91
+#       
+###
+###
+# Correction de Rayon (RL , RR) dans le Plan
+# ==========================================
+#
+# CUTCOM/(LEFT,RIGHT) -> RL ou RR
+#
+# CUTCOM/OFF -> R0
+#
+###
+###
+# Sous Programme Machine
+# ======================
+#
+# Post command UG en Debut et Fin d'Operation
+#
+# Il faut Ajouter "EVENT spc" dans le Fichier \mach\user_def_event\ude.cdl
+# comme suit :
+#
+# EVENT spc
+# {
+#    UI_LABEL "Sous Programme"
+#    CATEGORY MILL
+#    PARAM spc_number
+#    {
+#       TYPE   i
+#       DEFVAL "1"
+#       TOGGLE On
+#       UI_LABEL "Numero Sous Programme"
+#    }
+#    PARAM action_spc
+#    {
+#       TYPE o
+#       DEFVAL "Debut"
+#       OPTIONS "Debut","Fin"
+#       UI_LABEL "Action"
+#    }
+# }
+#
+#
+# L'utilisation des Sous Programmes Machine se fait de la Maniere suivante :
+#
+# ==> Mettre "Mots PP (Post Processor) de Depart" sur la Premiere Operation d'Usinage 
+# ==> Debut ==> Numero du Sous Programme (1 à 99)
+#
+# ==> Mettre "Mots PP (Post Processor) de Fin" sur la Derniere Operation d'Usinage   
+# ==> Fin ==> Numero du Sous Programme (1 à 99)
+#
+# Nota : Les Numeros de Debut et Fin du Sous Programme doivent être Identiques pour
+#        Permettre la Repetition .
+#
+# L'operation d'Usinage pourra etre ensuite Copiees de la Maniere suivante :
+#
+# ==> Selection de l'Operation ==> Objet ==> Transformer ==> Conversion ==> etc ...
+#
+# Les Sous Programmes Machine seront Ignorés dans les Cas suivants :
+#
+#  o Pour Tout Cycle de Percage
+#  o Arret du Sequencement des Blocs Machine
+#  o Transformation Avec Facteur d'Echelle
+#  o Transformation Avec Rotation Autour d'un Point
+#  o Transformation Avec Mirroir Autour d'une Droite
+#  o Transformation Avec Reposition
+#  o Mode Sortie Nurbs Actif
+#
+###
+###
+# Gestion Arrêt Précis
+# ==================== 
+#
+# Sans M90 en Mode Travail la TNC arrête Brièvement l'Outil aux Angles
+# Avec M90 en Mode Travail les Coins sont Arrondis et la Surface de la Pièce est plus Lisse
+#
+# Post command UG en Debut d'Operation
+#
+# Il faut Ajouter "EVENT prec_motion" dans le Fichier \mach\user_def_event\ude_deckel.cdl comme suit :
+#
+# EVENT prec_motion
+# {
+#    UI_LABEL "Arret Precis"
+#
+#    PARAM prec_motion_text
+#    {
+#       TYPE   o
+#       DEFVAL   "Normal"
+#       OPTIONS  "Normal","Fin"
+#       UI_LABEL "Type Arrêt Precis"
+#    }
+# }
+#
+# Nota : Par Defaut pas de Presence de M90 (Option Mode Fin)
+#
+###
+###
+# Cycle Machine 'CYCLE DEF 200 PERCAGE ~' ( 5 types de trous dans une operation UG)
+# Cycle de Percage Simple [avec ou sans Tempo]
+#
+#
+# CYCLE/DRILL,RAPTO,z,FEEDTO,-z,[RTRCTO,z ou AUTO],(MMPM,MMPR),f,[DWELL,[REV],t]
+#
+#
+# RAPTO,z = Q200=z
+#
+# RTRCTO,z = Q204=z , si absence de RTRCTO => Q204 = RAPTO
+#
+# DWELL,t = Q211=t
+#
+# Q202 = 500 (Profondeur avant Chaque Debourrage)
+#                
+###
+###
+# Cycle Machine 'CYCL DEF 203 PERCAGE UNIVERSEL ~' ( 5 types de trous dans une operation UG)
+# Cycle de Percage avec Debourrage [avec ou sans Tempo]
+#
+#
+# CYCLE/DRILL,DEEP,STEP,a,[b],[c],RAPTO,z,FEEDTO,-z,[RTRCTO,z ou AUTO],MMPM,f,[DWELL,[REV],t]
+#
+# Principe de STEP :
+#
+# a = Profondeur avant chaque Debourrage => Q202 = a
+# b = Reduction Profondeur de Debourrage => Q212 = b (si b>=a alors b=0)
+# c = Profondeur de Debourrage Mini      => Q205 = c (si c=0  alors c=0.1)
+#
+# DWELL,t = Q211=t
+#
+# Q208=5000 (Avance Retrait)
+#
+#
+###
+###
+# Cycle Machine 'CYCL DEF 203 PERCAGE UNIVERSEL ~' ( 5 types de trous dans une operation UG)
+# Cycle de Percage avec Brise-Copeaux [avec ou sans Tempo]
+#
+#
+# CYCLE/DRILL,BRKCHP,STEP,a,RAPTO,z,FEEDTO,-z,[RTRCTO,z ou AUTO],MMPM,f,[DWELL,[REV],t]
+#
+#
+# Principe de STEP :
+#
+# a = Profondeur avant chaque Brise-Copeaux => Q213 = Nombre de Brise Copeaux (FEEDTO/a)
+#
+# DWELL,t = Q211=t
+#
+# Q208=5000 (Avance Retrait)
+#
+# Q256=0.5 (Retrait de Brise Copeaux)
+#
+###
+###
+# Cycle Machine 'CYCL DEF 207 NOUV. TARAUDAGE RIGIDE ~' ( 5 types de trous dans une operation UG)
+# ou 'CYCL DEF 206 NOUVEAU TARAUDAGE'
+#
+# CYCLE/TAP,RAPTO,z,FEEDTO,-z,[RTRCTO,z ou AUTO],MMPR,f,[OPTION]
+#
+# Avec OPTION ==> Inactif ==> Taraudage Rigide
+#  ==> CYCL DEF 207 NOUV. TARAUDAGE RIGIDE
+#
+# Avec OPTION ==> Actif  ==> Taraudage avec Mandrin de Compensation
+#  ==> CYCL DEF 206 NOUVEAU TARAUDAGE ~
+#
+###
+###
+# Cycle Machine 'CYCL DEF 201 ALESAGE ~' ( 5 types de trous dans une operation UG)
+# Cycle d'Alesage a l'Alesoir [avec ou Tempo]
+#
+#
+# CYCLE/BORE,RAPTO,z,FEEDTO,-z,[RTRCTO,z ou AUTO],MMPM,f,[DWELL,[REV],t]
+#
+# DWELL,t = Q211=t
+#
+# Q208=0 (Avance Retrait = Avance Plongée)
+#
+#
+###
+###
+# Cycle machine 'CYCL DEF 202 ALESAGE AVEC ALESOIR ~' ( 5 types de trous dans une operation UG)
+# Cycle d'Alesage avec Arret Broche [avec ou Tempo]
+#
+#
+# CYCLE/BORE,DRAG,RAPTO,z,FEEDTO,-z,[RTRCTO,z ou AUTO],MMPM,f,[DWELL,[REV],t]
+#
+# DWELL,t = Q211=t
+#
+# Q208=5000 (Avance Retrait)
+#
+# Q214=0 (ne pas Dégager l'Outil)
+#
+###
+###
+# Cycle machine 'CYCL DEF 202 ALESAGE AVEC ALESOIR ~' ( 5 types de trous dans une operation UG)
+# Cycle d'Alesage avec Arret Broche Orientée [avec ou Tempo]
+#
+#
+# CYCLE/BORE,NODRAG,[a],RAPTO,z,FEEDTO,-z,[RTRCTO,z ou AUTO],MMPM,f,[DWELL,[REV],t]
+#
+# DWELL,t = Q211=t
+#
+# Q208=5000 (Avance Retrait)
+#
+# a = Angle Pointe Outil (sens Trigo, 0 vers les X+) pour Q214 et Q336
+# si 'a' autre que 0 , 90 , 180 ou 270 => Q214=0 (ne pas Dégager l'Outil)
+#
+###
+###
+# Cycle machine 'CYCLE DEF 200 PERCAGE ~' ( 5 types de trous dans une operation UG)
+# Cycle de Chanfrein Pointage [avec ou Tempo]
+#
+#
+# CYCLE/DRILL,CSINK,CSKDIA,d,TLANGL,a,[HOLDIA,d],RAPTO,z $
+# ,[RTRCTO,z ou AUTO],MMPM,f,[DWELL,[REV],t]
+#
+###
+###
+###############################################################################

@@ -1,0 +1,45 @@
+ EVENT HPCC_mode_on 
+{
+#   POST_EVENT "HPCC_mode_on "
+   UI_LABEL "AI CONTOUR CONTROL Mode ON"
+   CATEGORY MILL DRILL LATHE
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+
+    PARAM HPCC_mode_on_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+   
+ }
+ 
+
+EVENT HPCC_mode_off
+{
+#   POST_EVENT "HPCC_mode_on "
+   UI_LABEL "AI CONTOUR CONTROL Mode OFF"
+   CATEGORY MILL DRILL LATHE
+   PARAM command_status
+   {
+      TYPE o
+      DEFVAL "Active"
+      OPTIONS "Active","Inactive","User Defined"
+      UI_LABEL "Status"
+   }
+
+    PARAM HPCC_mode_off_text
+   {
+      TYPE   s
+      TOGGLE Off
+      UI_LABEL "Text"
+   }
+   
+ }
+
